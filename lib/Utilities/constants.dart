@@ -6,6 +6,7 @@ var kLightTheme = ThemeData(
   brightness: Brightness.light,
   primaryColor: Color(0xFF0879a7),
   accentColor: Colors.white,
+  fontFamily: 'AlSharkTitle',
 );
 
 const kPrimaryColor = Color(0xFF0879a7);
