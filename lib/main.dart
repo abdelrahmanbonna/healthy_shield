@@ -3,6 +3,7 @@ import 'package:healthyshield/Screens/forgetpass.dart';
 import 'package:healthyshield/Screens/home.dart';
 import 'package:healthyshield/Screens/login.dart';
 import 'package:healthyshield/Screens/splash.dart';
+import 'package:healthyshield/Utilities/constants.dart';
 
 void main() {
   runApp(MyApp());
@@ -20,6 +21,8 @@ class MyApp extends StatelessWidget {
         ForgetPass.id: (context) => ForgetPass(),
         Splash.id: (context) => Splash(),
       },
+      initialRoute: Splash.id,
+      theme: kLightTheme,
     );
   }
 }
