@@ -35,7 +35,7 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - Assets/Images/
+    - Assets/
     - Assets/Icons/
 
   fonts:

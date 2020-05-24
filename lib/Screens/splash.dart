@@ -28,10 +28,16 @@ class _SplashState extends State<Splash> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            //Image.asset(name),
+            Padding(
+              padding: const EdgeInsets.all(15.0),
+              child: Image.asset(
+                'Assets/Asset2.png',
+                scale: 10,
+              ),
+            ),
             SpinKitCircle(
               color: kPrimaryColor,
-              size: 90.0,
+              size: 50.0,
             ),
           ],
         ),
