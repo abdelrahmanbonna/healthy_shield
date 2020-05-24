@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:healthyshield/Screens/login.dart';
 import 'package:healthyshield/Utilities/constants.dart';
 
 class Splash extends StatefulWidget {
@@ -18,6 +19,10 @@ class _SplashState extends State<Splash> {
   @override
   void dispose() {
     super.dispose();
+  }
+
+  void gotoHome(){
+    Navigator.pushNamed(context, Login.id);
   }
 
   @override

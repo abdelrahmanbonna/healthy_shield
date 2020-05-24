@@ -16,7 +16,18 @@ class _LoginState extends State<Login> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [],
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(15.0),
+            child: Image.asset(
+              'Assets/Asset2.png',
+              scale: 10,
+            ),
+          ),
+          TextField(),
+          TextField(),
+          MaterialButton(onPressed: null),
+        ],
       ),
     );
   }
