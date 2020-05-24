@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       routes: {
-        //TODO: Name every route of the app is this map
+        //TODO: Name every route of the app in this map
         Home.id: (context) => Home(),
         Login.id: (context) => Login(),
         ForgetPass.id: (context) => ForgetPass(),
