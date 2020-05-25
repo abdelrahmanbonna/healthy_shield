@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:healthyshield/Screens/forgetpass.dart';
 import 'package:healthyshield/Screens/home.dart';
+import 'package:healthyshield/Screens/loading.dart';
 import 'package:healthyshield/Screens/login.dart';
-import 'package:healthyshield/Screens/splash.dart';
 import 'package:healthyshield/Utilities/constants.dart';
 
 void main() {
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
         Home.id: (context) => Home(),
         Login.id: (context) => Login(),
         ForgetPass.id: (context) => ForgetPass(),
-        Splash.id: (context) => Splash(),
+        Loading.id: (context) => Loading(),
       },
       initialRoute: Login.id,
       theme: kLightTheme,
