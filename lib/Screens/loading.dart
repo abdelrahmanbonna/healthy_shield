@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:healthyshield/Utilities/constants.dart';
 
-class Splash extends StatefulWidget {
-  static String id = "splash";
+class Loading extends StatefulWidget {
+  static String id = "loading";
 
   @override
-  _SplashState createState() => _SplashState();
+  _LoadingState createState() => _LoadingState();
 }
 
-class _SplashState extends State<Splash> {
+class _LoadingState extends State<Loading> {
   @override
   void initState() {
     super.initState();

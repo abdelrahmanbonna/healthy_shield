@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:healthyshield/Utilities/constants.dart';
 import 'package:healthyshield/Utilities/desginedButton.dart';
 
-import 'splash.dart';
+import 'loading.dart';
 
 // Here is Login screen
 
@@ -73,7 +73,7 @@ class _LoginState extends State<Login> {
                   child: RoundIconButton(
                     text: "Login",
                     func: () {
-                      Navigator.pushNamed(context, Splash.id);
+                      Navigator.pushNamed(context, Loading.id);
                     },
                     width: 120.0,
                     height: 42.0,
