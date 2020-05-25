@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
         ForgetPass.id: (context) => ForgetPass(),
         Splash.id: (context) => Splash(),
       },
-      initialRoute: Splash.id,
+      initialRoute: Login.id,
       theme: kLightTheme,
     );
   }

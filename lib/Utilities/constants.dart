@@ -9,5 +9,11 @@ var kLightTheme = ThemeData(
   fontFamily: 'AlSharkTitle',
 );
 
+// Desgined Button Text Style
+const kButtonTextStyle = TextStyle(
+  color: Colors.white,
+  fontSize: 32.0,
+);
+
 const kPrimaryColor = Color(0xFF0879a7);
 const kAccentColor = Colors.white;

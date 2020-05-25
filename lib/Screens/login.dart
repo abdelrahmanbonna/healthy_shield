@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:healthyshield/Utilities/desginedButton.dart';
 
 // Here is Login screen
 
@@ -15,7 +16,7 @@ class _LoginState extends State<Login> {
     return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Padding(
             padding: const EdgeInsets.all(15.0),
@@ -26,7 +27,10 @@ class _LoginState extends State<Login> {
           ),
           TextField(),
           TextField(),
-          MaterialButton(onPressed: null),
+          RoundIconButton(
+            text: "Login",
+            func: null,
+          ),
         ],
       ),
     );
