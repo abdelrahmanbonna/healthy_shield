@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:healthyshield/Utilities/constants.dart';
 
 class RoundIconButton extends StatelessWidget {
-  RoundIconButton({this.text, this.func});
+  RoundIconButton({this.text, this.func, this.width, this.height});
 
   final String text;
   final Function func;
+  final double width;
+  final double height;
 
   @override
   Widget build(BuildContext context) {
@@ -17,8 +19,8 @@ class RoundIconButton extends StatelessWidget {
       onPressed: func,
       elevation: 6.0,
       constraints: BoxConstraints.tightFor(
-        width: 120.0,
-        height: 40.0,
+        width: width,
+        height: height,
       ),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
       fillColor: kPrimaryColor,

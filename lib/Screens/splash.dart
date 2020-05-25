@@ -38,9 +38,12 @@ class _SplashState extends State<Splash> {
             children: [
               Padding(
                 padding: const EdgeInsets.all(15.0),
-                child: Image.asset(
-                  'Assets/Asset2.png',
-                  scale: 10,
+                child: Hero(
+                  tag: 'logo',
+                  child: Image.asset(
+                    'Assets/Asset2.png',
+                    scale: 8,
+                  ),
                 ),
               ),
               SpinKitCircle(
