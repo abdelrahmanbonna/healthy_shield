@@ -16,67 +16,71 @@ class Login extends StatefulWidget {
 class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
+    final mediaQuery = MediaQuery.of(context);
     return Scaffold(
-      body: Container(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage('Assets/Assetbackground.png'),
-            fit: BoxFit.cover,
+      body: SingleChildScrollView(
+        child: Container(
+          height: mediaQuery.size.height,
+          width: mediaQuery.size.width,
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('Assets/Assetbackground.png'),
+              fit: BoxFit.cover,
+            ),
           ),
-        ),
-        constraints: BoxConstraints.expand(),
-        child: SafeArea(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(15.0),
-                child: Hero(
-                  tag: 'logo',
-                  child: Image.asset(
-                    'Assets/Asset2.png',
-                    scale: 10,
+          child: SafeArea(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(15.0),
+                  child: Hero(
+                    tag: 'logo',
+                    child: Image.asset(
+                      'Assets/Asset2.png',
+                      scale: 10,
+                    ),
                   ),
                 ),
-              ),
-              Padding(
-                padding: kPaddingValue,
-                child: Text(
-                  'Welcome, Please login !',
-                  style: kTextStyleLight,
+                Padding(
+                  padding: kPaddingValue,
+                  child: Text(
+                    'Welcome, Please login !',
+                    style: kTextStyleLight,
+                  ),
                 ),
-              ),
-              Padding(
-                padding: kPaddingValue,
-                child: TextField(
-                  style: TextStyle(color: kPrimaryColor),
-                  decoration: kEmailTextFieldStyle,
-                  onChanged: null,
+                Padding(
+                  padding: kPaddingValue,
+                  child: TextField(
+                    style: TextStyle(color: kPrimaryColor),
+                    decoration: kEmailTextFieldStyle,
+                    onChanged: null,
+                  ),
                 ),
-              ),
-              Padding(
-                padding: kPaddingValue,
-                child: TextField(
-                  obscureText: true,
-                  obscuringCharacter: 'X',
-                  style: TextStyle(color: kPrimaryColor),
-                  decoration: kPasswordTextFieldStyle,
-                  onChanged: null,
+                Padding(
+                  padding: kPaddingValue,
+                  child: TextField(
+                    obscureText: true,
+                    obscuringCharacter: 'X',
+                    style: TextStyle(color: kPrimaryColor),
+                    decoration: kPasswordTextFieldStyle,
+                    onChanged: null,
+                  ),
                 ),
-              ),
-              Padding(
-                padding: kPaddingValue,
-                child: RoundIconButton(
-                  text: "Login",
-                  func: () {
-                    Navigator.pushNamed(context, Splash.id);
-                  },
-                  width: 120.0,
-                  height: 42.0,
+                Padding(
+                  padding: kPaddingValue,
+                  child: RoundIconButton(
+                    text: "Login",
+                    func: () {
+                      Navigator.pushNamed(context, Splash.id);
+                    },
+                    width: 120.0,
+                    height: 42.0,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
