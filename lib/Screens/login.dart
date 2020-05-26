@@ -47,13 +47,13 @@ class _LoginState extends State<Login> {
                   padding: kPaddingValue,
                   child: Text(
                     'Welcome, Please login !',
-                    style: kTextStyleLight,
+                    style: Theme.of(context).textTheme.headline1,
                   ),
                 ),
                 Padding(
                   padding: kPaddingValue,
                   child: TextField(
-                    style: TextStyle(color: kPrimaryColor),
+                    style: Theme.of(context).textTheme.subtitle1,
                     decoration: kEmailTextFieldStyle,
                     onChanged: null,
                   ),
@@ -63,7 +63,7 @@ class _LoginState extends State<Login> {
                   child: TextField(
                     obscureText: true,
                     obscuringCharacter: 'X',
-                    style: TextStyle(color: kPrimaryColor),
+                    style: Theme.of(context).textTheme.subtitle1,
                     decoration: kPasswordTextFieldStyle,
                     onChanged: null,
                   ),
@@ -71,8 +71,8 @@ class _LoginState extends State<Login> {
                 FlatButton(
                   onPressed: null,
                   child: Text(
-                    'Forgot Password',
-                    style: kTextStyleLight,
+                    'Forgot Password?',
+                    style: Theme.of(context).textTheme.subtitle1,
                   ),
                 ),
                 Padding(
@@ -82,7 +82,7 @@ class _LoginState extends State<Login> {
                     func: () {
                       Navigator.pushNamed(context, Loading.id);
                     },
-                    height: 30.0,
+                    height: 40.0,
                   ),
                 ),
               ],

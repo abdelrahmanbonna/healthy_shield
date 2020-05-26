@@ -15,80 +15,110 @@ class MainLayout extends StatefulWidget {
 class _MainLayoutState extends State<MainLayout> {
   int currentChoice = 0;
 
-  var screensList = [
-    //Home screen
-    BarScreen(
-      navBar: null,
-      mainOfScareen: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(40.0),
-            child: Hero(
-              tag: 'logo',
-              child: Image.asset(
-                'Assets/Asset2.png',
-                scale: 10,
+  BarScreen getScreens(context, int current) {
+    var screensList = [
+      //Home screen
+      BarScreen(
+        navBar: null,
+        mainOfScareen: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(40.0),
+              child: Hero(
+                tag: 'logo',
+                child: Image.asset(
+                  'Assets/Asset2.png',
+                  scale: 10,
+                ),
               ),
             ),
-          ),
-          Padding(
-            padding: kPaddingValue,
-            child: RoundIconButton(
-              func: null,
-              height: 50.0,
-              text: 'Request Ambulance',
+            Padding(
+              padding: kPaddingValue,
+              child: RoundIconButton(
+                //TODO: make req
+                func: () {},
+                height: 50.0,
+                text: 'Request Ambulance',
+              ),
             ),
-          ),
-          Padding(
-            padding: kPaddingValue,
-            child: RoundIconButton(
-              func: null,
-              height: 50.0,
-              text: 'Medical History',
+            Padding(
+              padding: kPaddingValue,
+              child: RoundIconButton(
+                //TODO: go to history
+                func: () {},
+                height: 50.0,
+                text: 'Medical History',
+              ),
+            )
+          ],
+        ),
+      ),
+      //Barcode screen
+      BarScreen(
+        navBar: null,
+        mainOfScareen: Image.network(
+          kAPILink,
+          scale: 0.2,
+        ),
+      ),
+      //TODO:Profile screen
+      BarScreen(
+        navBar: AppBar(
+          actions: [
+            FlatButton(
+              //TODO: Add functionality to the button
+              onPressed: () {},
+              child: Icon(
+                Icons.edit,
+                color: Colors.white,
+              ),
             ),
-          )
-        ],
+          ],
+        ),
+        mainOfScareen: Column(),
       ),
-    ),
-    //Barcode screen
-    BarScreen(
-      navBar: null,
-      mainOfScareen: Image.network(
-        kAPILink,
-        scale: 0.2,
-      ),
-    ),
-    //TODO:Profile screen
-    BarScreen(
-      navBar: AppBar(
-        actions: [
-          FlatButton(
-            //TODO: Add functionality to the button
-            onPressed: null,
-            child: Icon(
-              Icons.edit,
-              color: Colors.white,
-            ),
+      //TODO:Report screen
+      BarScreen(
+        navBar: AppBar(
+          title: Text(
+            'Report',
+            style: Theme.of(context)
+                .textTheme
+                .headline1
+                .merge(TextStyle(color: Colors.white)),
           ),
-        ],
+        ),
+        mainOfScareen: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Padding(
+              padding: kPaddingValue,
+              child: TextField(
+                maxLines: 22,
+                decoration: kReportTextFieldStyle,
+              ),
+            ),
+            RoundIconButton(
+              height: 40,
+              //TODO: add function
+              func: () {},
+              text: 'Submit',
+            )
+          ],
+        ),
       ),
-    ),
-    //TODO:Report screen
-    BarScreen(
-      navBar: AppBar(
-        title: Text('Report'),
-      ),
-      mainOfScareen: Column(),
-    ),
-  ];
+    ];
+
+    return screensList[current];
+  }
 
   @override
   Widget build(BuildContext context) {
-    final mediaQuery = MediaQuery.of(context);
     return Scaffold(
-      body: screensList[currentChoice],
+      body: getScreens(context, currentChoice),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: currentChoice,
         selectedFontSize: 20.0,
@@ -101,7 +131,7 @@ class _MainLayoutState extends State<MainLayout> {
             backgroundColor: kPrimaryColor,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.code),
+            icon: Icon(Icons.credit_card),
             title: Text('Barcode'),
             backgroundColor: kPrimaryColor,
           ),

@@ -7,12 +7,20 @@ var kLightTheme = ThemeData(
   primaryColor: Color(0xFF0879a7),
   accentColor: Colors.white,
   fontFamily: 'AlSharkTitle',
-);
-
-// Desgined Button Text Style
-const kButtonTextStyle = TextStyle(
-  color: Colors.white,
-  fontSize: 32.0,
+  textTheme: TextTheme(
+    headline1: TextStyle(fontSize: 32.0, color: kPrimaryColor),
+    headline2: TextStyle(fontSize: 22.0, color: kPrimaryColor),
+    headline3: TextStyle(),
+    headline4: TextStyle(),
+    headline5: TextStyle(),
+    headline6: TextStyle(),
+    button: TextStyle(
+      color: Colors.white,
+      fontSize: 32.0,
+    ),
+    subtitle1: TextStyle(fontSize: 18.0, color: kPrimaryColor),
+    subtitle2: TextStyle(fontSize: 16.0, color: kPrimaryColor),
+  ),
 );
 
 //Colors of the App
@@ -34,7 +42,7 @@ const kPasswordTextFieldStyle = InputDecoration(
   filled: true,
   fillColor: Colors.white,
   hintText: 'Enter Password',
-  hintStyle: TextStyle(color: kPrimaryColor, fontSize: 20.0),
+  hintStyle: TextStyle(color: kPrimaryColor, fontSize: 22.0),
   border: OutlineInputBorder(
     //borderSide: BorderSide.none,
     borderRadius: BorderRadius.all(
@@ -48,7 +56,21 @@ const kEmailTextFieldStyle = InputDecoration(
   filled: true,
   fillColor: Colors.white,
   hintText: 'Enter Email',
-  hintStyle: TextStyle(color: kPrimaryColor, fontSize: 20.0),
+  hintStyle: TextStyle(color: kPrimaryColor, fontSize: 22.0),
+  border: OutlineInputBorder(
+    //borderSide: BorderSide.none,
+    borderRadius: BorderRadius.all(
+      Radius.circular(10.0),
+    ),
+  ),
+);
+
+// Report TextField Style
+const kReportTextFieldStyle = InputDecoration(
+  filled: true,
+  fillColor: Colors.white,
+  hintText: 'Enter your Report',
+  hintStyle: TextStyle(color: kPrimaryColor, fontSize: 25.0),
   border: OutlineInputBorder(
     //borderSide: BorderSide.none,
     borderRadius: BorderRadius.all(

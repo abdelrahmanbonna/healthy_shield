@@ -14,7 +14,7 @@ class RoundIconButton extends StatelessWidget {
     return RawMaterialButton(
       child: Text(
         text,
-        style: kButtonTextStyle,
+        style: Theme.of(context).textTheme.button,
       ),
       onPressed: func,
       elevation: 6.0,
