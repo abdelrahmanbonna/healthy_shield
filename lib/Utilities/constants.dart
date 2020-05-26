@@ -22,6 +22,10 @@ const kAccentColor = Colors.white;
 //padding constant
 const kPaddingValue = EdgeInsets.all(15.0);
 
+//BarCode API Link
+//TODO: Remove the value of my number after making the database API
+const kAPILink = 'http://www.barcodes4.me/barcode/i2of5/01102777726.jpg';
+
 //Text Styles
 const kTextStyleLight = TextStyle(fontSize: 32.0, color: kPrimaryColor);
 

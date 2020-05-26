@@ -16,12 +16,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       routes: {
         //TODO: Name every route of the app in this map
-        Home.id: (context) => Home(),
+        MainLayout.id: (context) => MainLayout(),
         Login.id: (context) => Login(),
         ForgetPass.id: (context) => ForgetPass(),
         Loading.id: (context) => Loading(),
       },
-      initialRoute: Login.id,
+      initialRoute: MainLayout.id,
       theme: kLightTheme,
     );
   }

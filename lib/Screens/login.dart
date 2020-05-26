@@ -68,6 +68,13 @@ class _LoginState extends State<Login> {
                     onChanged: null,
                   ),
                 ),
+                FlatButton(
+                  onPressed: null,
+                  child: Text(
+                    'Forgot Password',
+                    style: kTextStyleLight,
+                  ),
+                ),
                 Padding(
                   padding: kPaddingValue,
                   child: RoundIconButton(
@@ -75,8 +82,7 @@ class _LoginState extends State<Login> {
                     func: () {
                       Navigator.pushNamed(context, Loading.id);
                     },
-                    width: 120.0,
-                    height: 42.0,
+                    height: 30.0,
                   ),
                 ),
               ],
