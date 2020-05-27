@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:healthyshield/Screens/forgetpass.dart';
 import 'package:healthyshield/Utilities/constants.dart';
 import 'package:healthyshield/Utilities/desginedButton.dart';
 
@@ -69,7 +70,9 @@ class _LoginState extends State<Login> {
                   ),
                 ),
                 FlatButton(
-                  onPressed: null,
+                  onPressed: () {
+                    Navigator.pushNamed(context, ForgetPass.id);
+                  },
                   child: Text(
                     'Forgot Password?',
                     style: Theme.of(context).textTheme.subtitle1,

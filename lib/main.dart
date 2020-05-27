@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
         ForgetPass.id: (context) => ForgetPass(),
         Loading.id: (context) => Loading(),
       },
-      initialRoute: MainLayout.id,
+      initialRoute: Login.id,
       theme: kLightTheme,
     );
   }
