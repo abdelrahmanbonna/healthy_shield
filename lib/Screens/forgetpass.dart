@@ -37,6 +37,12 @@ class ForgetPass extends StatelessWidget {
             ),
           ),
           Padding(
+            child: Text(
+              'Enter Your registered Email so we could send you a reset email',
+              style: Theme.of(context).textTheme.subtitle1,
+            ),
+          ),
+          Padding(
             padding: kPaddingValue,
             child: TextField(
               style: Theme.of(context).textTheme.subtitle1,
