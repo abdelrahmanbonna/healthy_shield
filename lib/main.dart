@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:healthyshield/Screens/continueUserReg.dart';
 import 'package:healthyshield/Screens/forgetpass.dart';
 import 'package:healthyshield/Screens/home.dart';
 import 'package:healthyshield/Screens/loading.dart';
@@ -23,8 +24,9 @@ class MyApp extends StatelessWidget {
         ForgetPass.id: (context) => ForgetPass(),
         Loading.id: (context) => Loading(),
         UsersRegistartion.id: (context) => UsersRegistartion(),
+        ContinueUserReq.id: (context) => ContinueUserReq(),
       },
-      initialRoute: UsersRegistartion.id,
+      initialRoute: ContinueUserReq.id,
       theme: kLightTheme,
     );
   }
