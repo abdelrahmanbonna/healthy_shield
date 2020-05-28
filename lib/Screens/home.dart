@@ -18,6 +18,7 @@ class _MainLayoutState extends State<MainLayout> {
   BarScreen getScreens(context, int current) {
     var screensList = [
       //Home screen
+      //TODO: edit here Micheal
       BarScreen(
         navBar: null,
         mainOfScreen: Column(
