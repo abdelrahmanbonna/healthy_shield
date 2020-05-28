@@ -20,7 +20,7 @@ class _MainLayoutState extends State<MainLayout> {
       //Home screen
       BarScreen(
         navBar: null,
-        mainOfScareen: Column(
+        mainOfScreen: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -58,7 +58,7 @@ class _MainLayoutState extends State<MainLayout> {
       //Barcode screen
       BarScreen(
         navBar: null,
-        mainOfScareen: Image.network(
+        mainOfScreen: Image.network(
           kAPILink,
           scale: 0.2,
         ),
@@ -77,7 +77,7 @@ class _MainLayoutState extends State<MainLayout> {
             ),
           ],
         ),
-        mainOfScareen: Column(),
+        mainOfScreen: Column(),
       ),
       //TODO:Report screen
       BarScreen(
@@ -90,7 +90,7 @@ class _MainLayoutState extends State<MainLayout> {
                 .merge(TextStyle(color: Colors.white)),
           ),
         ),
-        mainOfScareen: Column(
+        mainOfScreen: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [

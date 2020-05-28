@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 class BarScreen extends StatelessWidget {
-  BarScreen({this.navBar, this.mainOfScareen});
+  BarScreen({this.navBar, this.mainOfScreen});
 
   final navBar;
-  final mainOfScareen;
+  final mainOfScreen;
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +14,7 @@ class BarScreen extends StatelessWidget {
       body: Container(
         child: Center(
           child: SingleChildScrollView(
-            child: mainOfScareen,
+            child: mainOfScreen,
           ),
         ),
       ),

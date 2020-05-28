@@ -78,3 +78,68 @@ const kReportTextFieldStyle = InputDecoration(
     ),
   ),
 );
+
+const kFNameTextFieldStyle = InputDecoration(
+  filled: true,
+  fillColor: Colors.white,
+  hintText: 'First Name',
+  hintStyle: TextStyle(color: kPrimaryColor, fontSize: 22.0),
+  border: OutlineInputBorder(
+    //borderSide: BorderSide.none,
+    borderRadius: BorderRadius.all(
+      Radius.circular(10.0),
+    ),
+  ),
+);
+
+const kLNameTextFieldStyle = InputDecoration(
+  filled: true,
+  fillColor: Colors.white,
+  hintText: 'Last Name',
+  hintStyle: TextStyle(color: kPrimaryColor, fontSize: 22.0),
+  border: OutlineInputBorder(
+    //borderSide: BorderSide.none,
+    borderRadius: BorderRadius.all(
+      Radius.circular(10.0),
+    ),
+  ),
+);
+
+const kEmaillTextFieldStyle = InputDecoration(
+  filled: true,
+  fillColor: Colors.white,
+  hintText: 'Email',
+  hintStyle: TextStyle(color: kPrimaryColor, fontSize: 22.0),
+  border: OutlineInputBorder(
+    //borderSide: BorderSide.none,
+    borderRadius: BorderRadius.all(
+      Radius.circular(10.0),
+    ),
+  ),
+);
+
+const kPhoneNoTextFieldStyle = InputDecoration(
+  filled: true,
+  fillColor: Colors.white,
+  hintText: 'Phone No.',
+  hintStyle: TextStyle(color: kPrimaryColor, fontSize: 22.0),
+  border: OutlineInputBorder(
+    //borderSide: BorderSide.none,
+    borderRadius: BorderRadius.all(
+      Radius.circular(10.0),
+    ),
+  ),
+);
+
+const kAddressTextFieldStyle = InputDecoration(
+  filled: true,
+  fillColor: Colors.white,
+  hintText: 'Address',
+  hintStyle: TextStyle(color: kPrimaryColor, fontSize: 22.0),
+  border: OutlineInputBorder(
+    //borderSide: BorderSide.none,
+    borderRadius: BorderRadius.all(
+      Radius.circular(10.0),
+    ),
+  ),
+);
