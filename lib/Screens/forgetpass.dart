@@ -28,12 +28,9 @@ class ForgetPass extends StatelessWidget {
         children: [
           Padding(
             padding: const EdgeInsets.all(15.0),
-            child: Hero(
-              tag: 'logo',
-              child: Image.asset(
-                'Assets/Asset2.png',
-                scale: 10,
-              ),
+            child: Image.asset(
+              'Assets/Asset2.png',
+              scale: 10,
             ),
           ),
           Padding(
