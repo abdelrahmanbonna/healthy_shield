@@ -4,6 +4,8 @@ import 'package:healthyshield/Utilities/constants.dart';
 import 'package:healthyshield/Utilities/desginedButton.dart';
 
 class UsersRegistartion extends StatefulWidget {
+  static String id = "userReg";
+
   @override
   _UsersRegistartionState createState() => _UsersRegistartionState();
 }
@@ -13,17 +15,17 @@ class _UsersRegistartionState extends State<UsersRegistartion> {
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context);
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Container(
-          height: mediaQuery.size.height,
-          width: mediaQuery.size.width,
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage('Assets/Assetbackground.png'),
-              fit: BoxFit.cover,
-            ),
+      body: Container(
+        height: mediaQuery.size.height,
+        width: mediaQuery.size.width,
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('Assets/Assetbackground.png'),
+            fit: BoxFit.cover,
           ),
-          child: SafeArea(
+        ),
+        child: SafeArea(
+          child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,

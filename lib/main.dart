@@ -5,6 +5,8 @@ import 'package:healthyshield/Screens/loading.dart';
 import 'package:healthyshield/Screens/login.dart';
 import 'package:healthyshield/Utilities/constants.dart';
 
+import 'Screens/UsersRegistartion.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -20,8 +22,9 @@ class MyApp extends StatelessWidget {
         Login.id: (context) => Login(),
         ForgetPass.id: (context) => ForgetPass(),
         Loading.id: (context) => Loading(),
+        UsersRegistartion.id: (context) => UsersRegistartion(),
       },
-      initialRoute: Login.id,
+      initialRoute: UsersRegistartion.id,
       theme: kLightTheme,
     );
   }

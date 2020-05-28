@@ -27,13 +27,14 @@ class ForgetPass extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Padding(
-            padding: const EdgeInsets.all(15.0),
+            padding: kPaddingValue,
             child: Image.asset(
               'Assets/Asset2.png',
               scale: 10,
             ),
           ),
           Padding(
+            padding: kPaddingValue,
             child: Text(
               'Enter Your registered Email so we could send you a reset email',
               style: Theme.of(context).textTheme.subtitle1,

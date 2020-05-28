@@ -8,7 +8,6 @@ class BarScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final mediaQuery = MediaQuery.of(context);
     return Scaffold(
       appBar: navBar,
       body: Container(
