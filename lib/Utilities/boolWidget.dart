@@ -2,16 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:healthyshield/Utilities/constants.dart';
 
 class BoolWidget extends StatelessWidget {
-  BoolWidget(
-      {this.firstIcon,
-      this.firstChoiceDo,
-      this.firstText,
-      this.firstChoiceColor,
-      this.secondChoiceDo,
-      this.secondIcon,
-      this.secondText,
-      this.secondChoiceColor,
-      this.title});
+  BoolWidget({
+    this.firstIcon, //First Choice Icon which is in the first row
+    this.firstChoiceDo, //First Choice Function which is in the first row
+    this.firstText, //First Choice Title which is in the first row
+    this.firstChoiceColor, //First Choice Color which is in the first row title and icon color
+    this.secondChoiceDo, //Second Choice Function which is in the second row
+    this.secondIcon, //Second Choice Icon which is in the second row
+    this.secondText, //Second Choice Title which is in the second row
+    this.secondChoiceColor, //Second Choice Color which is in the second row title and icon color
+    this.title, // Title of the widget which appears on the top
+  });
 
   final Color firstChoiceColor, secondChoiceColor;
   final IconData firstIcon, secondIcon;
