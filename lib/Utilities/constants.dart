@@ -29,6 +29,7 @@ const kAccentColor = Colors.white;
 
 //padding constant
 const kPaddingValue = EdgeInsets.all(15.0);
+const kPaddingValueL = EdgeInsets.only(left: 30.0, top: 15, bottom: 15);
 
 //BarCode API Link
 //TODO: Remove the value of my number after making the database API

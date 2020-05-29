@@ -3,63 +3,112 @@ import 'package:healthyshield/Utilities/constants.dart';
 
 class BoolWidget extends StatelessWidget {
   BoolWidget(
-      {this.color,
-      this.firstIcon,
+      {this.firstIcon,
       this.firstChoiceDo,
       this.firstText,
+      this.firstChoiceColor,
       this.secondChoiceDo,
       this.secondIcon,
-      this.secondText});
+      this.secondText,
+      this.secondChoiceColor,
+      this.title});
 
-  final Color color;
+  final Color firstChoiceColor, secondChoiceColor;
   final IconData firstIcon, secondIcon;
   final Function firstChoiceDo, secondChoiceDo;
-  final String firstText, secondText;
+  final String firstText, secondText, title;
 
   @override
   Widget build(BuildContext context) {
     return Material(
-      borderRadius: BorderRadius.circular(30),
-      color: color,
-      textStyle: Theme.of(context).textTheme.subtitle2,
-      elevation: 15,
+      textStyle: Theme.of(context).textTheme.subtitle1,
+//      elevation: 30,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: FlatButton(
-              onPressed: firstChoiceDo,
-              child: Row(
-                children: [
-                  Padding(
-                    padding: kPaddingValue,
-                    child: Icon(
-                      this.firstIcon,
-                      size: 15,
-                    ),
-                  ),
-                  Text(firstText),
-                ],
-              ),
-            ),
+          Text(
+            title,
+            style: Theme.of(context).textTheme.headline1,
           ),
           Padding(
             padding: const EdgeInsets.all(10.0),
-            child: FlatButton(
-              onPressed: secondChoiceDo,
-              child: Row(
-                children: [
-                  Padding(
-                    padding: kPaddingValue,
-                    child: Icon(
-                      secondIcon,
-                      size: 15,
+            child: GestureDetector(
+              onTap: firstChoiceDo,
+              child: Container(
+                decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                        color: Colors.black12, spreadRadius: 5, blurRadius: 10),
+                    BoxShadow(
+                        color: Colors.black12, spreadRadius: 5, blurRadius: 10),
+                    BoxShadow(
+                        color: Colors.black12, spreadRadius: 5, blurRadius: 10)
+                  ],
+                  borderRadius: BorderRadius.circular(30),
+                  color: Theme.of(context).primaryColor,
+                ),
+                child: Row(
+                  children: [
+                    Padding(
+                      padding: kPaddingValueL,
+                      child: Icon(
+                        this.firstIcon,
+                        size: 30,
+                        color: firstChoiceColor,
+                      ),
                     ),
-                  ),
-                  Text(secondText),
-                ],
+                    Text(
+                      firstText,
+                      style: Theme.of(context)
+                          .textTheme
+                          .subtitle1
+                          .merge(TextStyle(color: firstChoiceColor)),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 5.0,
+          ),
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: GestureDetector(
+              onTap: secondChoiceDo,
+              child: Container(
+                decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                        color: Colors.black12, spreadRadius: 5, blurRadius: 10),
+                    BoxShadow(
+                        color: Colors.black12, spreadRadius: 5, blurRadius: 10),
+                    BoxShadow(
+                        color: Colors.black12, spreadRadius: 5, blurRadius: 10)
+                  ],
+                  borderRadius: BorderRadius.circular(30),
+                  color: Theme.of(context).primaryColor,
+                ),
+                child: Row(
+                  children: [
+                    Padding(
+                      padding: kPaddingValueL,
+                      child: Icon(
+                        secondIcon,
+                        size: 30,
+                        color: secondChoiceColor,
+                      ),
+                    ),
+                    Text(
+                      secondText,
+                      style: Theme.of(context)
+                          .textTheme
+                          .subtitle1
+                          .merge(TextStyle(color: secondChoiceColor)),
+                    ),
+                  ],
+                ),
               ),
             ),
           )
