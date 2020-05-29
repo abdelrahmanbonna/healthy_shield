@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
         UsersRegistartion.id: (context) => UsersRegistartion(),
         ContinueUserReq.id: (context) => ContinueUserReq(),
       },
-      initialRoute: ContinueUserReq.id,
+      initialRoute: MainLayout.id,
       theme: kLightTheme,
     );
   }

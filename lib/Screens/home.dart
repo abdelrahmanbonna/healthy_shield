@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:healthyshield/Utilities/barScreen.dart';
+import 'package:healthyshield/Utilities/button.dart';
 import 'package:healthyshield/Utilities/constants.dart';
 import 'package:healthyshield/Utilities/desginedButton.dart';
 
@@ -37,12 +38,7 @@ class _MainLayoutState extends State<MainLayout> {
             ),
             Padding(
               padding: kPaddingValue,
-              child: RoundIconButton(
-                //TODO: make req
-                func: () {},
-                height: 50.0,
-                text: 'Request Ambulance',
-              ),
+              child: AmbulanceButton(),
             ),
             Padding(
               padding: kPaddingValue,
