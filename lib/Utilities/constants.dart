@@ -143,3 +143,55 @@ const kAddressTextFieldStyle = InputDecoration(
     ),
   ),
 );
+
+const kBirthDateTextFieldStyle = InputDecoration(
+  filled: true,
+  fillColor: Colors.white,
+  hintText: 'Birthdate',
+  hintStyle: TextStyle(color: kPrimaryColor, fontSize: 22.0),
+  border: OutlineInputBorder(
+    //borderSide: BorderSide.none,
+    borderRadius: BorderRadius.all(
+      Radius.circular(10.0),
+    ),
+  ),
+);
+
+const kJobTextFieldStyle = InputDecoration(
+  filled: true,
+  fillColor: Colors.white,
+  hintText: 'Job',
+  hintStyle: TextStyle(color: kPrimaryColor, fontSize: 22.0),
+  border: OutlineInputBorder(
+    //borderSide: BorderSide.none,
+    borderRadius: BorderRadius.all(
+      Radius.circular(10.0),
+    ),
+  ),
+);
+
+const kMIncomeTextFieldStyle = InputDecoration(
+  filled: true,
+  fillColor: Colors.white,
+  hintText: 'Monthly Income',
+  hintStyle: TextStyle(color: kPrimaryColor, fontSize: 22.0),
+  border: OutlineInputBorder(
+    //borderSide: BorderSide.none,
+    borderRadius: BorderRadius.all(
+      Radius.circular(10.0),
+    ),
+  ),
+);
+
+const kNoOfDepTextFieldStyle = InputDecoration(
+  filled: true,
+  fillColor: Colors.white,
+  hintText: 'No Of Dependences',
+  hintStyle: TextStyle(color: kPrimaryColor, fontSize: 22.0),
+  border: OutlineInputBorder(
+    //borderSide: BorderSide.none,
+    borderRadius: BorderRadius.all(
+      Radius.circular(10.0),
+    ),
+  ),
+);
