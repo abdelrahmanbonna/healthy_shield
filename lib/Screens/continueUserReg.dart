@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:healthyshield/Utilities/boolWidget.dart';
 import 'package:healthyshield/Utilities/constants.dart';
 
@@ -71,8 +72,68 @@ class _ContinueUserReqState extends State<ContinueUserReq> {
                     onChanged: null,
                   ),
                 ),
-                BoolWidget()
+                BoolWidget(
+                  firstChoiceColor: Colors.white,
+                  secondChoiceColor: Colors.white,
+                  title: 'Gender',
+                  firstIcon: FontAwesomeIcons.female,
+                  secondIcon: FontAwesomeIcons.male,
+                  firstText: 'Female',
+                  secondText: 'Male',
+                  firstChoiceDo: () {
+                    print("1");
+                  },
+                  secondChoiceDo: () {
+                    print("2");
+                  },
+                ),
+                BoolWidget(
+                  firstChoiceColor: Colors.white,
+                  secondChoiceColor: Colors.white,
+                  title: 'Cut Of Legs',
+                  firstIcon: FontAwesomeIcons.check,
+                  secondIcon: FontAwesomeIcons.times,
+                  firstText: 'Yes',
+                  secondText: 'No',
+                  firstChoiceDo: () {
+                    print("1");
+                  },
+                  secondChoiceDo: () {
+                    print("2");
+                  },
+                ),
+                BoolWidget(
+                  firstChoiceColor: Colors.white,
+                  secondChoiceColor: Colors.white,
+                  title: 'Cut Of arms',
+                  firstIcon: FontAwesomeIcons.check,
+                  secondIcon: FontAwesomeIcons.times,
+                  firstText: 'Yes',
+                  secondText: 'No',
+                  firstChoiceDo: () {
+                    print("1");
+                  },
+                  secondChoiceDo: () {
+                    print("2");
+                  },
+                ),
+                BoolWidget(
+                  firstChoiceColor: Colors.white,
+                  secondChoiceColor: Colors.white,
+                  title: 'Chronic Disease?',
+                  firstIcon: FontAwesomeIcons.check,
+                  secondIcon: FontAwesomeIcons.times,
+                  firstText: 'Yes',
+                  secondText: 'No',
+                  firstChoiceDo: () {
+                    print("1");
+                  },
+                  secondChoiceDo: () {
+                    print("2");
+                  },
+                )
               ],
+              //Barcode screen
             ),
           ),
         ),
