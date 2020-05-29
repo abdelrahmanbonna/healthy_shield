@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:healthyshield/Utilities/barScreen.dart';
-import 'package:healthyshield/Utilities/boolWidget.dart';
 import 'package:healthyshield/Utilities/constants.dart';
 import 'package:healthyshield/Utilities/desginedButton.dart';
 
@@ -81,23 +80,7 @@ class _MainLayoutState extends State<MainLayout> {
           ],
         ),
         mainOfScreen: Column(
-          children: [
-            BoolWidget(
-              firstChoiceColor: Colors.white,
-              secondChoiceColor: Colors.white,
-              title: 'Gender',
-              firstIcon: FontAwesomeIcons.female,
-              secondIcon: FontAwesomeIcons.male,
-              firstText: 'Female',
-              secondText: 'Male',
-              firstChoiceDo: () {
-                print("1");
-              },
-              secondChoiceDo: () {
-                print("2");
-              },
-            ),
-          ],
+          children: [],
         ),
       ),
       //TODO:Report screen
@@ -147,22 +130,22 @@ class _MainLayoutState extends State<MainLayout> {
         type: BottomNavigationBarType.shifting,
         items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: Icon(FontAwesomeIcons.home),
             title: Text('Home'),
             backgroundColor: kPrimaryColor,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.credit_card),
+            icon: Icon(FontAwesomeIcons.addressCard),
             title: Text('Barcode'),
             backgroundColor: kPrimaryColor,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person),
+            icon: Icon(FontAwesomeIcons.user),
             title: Text('Profile'),
             backgroundColor: kPrimaryColor,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.report),
+            icon: Icon(FontAwesomeIcons.bug),
             title: Text('Report'),
             backgroundColor: kPrimaryColor,
           ),

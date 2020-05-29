@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:healthyshield/Screens/continueUserReg.dart';
 import 'package:healthyshield/Screens/forgetpass.dart';
 import 'package:healthyshield/Utilities/constants.dart';
 import 'package:healthyshield/Utilities/desginedButton.dart';
@@ -88,6 +89,15 @@ class _LoginState extends State<Login> {
                     height: 40.0,
                   ),
                 ),
+                Padding(
+                  padding: kPaddingValue,
+                  child: RoundIconButton(
+                    text: "Register",
+                    func: () {
+                      Navigator.pushNamed(context, ContinueUserReq.id);
+                    },
+                  ),
+                )
               ],
             ),
           ),

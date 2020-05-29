@@ -1,5 +1,8 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:healthyshield/Screens/home.dart';
 import 'package:healthyshield/Utilities/constants.dart';
 
 class Loading extends StatefulWidget {
@@ -13,11 +16,17 @@ class _LoadingState extends State<Loading> {
   @override
   void initState() {
     super.initState();
+    gotoHome();
   }
 
   @override
   void dispose() {
     super.dispose();
+  }
+
+  Future<void> gotoHome() async {
+    await sleep(Duration(seconds: 5));
+    Navigator.pushNamed(context, MainLayout.id);
   }
 
   @override

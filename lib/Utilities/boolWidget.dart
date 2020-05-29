@@ -23,7 +23,7 @@ class BoolWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       textStyle: Theme.of(context).textTheme.subtitle1,
-//      elevation: 30,
+      color: Colors.transparent,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -58,6 +58,9 @@ class BoolWidget extends StatelessWidget {
                         size: 30,
                         color: firstChoiceColor,
                       ),
+                    ),
+                    SizedBox(
+                      width: 30,
                     ),
                     Text(
                       firstText,
@@ -100,6 +103,9 @@ class BoolWidget extends StatelessWidget {
                         size: 30,
                         color: secondChoiceColor,
                       ),
+                    ),
+                    SizedBox(
+                      width: 30,
                     ),
                     Text(
                       secondText,
