@@ -1,9 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:healthyshield/Screens/about.dart';
+import 'package:healthyshield/Screens/login.dart';
 import 'package:healthyshield/Utilities/barScreen.dart';
 import 'package:healthyshield/Utilities/constants.dart';
 import 'package:healthyshield/Utilities/desginedButton.dart';
+
+import 'report.dart';
 
 //Here is Home screen
 
@@ -83,36 +87,45 @@ class _MainLayoutState extends State<MainLayout> {
           children: [],
         ),
       ),
-      //TODO:Report screen
+      //TODO: Settings Screen
       BarScreen(
-        navBar: AppBar(
-          title: Text(
-            'Report',
-            style: Theme.of(context)
-                .textTheme
-                .headline1
-                .merge(TextStyle(color: Colors.white)),
-          ),
-        ),
         mainOfScreen: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Padding(
               padding: kPaddingValue,
-              child: TextField(
-                maxLines: 22,
-                decoration: kReportTextFieldStyle,
+              child: RoundIconButton(
+                text: 'About',
+                func: () {
+                  Navigator.pushNamed(context, About.id);
+                },
+                height: 50.0,
               ),
             ),
-            RoundIconButton(
-              height: 40,
-              //TODO: add function
-              func: () {},
-              text: 'Submit',
+            Padding(
+              padding: kPaddingValue,
+              child: RoundIconButton(
+                text: 'Report',
+                func: () {
+                  Navigator.pushNamed(context, Report.id);
+                },
+                height: 50,
+              ),
+            ),
+            Padding(
+              padding: kPaddingValue,
+              child: RoundIconButton(
+                text: 'Logout',
+                func: () {
+                  Navigator.pushNamedAndRemoveUntil(
+                      context, Login.id, (route) => false);
+                },
+                height: 50,
+              ),
             )
           ],
         ),
+        navBar: null,
       ),
     ];
 
@@ -145,8 +158,8 @@ class _MainLayoutState extends State<MainLayout> {
             backgroundColor: kPrimaryColor,
           ),
           BottomNavigationBarItem(
-            icon: Icon(FontAwesomeIcons.bug),
-            title: Text('Report'),
+            icon: Icon(FontAwesomeIcons.cogs),
+            title: Text('Settings'),
             backgroundColor: kPrimaryColor,
           ),
         ],

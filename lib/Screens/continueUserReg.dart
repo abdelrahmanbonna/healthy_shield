@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:healthyshield/Screens/login.dart';
 import 'package:healthyshield/Utilities/boolWidget.dart';
 import 'package:healthyshield/Utilities/constants.dart';
+import 'package:healthyshield/Utilities/dropmenu.dart';
 
 class ContinueUserReq extends StatefulWidget {
   static String id = "continueReq";
@@ -11,10 +13,51 @@ class ContinueUserReq extends StatefulWidget {
 }
 
 class _ContinueUserReqState extends State<ContinueUserReq> {
+  String carsNo,
+      job,
+      carModel,
+      mobileFees,
+      bloodType,
+      gender,
+      lostArm,
+      lostLeg,
+      income,
+      dependencies,
+      bD,
+      chronicDisease,
+      height,
+      weight;
+
+  Color male = Colors.white,
+      female = Colors.white,
+      yes0 = Colors.white,
+      no0 = Colors.white,
+      yes1 = Colors.white,
+      no1 = Colors.white,
+      yes2 = Colors.white,
+      no2 = Colors.white;
+
   @override
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context);
     return Scaffold(
+      bottomNavigationBar: BottomNavigationBar(
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(FontAwesomeIcons.backward),
+            title: Text('Back'),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(FontAwesomeIcons.save),
+            title: Text('Submit'),
+          )
+        ],
+        onTap: (index) {
+          index == 1
+              ? Navigator.pushNamed(context, Login.id)
+              : Navigator.pop(context);
+        },
+      ),
       body: Container(
         height: mediaQuery.size.height,
         width: mediaQuery.size.width,
@@ -45,15 +88,35 @@ class _ContinueUserReqState extends State<ContinueUserReq> {
                   child: TextField(
                     style: Theme.of(context).textTheme.subtitle1,
                     decoration: kBirthDateTextFieldStyle,
-                    onChanged: null,
+                    onChanged: (value) {
+                      setState(() {
+                        bD = value;
+                      });
+                    },
                   ),
                 ),
                 Padding(
                   padding: kPaddingValue,
                   child: TextField(
                     style: Theme.of(context).textTheme.subtitle1,
-                    decoration: kJobTextFieldStyle,
-                    onChanged: null,
+                    decoration: kHeightTextFieldStyle,
+                    onChanged: (value) {
+                      setState(() {
+                        height = value;
+                      });
+                    },
+                  ),
+                ),
+                Padding(
+                  padding: kPaddingValue,
+                  child: TextField(
+                    style: Theme.of(context).textTheme.subtitle1,
+                    decoration: kWeightTextFieldStyle,
+                    onChanged: (value) {
+                      setState(() {
+                        weight = value;
+                      });
+                    },
                   ),
                 ),
                 Padding(
@@ -61,7 +124,11 @@ class _ContinueUserReqState extends State<ContinueUserReq> {
                   child: TextField(
                     style: Theme.of(context).textTheme.subtitle1,
                     decoration: kMIncomeTextFieldStyle,
-                    onChanged: null,
+                    onChanged: (value) {
+                      setState(() {
+                        income = value;
+                      });
+                    },
                   ),
                 ),
                 Padding(
@@ -69,71 +136,167 @@ class _ContinueUserReqState extends State<ContinueUserReq> {
                   child: TextField(
                     style: Theme.of(context).textTheme.subtitle1,
                     decoration: kNoOfDepTextFieldStyle,
-                    onChanged: null,
+                    onChanged: (value) {
+                      setState(() {
+                        dependencies = value;
+                      });
+                    },
                   ),
                 ),
                 BoolWidget(
-                  firstChoiceColor: Colors.white,
-                  secondChoiceColor: Colors.white,
-                  title: 'Gender',
-                  firstIcon: FontAwesomeIcons.female,
-                  secondIcon: FontAwesomeIcons.male,
-                  firstText: 'Female',
-                  secondText: 'Male',
+                  firstChoiceColor: male,
+                  secondChoiceColor: female,
+                  title: 'Choose your Gender',
+                  firstIcon: FontAwesomeIcons.male,
+                  secondIcon: FontAwesomeIcons.female,
+                  firstText: 'Male',
+                  secondText: 'Female',
                   firstChoiceDo: () {
-                    print("1");
+                    setState(() {
+                      gender = 'male';
+                      male = Colors.amber;
+                      female = Colors.white;
+                    });
                   },
                   secondChoiceDo: () {
-                    print("2");
+                    setState(() {
+                      gender = 'female';
+                      female = Colors.greenAccent;
+                      male = Colors.white;
+                    });
                   },
                 ),
                 BoolWidget(
-                  firstChoiceColor: Colors.white,
-                  secondChoiceColor: Colors.white,
-                  title: 'Cut Of Legs',
+                  firstChoiceColor: yes0,
+                  secondChoiceColor: no0,
+                  title: 'Do you have Cut Of Legs',
                   firstIcon: FontAwesomeIcons.check,
                   secondIcon: FontAwesomeIcons.times,
                   firstText: 'Yes',
                   secondText: 'No',
                   firstChoiceDo: () {
-                    print("1");
+                    setState(() {
+                      lostLeg = 'yes';
+                      yes0 = Colors.greenAccent;
+                      no0 = Colors.white;
+                    });
                   },
                   secondChoiceDo: () {
-                    print("2");
+                    setState(() {
+                      lostLeg = 'no';
+                      yes0 = Colors.white;
+                      no0 = Colors.redAccent;
+                    });
                   },
                 ),
                 BoolWidget(
-                  firstChoiceColor: Colors.white,
-                  secondChoiceColor: Colors.white,
-                  title: 'Cut Of arms',
+                  firstChoiceColor: yes1,
+                  secondChoiceColor: no1,
+                  title: 'Do you have Cut Of arms',
                   firstIcon: FontAwesomeIcons.check,
                   secondIcon: FontAwesomeIcons.times,
                   firstText: 'Yes',
                   secondText: 'No',
                   firstChoiceDo: () {
-                    print("1");
+                    setState(() {
+                      lostArm = 'yes';
+                      yes1 = Colors.greenAccent;
+                      no1 = Colors.white;
+                    });
                   },
                   secondChoiceDo: () {
-                    print("2");
+                    setState(() {
+                      lostArm = 'no';
+                      yes1 = Colors.white;
+                      no1 = Colors.redAccent;
+                    });
                   },
                 ),
                 BoolWidget(
-                  firstChoiceColor: Colors.white,
-                  secondChoiceColor: Colors.white,
-                  title: 'Chronic Disease?',
+                  firstChoiceColor: yes2,
+                  secondChoiceColor: no2,
+                  title: 'Do you have Chronic Disease?',
                   firstIcon: FontAwesomeIcons.check,
                   secondIcon: FontAwesomeIcons.times,
                   firstText: 'Yes',
                   secondText: 'No',
                   firstChoiceDo: () {
-                    print("1");
+                    setState(() {
+                      chronicDisease = 'yes';
+                      yes2 = Colors.greenAccent;
+                      no2 = Colors.white;
+                    });
                   },
                   secondChoiceDo: () {
-                    print("2");
+                    setState(() {
+                      chronicDisease = 'no';
+                      yes2 = Colors.white;
+                      no2 = Colors.redAccent;
+                    });
                   },
-                )
+                ),
+                Padding(
+                  padding: kPaddingValue,
+                  child: DropDownMenuCustom(
+                    title: 'No of owned cars:',
+                    itemsStrings: ['1', '2', '<=3'],
+                    hint: 'No of cars',
+                    f: (value) {
+                      setState(() {
+                        carsNo = value;
+                      });
+                    },
+                    value: carsNo,
+                  ),
+                ),
+                Padding(
+                  padding: kPaddingValue,
+                  child: DropDownMenuCustom(
+                    title: 'Cars Models:',
+                    hint: 'Car Model',
+                    itemsStrings: ['Model>2013', 'Model<2013'],
+                    f: (value) {
+                      setState(() {
+                        carModel = value;
+                      });
+                    },
+                    value: carModel,
+                  ),
+                ),
+                Padding(
+                  padding: kPaddingValue,
+                  child: DropDownMenuCustom(
+                    title: "annually mobile fee's",
+                    hint: 'Mobile fees',
+                    itemsStrings: ['fees>800EGP', 'fees<800EGP'],
+                    f: (value) {
+                      setState(() {
+                        mobileFees = value;
+                      });
+                    },
+                    value: mobileFees,
+                  ),
+                ),
+                Padding(
+                  padding: kPaddingValue,
+                  child: DropDownMenuCustom(
+                    title: 'Your job:',
+                    itemsStrings: [
+                      'Student',
+                      'Jobless',
+                      'Private work',
+                      'Government'
+                    ],
+                    f: (value) {
+                      setState(() {
+                        job = value;
+                      });
+                    },
+                    hint: 'Job type',
+                    value: job,
+                  ),
+                ),
               ],
-              //Barcode screen
             ),
           ),
         ),

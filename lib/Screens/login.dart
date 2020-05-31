@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:healthyshield/Screens/continueUserReg.dart';
+import 'package:healthyshield/Screens/UsersRegistartion.dart';
 import 'package:healthyshield/Screens/forgetpass.dart';
 import 'package:healthyshield/Utilities/constants.dart';
 import 'package:healthyshield/Utilities/desginedButton.dart';
@@ -84,7 +84,8 @@ class _LoginState extends State<Login> {
                   child: RoundIconButton(
                     text: "Login",
                     func: () {
-                      Navigator.pushNamed(context, Loading.id);
+                      Navigator.pushNamedAndRemoveUntil(
+                          context, Loading.id, (Route<dynamic> route) => false);
                     },
                     height: 40.0,
                   ),
@@ -94,10 +95,11 @@ class _LoginState extends State<Login> {
                   child: RoundIconButton(
                     text: "Register",
                     func: () {
-                      Navigator.pushNamed(context, ContinueUserReq.id);
+                      Navigator.pushNamed(context, UsersRegistartion.id);
                     },
+                    height: 40.0,
                   ),
-                )
+                ),
               ],
             ),
           ),

@@ -9,8 +9,8 @@ var kLightTheme = ThemeData(
   fontFamily: 'AlSharkTitle',
   textTheme: TextTheme(
     headline1: TextStyle(fontSize: 32.0, color: kPrimaryColor),
-    headline2: TextStyle(fontSize: 22.0, color: kPrimaryColor),
-    headline3: TextStyle(),
+    headline2: TextStyle(fontSize: 27.0, color: kPrimaryColor),
+    headline3: TextStyle(fontSize: 22.0, color: kPrimaryColor),
     headline4: TextStyle(),
     headline5: TextStyle(),
     headline6: TextStyle(),
@@ -30,6 +30,8 @@ const kAccentColor = Colors.white;
 //padding constant
 const kPaddingValue = EdgeInsets.all(15.0);
 const kPaddingValueL = EdgeInsets.only(left: 30.0, top: 15, bottom: 15);
+const kPaddingValueLists =
+    EdgeInsets.only(left: 20.0, top: 6, bottom: 6, right: 20);
 
 //BarCode API Link
 //TODO: Remove the value of my number after making the database API
@@ -43,6 +45,19 @@ const kPasswordTextFieldStyle = InputDecoration(
   filled: true,
   fillColor: Colors.white,
   hintText: 'Enter Password',
+  hintStyle: TextStyle(color: kPrimaryColor, fontSize: 22.0),
+  border: OutlineInputBorder(
+    //borderSide: BorderSide.none,
+    borderRadius: BorderRadius.all(
+      Radius.circular(10.0),
+    ),
+  ),
+);
+
+const kCPasswordTextFieldStyle = InputDecoration(
+  filled: true,
+  fillColor: Colors.white,
+  hintText: 'Confirm Password',
   hintStyle: TextStyle(color: kPrimaryColor, fontSize: 22.0),
   border: OutlineInputBorder(
     //borderSide: BorderSide.none,
@@ -188,6 +203,32 @@ const kNoOfDepTextFieldStyle = InputDecoration(
   filled: true,
   fillColor: Colors.white,
   hintText: 'No Of Dependences',
+  hintStyle: TextStyle(color: kPrimaryColor, fontSize: 22.0),
+  border: OutlineInputBorder(
+    //borderSide: BorderSide.none,
+    borderRadius: BorderRadius.all(
+      Radius.circular(10.0),
+    ),
+  ),
+);
+
+const kHeightTextFieldStyle = InputDecoration(
+  filled: true,
+  fillColor: Colors.white,
+  hintText: 'Height',
+  hintStyle: TextStyle(color: kPrimaryColor, fontSize: 22.0),
+  border: OutlineInputBorder(
+    //borderSide: BorderSide.none,
+    borderRadius: BorderRadius.all(
+      Radius.circular(10.0),
+    ),
+  ),
+);
+
+const kWeightTextFieldStyle = InputDecoration(
+  filled: true,
+  fillColor: Colors.white,
+  hintText: 'Weight',
   hintStyle: TextStyle(color: kPrimaryColor, fontSize: 22.0),
   border: OutlineInputBorder(
     //borderSide: BorderSide.none,

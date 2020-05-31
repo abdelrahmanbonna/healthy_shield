@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:healthyshield/Screens/about.dart';
 import 'package:healthyshield/Screens/continueUserReg.dart';
 import 'package:healthyshield/Screens/forgetpass.dart';
 import 'package:healthyshield/Screens/home.dart';
 import 'package:healthyshield/Screens/loading.dart';
 import 'package:healthyshield/Screens/login.dart';
+import 'package:healthyshield/Screens/report.dart';
 import 'package:healthyshield/Utilities/constants.dart';
 
 import 'Screens/UsersRegistartion.dart';
@@ -25,6 +27,8 @@ class MyApp extends StatelessWidget {
         Loading.id: (context) => Loading(),
         UsersRegistartion.id: (context) => UsersRegistartion(),
         ContinueUserReq.id: (context) => ContinueUserReq(),
+        Report.id: (context) => Report(),
+        About.id: (context) => About(),
       },
       initialRoute: Login.id,
       theme: kLightTheme,

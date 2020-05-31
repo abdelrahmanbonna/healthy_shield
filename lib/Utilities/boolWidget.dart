@@ -64,10 +64,8 @@ class BoolWidget extends StatelessWidget {
                     ),
                     Text(
                       firstText,
-                      style: Theme.of(context)
-                          .textTheme
-                          .subtitle1
-                          .merge(TextStyle(color: firstChoiceColor)),
+                      style: Theme.of(context).textTheme.subtitle1.merge(
+                          TextStyle(color: firstChoiceColor, fontSize: 30)),
                     ),
                   ],
                 ),
@@ -109,10 +107,8 @@ class BoolWidget extends StatelessWidget {
                     ),
                     Text(
                       secondText,
-                      style: Theme.of(context)
-                          .textTheme
-                          .subtitle1
-                          .merge(TextStyle(color: secondChoiceColor)),
+                      style: Theme.of(context).textTheme.subtitle1.merge(
+                          TextStyle(color: secondChoiceColor, fontSize: 30)),
                     ),
                   ],
                 ),

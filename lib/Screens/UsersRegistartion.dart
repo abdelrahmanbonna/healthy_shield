@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:healthyshield/Screens/login.dart';
 import 'package:healthyshield/Utilities/constants.dart';
-import 'package:healthyshield/Utilities/desginedButton.dart';
 
 class UsersRegistartion extends StatefulWidget {
   static String id = "userReg";
@@ -15,6 +15,23 @@ class _UsersRegistartionState extends State<UsersRegistartion> {
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context);
     return Scaffold(
+      bottomNavigationBar: BottomNavigationBar(
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(FontAwesomeIcons.backward),
+            title: Text('Back'),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(FontAwesomeIcons.save),
+            title: Text('Submit'),
+          ),
+        ],
+        onTap: (index) {
+          index == 1
+              ? Navigator.pushNamed(context, Login.id)
+              : Navigator.pop(context);
+        },
+      ),
       body: Container(
         height: mediaQuery.size.height,
         width: mediaQuery.size.width,
@@ -96,18 +113,8 @@ class _UsersRegistartionState extends State<UsersRegistartion> {
                     obscureText: true,
                     obscuringCharacter: 'X',
                     style: Theme.of(context).textTheme.subtitle1,
-                    decoration: kPasswordTextFieldStyle,
+                    decoration: kCPasswordTextFieldStyle,
                     onChanged: null,
-                  ),
-                ),
-                Padding(
-                  padding: kPaddingValue,
-                  child: RoundIconButton(
-                    text: "Submit",
-                    func: () {
-                      Navigator.pushNamed(context, Login.id);
-                    },
-                    height: 40.0,
                   ),
                 ),
               ],

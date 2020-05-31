@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:healthyshield/Screens/continueUserReg.dart';
 import 'package:healthyshield/Screens/home.dart';
 import 'package:healthyshield/Utilities/constants.dart';
 
@@ -13,10 +14,11 @@ class Loading extends StatefulWidget {
 }
 
 class _LoadingState extends State<Loading> {
+  static bool firstLogin = true;
+
   @override
   void initState() {
     super.initState();
-    gotoHome();
   }
 
   @override
@@ -25,12 +27,20 @@ class _LoadingState extends State<Loading> {
   }
 
   Future<void> gotoHome() async {
-    await sleep(Duration(seconds: 5));
-    Navigator.pushNamed(context, MainLayout.id);
+    await sleep(Duration(milliseconds: 10));
+    if (firstLogin == true) {
+      firstLogin = false;
+      Navigator.pushNamedAndRemoveUntil(
+          context, ContinueUserReq.id, (Route<dynamic> route) => false);
+    } else {
+      Navigator.pushNamedAndRemoveUntil(
+          context, MainLayout.id, (Route<dynamic> route) => false);
+    }
   }
 
   @override
   Widget build(BuildContext context) {
+    gotoHome();
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
