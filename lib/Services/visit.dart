@@ -4,6 +4,7 @@ class Visit {
   Visit({this.user_Id, this.id});
 
   final String user_Id, id;
+
   String _place_id, _doctor_id;
   DateTime _date;
   Prescription _prescription;
