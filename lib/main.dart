@@ -8,6 +8,7 @@ import 'package:healthyshield/Screens/login.dart';
 import 'package:healthyshield/Screens/report.dart';
 import 'package:healthyshield/Services/doctorData.dart';
 import 'package:healthyshield/Services/userData.dart';
+import 'package:healthyshield/Services/visitData.dart';
 import 'package:healthyshield/Utilities/constants.dart';
 import 'package:provider/provider.dart';
 
@@ -27,6 +28,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider.value(value: UserData()),
         ChangeNotifierProvider.value(value: MedicalPlaceData()),
         ChangeNotifierProvider.value(value: DoctorData()),
+        ChangeNotifierProvider.value(value: VisitData()),
       ],
       child: MaterialApp(
         showSemanticsDebugger: false,
