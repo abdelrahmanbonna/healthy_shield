@@ -1,16 +1,19 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:healthyshield/Screens/login.dart';
 import 'package:healthyshield/Utilities/constants.dart';
 
-class UsersRegistartion extends StatefulWidget {
+class UsersRegistration extends StatefulWidget {
   static String id = "userReg";
 
   @override
-  _UsersRegistartionState createState() => _UsersRegistartionState();
+  _UsersRegistrationState createState() => _UsersRegistrationState();
 }
 
-class _UsersRegistartionState extends State<UsersRegistartion> {
+class _UsersRegistrationState extends State<UsersRegistration> {
+  String fName, lName, email, address, password, cPass, phone;
+
   @override
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context);
@@ -27,6 +30,7 @@ class _UsersRegistartionState extends State<UsersRegistartion> {
           ),
         ],
         onTap: (index) {
+          //TODO : add button func here
           index == 1
               ? Navigator.pushNamed(context, Login.id)
               : Navigator.pop(context);
@@ -62,7 +66,11 @@ class _UsersRegistartionState extends State<UsersRegistartion> {
                   child: TextField(
                     style: Theme.of(context).textTheme.subtitle1,
                     decoration: kFNameTextFieldStyle,
-                    onChanged: null,
+                    onChanged: (value) {
+                      setState(() {
+                        fName = value;
+                      });
+                    },
                   ),
                 ),
                 Padding(
@@ -70,23 +78,37 @@ class _UsersRegistartionState extends State<UsersRegistartion> {
                   child: TextField(
                     style: Theme.of(context).textTheme.subtitle1,
                     decoration: kLNameTextFieldStyle,
-                    onChanged: null,
+                    onChanged: (value) {
+                      setState(() {
+                        lName = value;
+                      });
+                    },
                   ),
                 ),
                 Padding(
                   padding: kPaddingValue,
                   child: TextField(
+                    keyboardType: TextInputType.emailAddress,
                     style: Theme.of(context).textTheme.subtitle1,
                     decoration: kEmaillTextFieldStyle,
-                    onChanged: null,
+                    onChanged: (value) {
+                      setState(() {
+                        email = value;
+                      });
+                    },
                   ),
                 ),
                 Padding(
                   padding: kPaddingValue,
                   child: TextField(
+                    keyboardType: TextInputType.phone,
                     style: Theme.of(context).textTheme.subtitle1,
                     decoration: kPhoneNoTextFieldStyle,
-                    onChanged: null,
+                    onChanged: (value) {
+                      setState(() {
+                        phone = value;
+                      });
+                    },
                   ),
                 ),
                 Padding(
@@ -94,7 +116,11 @@ class _UsersRegistartionState extends State<UsersRegistartion> {
                   child: TextField(
                     style: Theme.of(context).textTheme.subtitle1,
                     decoration: kAddressTextFieldStyle,
-                    onChanged: null,
+                    onChanged: (value) {
+                      setState(() {
+                        address = value;
+                      });
+                    },
                   ),
                 ),
                 Padding(
@@ -104,7 +130,13 @@ class _UsersRegistartionState extends State<UsersRegistartion> {
                     obscuringCharacter: 'X',
                     style: Theme.of(context).textTheme.subtitle1,
                     decoration: kPasswordTextFieldStyle,
-                    onChanged: null,
+                    onChanged: (value) {
+                      setState(
+                        () {
+                          password = value;
+                        },
+                      );
+                    },
                   ),
                 ),
                 Padding(
@@ -114,7 +146,13 @@ class _UsersRegistartionState extends State<UsersRegistartion> {
                     obscuringCharacter: 'X',
                     style: Theme.of(context).textTheme.subtitle1,
                     decoration: kCPasswordTextFieldStyle,
-                    onChanged: null,
+                    onChanged: (value) {
+                      setState(
+                        () {
+                          cPass = value;
+                        },
+                      );
+                    },
                   ),
                 ),
               ],

@@ -6,6 +6,7 @@ import 'package:healthyshield/Screens/login.dart';
 import 'package:healthyshield/Utilities/barScreen.dart';
 import 'package:healthyshield/Utilities/constants.dart';
 import 'package:healthyshield/Utilities/desginedButton.dart';
+import 'package:healthyshield/Utilities/profileWidget.dart';
 
 import 'report.dart';
 
@@ -63,15 +64,30 @@ class _MainLayoutState extends State<MainLayout> {
       ),
       //Barcode screen
       BarScreen(
-        navBar: null,
+        navBar: AppBar(
+          title: Text(
+            'Barcode',
+            style: Theme.of(context)
+                .textTheme
+                .headline1
+                .merge(TextStyle(color: Colors.white)),
+          ),
+        ),
         mainOfScreen: Image.network(
-          kAPILink,
+          kAPILink + "123124575.png",
           scale: 0.2,
         ),
       ),
       //TODO:Profile screen
       BarScreen(
         navBar: AppBar(
+          title: Text(
+            'Profile',
+            style: Theme.of(context)
+                .textTheme
+                .headline1
+                .merge(TextStyle(color: Colors.white)),
+          ),
           actions: [
             FlatButton(
               //TODO: Add functionality to the button
@@ -84,7 +100,54 @@ class _MainLayoutState extends State<MainLayout> {
           ],
         ),
         mainOfScreen: Column(
-          children: [],
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            ProfileWidget(
+              text: 'First name: ',
+              icon: FontAwesomeIcons.idCard,
+              color: Theme.of(context).primaryColor,
+            ),
+            ProfileWidget(
+              text: 'Last name: ',
+              icon: FontAwesomeIcons.idCard,
+              color: Theme.of(context).primaryColor,
+            ),
+            ProfileWidget(
+              text: 'Birth date:',
+              icon: FontAwesomeIcons.baby,
+              color: Theme.of(context).primaryColor,
+            ),
+            ProfileWidget(
+              text: 'Mobile:',
+              icon: FontAwesomeIcons.phone,
+              color: Theme.of(context).primaryColor,
+            ),
+            ProfileWidget(
+              text: 'Email: ',
+              icon: FontAwesomeIcons.mailBulk,
+              color: Theme.of(context).primaryColor,
+            ),
+            ProfileWidget(
+              text: 'Address:',
+              icon: FontAwesomeIcons.houseUser,
+              color: Theme.of(context).primaryColor,
+            ),
+            ProfileWidget(
+              text: 'Blood Type:',
+              icon: FontAwesomeIcons.eyeDropper,
+              color: Theme.of(context).primaryColor,
+            ),
+            ProfileWidget(
+              text: 'Height:',
+              icon: Icons.accessibility_new,
+              color: Theme.of(context).primaryColor,
+            ),
+            ProfileWidget(
+              text: 'Weight:',
+              icon: FontAwesomeIcons.weight,
+              color: Theme.of(context).primaryColor,
+            ),
+          ],
         ),
       ),
       //TODO: Settings Screen
@@ -143,22 +206,34 @@ class _MainLayoutState extends State<MainLayout> {
         type: BottomNavigationBarType.shifting,
         items: [
           BottomNavigationBarItem(
-            icon: Icon(FontAwesomeIcons.home),
+            icon: Icon(
+              FontAwesomeIcons.home,
+              size: 15,
+            ),
             title: Text('Home'),
             backgroundColor: kPrimaryColor,
           ),
           BottomNavigationBarItem(
-            icon: Icon(FontAwesomeIcons.addressCard),
+            icon: Icon(
+              FontAwesomeIcons.addressCard,
+              size: 20,
+            ),
             title: Text('Barcode'),
             backgroundColor: kPrimaryColor,
           ),
           BottomNavigationBarItem(
-            icon: Icon(FontAwesomeIcons.user),
+            icon: Icon(
+              FontAwesomeIcons.user,
+              size: 20,
+            ),
             title: Text('Profile'),
             backgroundColor: kPrimaryColor,
           ),
           BottomNavigationBarItem(
-            icon: Icon(FontAwesomeIcons.cogs),
+            icon: Icon(
+              FontAwesomeIcons.cogs,
+              size: 20,
+            ),
             title: Text('Settings'),
             backgroundColor: kPrimaryColor,
           ),

@@ -35,9 +35,9 @@ class DropDownMenuCustom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.end,
-        mainAxisAlignment: MainAxisAlignment.center,
+      child: Column(
+        // crossAxisAlignment: CrossAxisAlignment.center,
+        // mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Padding(
             padding: kPaddingValue,
@@ -46,38 +46,35 @@ class DropDownMenuCustom extends StatelessWidget {
               style: Theme.of(context).textTheme.headline2,
             ),
           ),
-          Flexible(
-            flex: 2,
-            child: Container(
-              alignment: Alignment.center,
-              width: MediaQuery.of(context).size.width * 0.5,
-              decoration: BoxDecoration(
-                boxShadow: [
-                  BoxShadow(
-                      color: Colors.black12, spreadRadius: 5, blurRadius: 10),
-                  BoxShadow(
-                      color: Colors.black12, spreadRadius: 5, blurRadius: 10),
-                  BoxShadow(
-                      color: Colors.black12, spreadRadius: 5, blurRadius: 10)
-                ],
-                borderRadius: BorderRadius.circular(30),
-                color: Theme.of(context).primaryColor,
-              ),
-              child: Padding(
-                padding: kPaddingValueLists,
-                child: Center(
-                  child: DropdownButton(
-                    isExpanded: true,
-                    items: loaditems(context),
-                    onChanged: f,
-                    hint: Text(hint,
-                        textAlign: TextAlign.center,
-                        style: Theme.of(context).textTheme.subtitle2.merge(
-                            TextStyle(color: Colors.white, fontSize: 27))),
-                    value: value,
-                    dropdownColor: Theme.of(context).primaryColor,
-                  ),
-                ),
+          Container(
+            width: MediaQuery.of(context).size.width * 0.5,
+            height: MediaQuery.of(context).size.height * 0.075,
+            decoration: BoxDecoration(
+              boxShadow: [
+                BoxShadow(
+                    color: Colors.black12, spreadRadius: 5, blurRadius: 10),
+                BoxShadow(
+                    color: Colors.black12, spreadRadius: 5, blurRadius: 10),
+                BoxShadow(
+                    color: Colors.black12, spreadRadius: 5, blurRadius: 10)
+              ],
+              borderRadius: BorderRadius.circular(30),
+              color: Theme.of(context).primaryColor,
+            ),
+            child: Padding(
+              padding: kPaddingValueLists,
+              child: DropdownButton(
+                isExpanded: true,
+                items: loaditems(context),
+                onChanged: f,
+                hint: Text(hint,
+                    textAlign: TextAlign.center,
+                    style: Theme.of(context)
+                        .textTheme
+                        .subtitle2
+                        .merge(TextStyle(color: Colors.white, fontSize: 16))),
+                value: value,
+                dropdownColor: Theme.of(context).primaryColor,
               ),
             ),
           ),

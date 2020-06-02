@@ -27,7 +27,8 @@ class _LoadingState extends State<Loading> {
   }
 
   Future<void> gotoHome() async {
-    await sleep(Duration(milliseconds: 10));
+    await sleep(
+        Duration(milliseconds: 10)); //TODO: remove this after connecting to API
     if (firstLogin == true) {
       firstLogin = false;
       Navigator.pushNamedAndRemoveUntil(

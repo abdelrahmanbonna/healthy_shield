@@ -19,7 +19,7 @@ class RoundIconButton extends StatelessWidget {
       onPressed: func,
       elevation: 6.0,
       constraints: BoxConstraints.tightFor(
-        width: mediaQuery.size.width * 0.8,
+        width: mediaQuery.size.width * 0.5,
         height: height,
       ),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),

@@ -8,15 +8,15 @@ var kLightTheme = ThemeData(
   accentColor: Colors.white,
   fontFamily: 'AlSharkTitle',
   textTheme: TextTheme(
-    headline1: TextStyle(fontSize: 32.0, color: kPrimaryColor),
-    headline2: TextStyle(fontSize: 27.0, color: kPrimaryColor),
-    headline3: TextStyle(fontSize: 22.0, color: kPrimaryColor),
+    headline1: TextStyle(fontSize: 27.0, color: kPrimaryColor),
+    headline2: TextStyle(fontSize: 22.0, color: kPrimaryColor),
+    headline3: TextStyle(fontSize: 18.0, color: kPrimaryColor),
     headline4: TextStyle(),
     headline5: TextStyle(),
     headline6: TextStyle(),
     button: TextStyle(
       color: Colors.white,
-      fontSize: 32.0,
+      fontSize: 17.0,
     ),
     subtitle1: TextStyle(fontSize: 18.0, color: kPrimaryColor),
     subtitle2: TextStyle(fontSize: 16.0, color: kPrimaryColor),
@@ -28,14 +28,14 @@ const kPrimaryColor = Color(0xFF0879a7);
 const kAccentColor = Colors.white;
 
 //padding constant
-const kPaddingValue = EdgeInsets.all(15.0);
-const kPaddingValueL = EdgeInsets.only(left: 30.0, top: 15, bottom: 15);
+const kPaddingValue = EdgeInsets.all(8.0);
+const kPaddingValueL = EdgeInsets.only(left: 20.0, top: 15, bottom: 15);
 const kPaddingValueLists =
     EdgeInsets.only(left: 20.0, top: 6, bottom: 6, right: 20);
 
 //BarCode API Link
 //TODO: Remove the value of my number after making the database API
-const kAPILink = 'http://www.barcodes4.me/barcode/i2of5/01102777726.jpg';
+const kAPILink = 'http://www.barcodes4.me/barcode/i2of5/';
 
 //Text Styles
 const kTextStyleLight = TextStyle(fontSize: 32.0, color: kPrimaryColor);
@@ -45,7 +45,7 @@ const kPasswordTextFieldStyle = InputDecoration(
   filled: true,
   fillColor: Colors.white,
   hintText: 'Enter Password',
-  hintStyle: TextStyle(color: kPrimaryColor, fontSize: 22.0),
+  hintStyle: TextStyle(color: kPrimaryColor, fontSize: 18.0),
   border: OutlineInputBorder(
     //borderSide: BorderSide.none,
     borderRadius: BorderRadius.all(
@@ -58,7 +58,7 @@ const kCPasswordTextFieldStyle = InputDecoration(
   filled: true,
   fillColor: Colors.white,
   hintText: 'Confirm Password',
-  hintStyle: TextStyle(color: kPrimaryColor, fontSize: 22.0),
+  hintStyle: TextStyle(color: kPrimaryColor, fontSize: 18.0),
   border: OutlineInputBorder(
     //borderSide: BorderSide.none,
     borderRadius: BorderRadius.all(
@@ -72,7 +72,7 @@ const kEmailTextFieldStyle = InputDecoration(
   filled: true,
   fillColor: Colors.white,
   hintText: 'Enter Email',
-  hintStyle: TextStyle(color: kPrimaryColor, fontSize: 22.0),
+  hintStyle: TextStyle(color: kPrimaryColor, fontSize: 18.0),
   border: OutlineInputBorder(
     //borderSide: BorderSide.none,
     borderRadius: BorderRadius.all(
@@ -86,7 +86,7 @@ const kReportTextFieldStyle = InputDecoration(
   filled: true,
   fillColor: Colors.white,
   hintText: 'Enter your Report',
-  hintStyle: TextStyle(color: kPrimaryColor, fontSize: 25.0),
+  hintStyle: TextStyle(color: kPrimaryColor, fontSize: 18.0),
   border: OutlineInputBorder(
     //borderSide: BorderSide.none,
     borderRadius: BorderRadius.all(
@@ -99,7 +99,7 @@ const kFNameTextFieldStyle = InputDecoration(
   filled: true,
   fillColor: Colors.white,
   hintText: 'First Name',
-  hintStyle: TextStyle(color: kPrimaryColor, fontSize: 22.0),
+  hintStyle: TextStyle(color: kPrimaryColor, fontSize: 18.0),
   border: OutlineInputBorder(
     //borderSide: BorderSide.none,
     borderRadius: BorderRadius.all(
@@ -112,7 +112,7 @@ const kLNameTextFieldStyle = InputDecoration(
   filled: true,
   fillColor: Colors.white,
   hintText: 'Last Name',
-  hintStyle: TextStyle(color: kPrimaryColor, fontSize: 22.0),
+  hintStyle: TextStyle(color: kPrimaryColor, fontSize: 18.0),
   border: OutlineInputBorder(
     //borderSide: BorderSide.none,
     borderRadius: BorderRadius.all(
@@ -125,7 +125,7 @@ const kEmaillTextFieldStyle = InputDecoration(
   filled: true,
   fillColor: Colors.white,
   hintText: 'Email',
-  hintStyle: TextStyle(color: kPrimaryColor, fontSize: 22.0),
+  hintStyle: TextStyle(color: kPrimaryColor, fontSize: 18.0),
   border: OutlineInputBorder(
     //borderSide: BorderSide.none,
     borderRadius: BorderRadius.all(
@@ -138,7 +138,7 @@ const kPhoneNoTextFieldStyle = InputDecoration(
   filled: true,
   fillColor: Colors.white,
   hintText: 'Phone No.',
-  hintStyle: TextStyle(color: kPrimaryColor, fontSize: 22.0),
+  hintStyle: TextStyle(color: kPrimaryColor, fontSize: 18.0),
   border: OutlineInputBorder(
     //borderSide: BorderSide.none,
     borderRadius: BorderRadius.all(
@@ -151,7 +151,7 @@ const kAddressTextFieldStyle = InputDecoration(
   filled: true,
   fillColor: Colors.white,
   hintText: 'Address',
-  hintStyle: TextStyle(color: kPrimaryColor, fontSize: 22.0),
+  hintStyle: TextStyle(color: kPrimaryColor, fontSize: 18.0),
   border: OutlineInputBorder(
     //borderSide: BorderSide.none,
     borderRadius: BorderRadius.all(
@@ -164,7 +164,7 @@ const kBirthDateTextFieldStyle = InputDecoration(
   filled: true,
   fillColor: Colors.white,
   hintText: 'Birthdate',
-  hintStyle: TextStyle(color: kPrimaryColor, fontSize: 22.0),
+  hintStyle: TextStyle(color: kPrimaryColor, fontSize: 18.0),
   border: OutlineInputBorder(
     //borderSide: BorderSide.none,
     borderRadius: BorderRadius.all(
@@ -177,7 +177,7 @@ const kJobTextFieldStyle = InputDecoration(
   filled: true,
   fillColor: Colors.white,
   hintText: 'Job',
-  hintStyle: TextStyle(color: kPrimaryColor, fontSize: 22.0),
+  hintStyle: TextStyle(color: kPrimaryColor, fontSize: 18.0),
   border: OutlineInputBorder(
     //borderSide: BorderSide.none,
     borderRadius: BorderRadius.all(
@@ -190,7 +190,7 @@ const kMIncomeTextFieldStyle = InputDecoration(
   filled: true,
   fillColor: Colors.white,
   hintText: 'Monthly Income',
-  hintStyle: TextStyle(color: kPrimaryColor, fontSize: 22.0),
+  hintStyle: TextStyle(color: kPrimaryColor, fontSize: 18.0),
   border: OutlineInputBorder(
     //borderSide: BorderSide.none,
     borderRadius: BorderRadius.all(
@@ -203,7 +203,7 @@ const kNoOfDepTextFieldStyle = InputDecoration(
   filled: true,
   fillColor: Colors.white,
   hintText: 'No Of Dependences',
-  hintStyle: TextStyle(color: kPrimaryColor, fontSize: 22.0),
+  hintStyle: TextStyle(color: kPrimaryColor, fontSize: 18.0),
   border: OutlineInputBorder(
     //borderSide: BorderSide.none,
     borderRadius: BorderRadius.all(
@@ -216,7 +216,7 @@ const kHeightTextFieldStyle = InputDecoration(
   filled: true,
   fillColor: Colors.white,
   hintText: 'Height',
-  hintStyle: TextStyle(color: kPrimaryColor, fontSize: 22.0),
+  hintStyle: TextStyle(color: kPrimaryColor, fontSize: 18.0),
   border: OutlineInputBorder(
     //borderSide: BorderSide.none,
     borderRadius: BorderRadius.all(
@@ -229,7 +229,7 @@ const kWeightTextFieldStyle = InputDecoration(
   filled: true,
   fillColor: Colors.white,
   hintText: 'Weight',
-  hintStyle: TextStyle(color: kPrimaryColor, fontSize: 22.0),
+  hintStyle: TextStyle(color: kPrimaryColor, fontSize: 18.0),
   border: OutlineInputBorder(
     //borderSide: BorderSide.none,
     borderRadius: BorderRadius.all(

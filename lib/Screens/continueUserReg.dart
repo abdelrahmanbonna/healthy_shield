@@ -55,7 +55,7 @@ class _ContinueUserReqState extends State<ContinueUserReq> {
         onTap: (index) {
           index == 1
               ? Navigator.pushNamed(context, Login.id)
-              : Navigator.pop(context);
+              : Navigator.pushNamed(context, Login.id);
         },
       ),
       body: Container(
@@ -294,6 +294,20 @@ class _ContinueUserReqState extends State<ContinueUserReq> {
                     },
                     hint: 'Job type',
                     value: job,
+                  ),
+                ),
+                Padding(
+                  padding: kPaddingValue,
+                  child: DropDownMenuCustom(
+                    title: 'Your Blood type:',
+                    itemsStrings: ['A', 'AB', 'B', 'O', 'A+', 'B+', 'A-', 'B-'],
+                    f: (value) {
+                      setState(() {
+                        bloodType = value;
+                      });
+                    },
+                    hint: 'Blood type',
+                    value: bloodType,
                   ),
                 ),
               ],
