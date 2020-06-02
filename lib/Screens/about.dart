@@ -38,7 +38,7 @@ class About extends StatelessWidget {
             "Team:\n"
             "Abdelrahman Bonna\n"
             "Sarah Hatem\n"
-            "Micheal Emad\n"
+            "Michael Emad\n"
             "Emad Roshdy\n"
             "Beshoy Refaat\n",
             maxLines: 50,

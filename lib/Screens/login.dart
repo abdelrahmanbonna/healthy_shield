@@ -64,7 +64,7 @@ class _LoginState extends State<Login> {
                   padding: kPaddingValue,
                   child: TextField(
                     obscureText: true,
-                    obscuringCharacter: 'X',
+//                    obscuringCharacter: 'X',
                     style: Theme.of(context).textTheme.subtitle1,
                     decoration: kPasswordTextFieldStyle,
                     onChanged: null,
