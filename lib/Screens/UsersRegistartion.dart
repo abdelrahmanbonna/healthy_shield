@@ -127,7 +127,7 @@ class _UsersRegistrationState extends State<UsersRegistration> {
                   padding: kPaddingValue,
                   child: TextField(
                     obscureText: true,
-//                    obscuringCharacter: 'X',
+                    obscuringCharacter: 'X',
                     style: Theme.of(context).textTheme.subtitle1,
                     decoration: kPasswordTextFieldStyle,
                     onChanged: (value) {
@@ -143,7 +143,7 @@ class _UsersRegistrationState extends State<UsersRegistration> {
                   padding: kPaddingValue,
                   child: TextField(
                     obscureText: true,
-//                    obscuringCharacter: 'X',
+                    obscuringCharacter: 'X',
                     style: Theme.of(context).textTheme.subtitle1,
                     decoration: kCPasswordTextFieldStyle,
                     onChanged: (value) {

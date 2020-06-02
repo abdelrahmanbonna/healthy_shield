@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider.value(value: VisitData()),
       ],
       child: MaterialApp(
-        showSemanticsDebugger: false,
+        debugShowCheckedModeBanner: false,
         routes: {
           //TODO: Name every route of the app in this map
           MainLayout.id: (context) => MainLayout(),
