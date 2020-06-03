@@ -5,7 +5,9 @@ import 'package:healthyshield/Screens/forgetpass.dart';
 import 'package:healthyshield/Screens/home.dart';
 import 'package:healthyshield/Screens/loading.dart';
 import 'package:healthyshield/Screens/login.dart';
+import 'package:healthyshield/Screens/medicalHistory.dart';
 import 'package:healthyshield/Screens/report.dart';
+import 'package:healthyshield/Screens/visitsDetails.dart';
 import 'package:healthyshield/Services/doctorData.dart';
 import 'package:healthyshield/Services/patientData.dart';
 import 'package:healthyshield/Services/visitData.dart';
@@ -42,6 +44,8 @@ class MyApp extends StatelessWidget {
           ContinueUserReq.id: (context) => ContinueUserReq(),
           Report.id: (context) => Report(),
           About.id: (context) => About(),
+          VisitsDetails.id: (context) => VisitsDetails(),
+          MedicalHistory.id: (context) => MedicalHistory(),
         },
         initialRoute: Login.id,
         theme: kLightTheme,

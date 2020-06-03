@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:healthyshield/Screens/about.dart';
 import 'package:healthyshield/Screens/login.dart';
+import 'package:healthyshield/Screens/medicalHistory.dart';
 import 'package:healthyshield/Utilities/barScreen.dart';
 import 'package:healthyshield/Utilities/constants.dart';
 import 'package:healthyshield/Utilities/desginedButton.dart';
@@ -44,7 +45,7 @@ class _MainLayoutState extends State<MainLayout> {
             Padding(
               padding: kPaddingValue,
               child: RoundIconButton(
-                //TODO: go to history
+                //TODO: Make Ambulance Request
                 func: () {},
                 height: 50.0,
                 text: 'Call Ambulance',
@@ -54,7 +55,9 @@ class _MainLayoutState extends State<MainLayout> {
               padding: kPaddingValue,
               child: RoundIconButton(
                 //TODO: go to history
-                func: () {},
+                func: () {
+                  Navigator.pushNamed(context, MedicalHistory.id);
+                },
                 height: 50.0,
                 text: 'Medical History',
               ),
@@ -97,6 +100,14 @@ class _MainLayoutState extends State<MainLayout> {
                 color: Colors.white,
               ),
             ),
+            FlatButton(
+              //TODO: Add functionality to the button
+              onPressed: () {},
+              child: Icon(
+                FontAwesomeIcons.key,
+                color: Colors.white,
+              ),
+            ),
           ],
         ),
         mainOfScreen: Column(
@@ -115,6 +126,11 @@ class _MainLayoutState extends State<MainLayout> {
             ProfileWidget(
               text: 'Birth date:',
               icon: FontAwesomeIcons.baby,
+              color: Theme.of(context).primaryColor,
+            ),
+            ProfileWidget(
+              text: 'Gender:',
+              icon: Icons.wc,
               color: Theme.of(context).primaryColor,
             ),
             ProfileWidget(
@@ -144,6 +160,11 @@ class _MainLayoutState extends State<MainLayout> {
             ),
             ProfileWidget(
               text: 'Weight:',
+              icon: FontAwesomeIcons.weight,
+              color: Theme.of(context).primaryColor,
+            ),
+            ProfileWidget(
+              text: 'BMI:',
               icon: FontAwesomeIcons.weight,
               color: Theme.of(context).primaryColor,
             ),

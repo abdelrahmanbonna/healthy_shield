@@ -4,6 +4,8 @@ import 'package:healthyshield/Utilities/constants.dart';
 import 'package:healthyshield/Utilities/profileWidget.dart';
 
 class VisitsDetails extends StatefulWidget {
+  static String id = "visit";
+
   @override
   _VisitsDetailsState createState() => _VisitsDetailsState();
 }
@@ -12,6 +14,14 @@ class _VisitsDetailsState extends State<VisitsDetails> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          'Visit Details',
+          style: Theme.of(context).textTheme.headline1.merge(
+                TextStyle(color: Colors.white),
+              ),
+        ),
+      ),
       body: SingleChildScrollView(
         child: SafeArea(
           child: Column(
@@ -86,6 +96,8 @@ class _VisitsDetailsState extends State<VisitsDetails> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Padding(
                             padding: kPaddingValueL,
@@ -107,6 +119,15 @@ class _VisitsDetailsState extends State<VisitsDetails> {
                           ),
                         ],
                       ),
+                      Text(
+                        'Hona ykon el dawa2 tb3an w bdal ma el dr yktob b5at zbala hn3raf a5eran n2ra el 5at bta3o.',
+                        textAlign: TextAlign.center,
+                        maxLines: 80,
+                        style: Theme.of(context)
+                            .textTheme
+                            .subtitle1
+                            .merge(TextStyle(fontSize: 18)),
+                      )
                     ],
                   ),
                 ),

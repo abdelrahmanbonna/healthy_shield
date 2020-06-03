@@ -37,7 +37,9 @@ class UserData extends ChangeNotifier {
   }
 
   void continueReg(gender, noOfDep, noOfCars, carModel, birth, height, weight,
-      income, lostleg, lostarm, chronicdis, mobilefee, job, bloodtype) {}
+      income, lostleg, lostarm, chronicdis, mobilefee, job, bloodtype) {
+    //TODO but those vars in database
+  }
 
   Future<void> requestAmbulance() async {
     var location = Location();

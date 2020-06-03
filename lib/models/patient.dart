@@ -1,6 +1,7 @@
 import 'dart:math';
 
 class Patient {
+  //TODO find another way
   Patient({this.email, this.password});
 
   final String email, password;
