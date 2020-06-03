@@ -17,45 +17,53 @@ class VisitWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: kPaddingValueList,
-      child: Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(5),
-          border: Border(
-            top: BorderSide(color: Theme.of(context).primaryColor, width: 0.5),
-            bottom:
-                BorderSide(color: Theme.of(context).primaryColor, width: 0.5),
-            left: BorderSide(color: Theme.of(context).primaryColor, width: 0.5),
-            right:
-                BorderSide(color: Theme.of(context).primaryColor, width: 0.5),
+      child: GestureDetector(
+        onTap: onPress,
+        child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(5),
+            border: Border(
+              top:
+                  BorderSide(color: Theme.of(context).primaryColor, width: 0.5),
+              bottom:
+                  BorderSide(color: Theme.of(context).primaryColor, width: 0.5),
+              left:
+                  BorderSide(color: Theme.of(context).primaryColor, width: 0.5),
+              right:
+                  BorderSide(color: Theme.of(context).primaryColor, width: 0.5),
+            ),
+            color: backgroundColor,
           ),
-          color: backgroundColor,
-        ),
-        child: GestureDetector(
-          onTap: onPress,
-          child: Column(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text(
-                    placeName,
-                    style: Theme.of(context).textTheme.subtitle2,
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  placeName,
+                  style: Theme.of(context).textTheme.subtitle2,
+                ),
+                Expanded(
+                  child: SizedBox(
+                    width: 10,
                   ),
-                  SizedBox(
-                    width: 20,
+                ),
+                Text(
+                  specialty,
+                  style: Theme.of(context).textTheme.subtitle2,
+                ),
+                Expanded(
+                  child: SizedBox(
+                    width: 10,
                   ),
-                  Text(
-                    specialty,
-                    style: Theme.of(context).textTheme.subtitle2,
-                  ),
-                ],
-              ),
-              Text(
-                date,
-                style: Theme.of(context).textTheme.subtitle2,
-              ),
-            ],
+                ),
+                Text(
+                  date,
+                  style: Theme.of(context).textTheme.subtitle2,
+                ),
+              ],
+            ),
           ),
         ),
       ),

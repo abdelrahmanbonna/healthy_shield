@@ -25,27 +25,29 @@ class ProfileWidget extends StatelessWidget {
           ),
           color: Theme.of(context).accentColor,
         ),
-        child: Row(
-          children: [
-            Padding(
-              padding: kPaddingValueL,
-              child: Icon(
-                icon,
-                size: 20,
-                color: color,
+        child: Center(
+          child: Row(
+            children: [
+              Padding(
+                padding: kPaddingValueL,
+                child: Icon(
+                  icon,
+                  size: 20,
+                  color: color,
+                ),
               ),
-            ),
-            SizedBox(
-              width: 10,
-            ),
-            Text(
-              text,
-              style: Theme.of(context)
-                  .textTheme
-                  .subtitle1
-                  .merge(TextStyle(color: color, fontSize: 16)),
-            ),
-          ],
+              SizedBox(
+                width: 10,
+              ),
+              Text(
+                text,
+                style: Theme.of(context)
+                    .textTheme
+                    .subtitle1
+                    .merge(TextStyle(color: color, fontSize: 16)),
+              ),
+            ],
+          ),
         ),
       ),
     );
