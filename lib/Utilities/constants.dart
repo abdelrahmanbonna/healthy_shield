@@ -238,3 +238,16 @@ const kWeightTextFieldStyle = InputDecoration(
     ),
   ),
 );
+
+const kCurrentPassTextFieldStyle = InputDecoration(
+  filled: true,
+  fillColor: Colors.white,
+  hintText: 'Current Password',
+  hintStyle: TextStyle(color: kPrimaryColor, fontSize: 18.0),
+  border: OutlineInputBorder(
+    //borderSide: BorderSide.none,
+    borderRadius: BorderRadius.all(
+      Radius.circular(10.0),
+    ),
+  ),
+);

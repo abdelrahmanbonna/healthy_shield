@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:healthyshield/Screens/about.dart';
+import 'package:healthyshield/Screens/changingPassword.dart';
 import 'package:healthyshield/Screens/login.dart';
 import 'package:healthyshield/Screens/medicalHistory.dart';
 import 'package:healthyshield/Utilities/barScreen.dart';
@@ -94,7 +95,9 @@ class _MainLayoutState extends State<MainLayout> {
           actions: [
             FlatButton(
               //TODO: Add functionality to the button
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, ChangingPassword.id);
+              },
               child: Icon(
                 FontAwesomeIcons.key,
                 color: Colors.white,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:healthyshield/Screens/about.dart';
+import 'package:healthyshield/Screens/changingPassword.dart';
 import 'package:healthyshield/Screens/continueUserReg.dart';
 import 'package:healthyshield/Screens/forgetpass.dart';
 import 'package:healthyshield/Screens/home.dart';
@@ -46,6 +47,7 @@ class MyApp extends StatelessWidget {
           About.id: (context) => About(),
           VisitsDetails.id: (context) => VisitsDetails(),
           MedicalHistory.id: (context) => MedicalHistory(),
+          ChangingPassword.id: (context) => ChangingPassword(),
         },
         initialRoute: Login.id,
         theme: kLightTheme,
