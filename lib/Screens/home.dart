@@ -96,14 +96,6 @@ class _MainLayoutState extends State<MainLayout> {
               //TODO: Add functionality to the button
               onPressed: () {},
               child: Icon(
-                Icons.edit,
-                color: Colors.white,
-              ),
-            ),
-            FlatButton(
-              //TODO: Add functionality to the button
-              onPressed: () {},
-              child: Icon(
                 FontAwesomeIcons.key,
                 color: Colors.white,
               ),
@@ -137,16 +129,19 @@ class _MainLayoutState extends State<MainLayout> {
               text: 'Mobile:',
               icon: FontAwesomeIcons.phone,
               color: Theme.of(context).primaryColor,
+              showShadow: true,
             ),
             ProfileWidget(
               text: 'Email: ',
               icon: FontAwesomeIcons.mailBulk,
               color: Theme.of(context).primaryColor,
+              showShadow: true,
             ),
             ProfileWidget(
               text: 'Address:',
               icon: FontAwesomeIcons.houseUser,
               color: Theme.of(context).primaryColor,
+              showShadow: true,
             ),
             ProfileWidget(
               text: 'Blood Type:',
@@ -157,11 +152,13 @@ class _MainLayoutState extends State<MainLayout> {
               text: 'Height:',
               icon: Icons.accessibility_new,
               color: Theme.of(context).primaryColor,
+              showShadow: true,
             ),
             ProfileWidget(
               text: 'Weight:',
               icon: FontAwesomeIcons.weight,
               color: Theme.of(context).primaryColor,
+              showShadow: true,
             ),
             ProfileWidget(
               text: 'BMI:',
