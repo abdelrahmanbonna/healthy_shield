@@ -47,7 +47,7 @@ class ForgetPass extends StatelessWidget {
               func: () {
                 Navigator.pop(context);
               },
-              height: 40.0,
+              height: 45.0,
             ),
           ),
         ],
