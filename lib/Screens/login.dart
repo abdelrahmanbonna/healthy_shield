@@ -87,7 +87,7 @@ class _LoginState extends State<Login> {
                       Navigator.pushNamedAndRemoveUntil(
                           context, Loading.id, (Route<dynamic> route) => false);
                     },
-                    height: 40.0,
+                    height: 35.0,
                   ),
                 ),
                 Padding(
@@ -95,9 +95,9 @@ class _LoginState extends State<Login> {
                   child: RoundIconButton(
                     text: "Register",
                     func: () {
-                      Navigator.pushNamed(context, UsersRegistartion.id);
+                      Navigator.pushNamed(context, UsersRegistration.id);
                     },
-                    height: 40.0,
+                    height: 35.0,
                   ),
                 ),
               ],

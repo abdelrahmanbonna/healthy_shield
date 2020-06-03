@@ -32,88 +32,111 @@ class BoolWidget extends StatelessWidget {
             title,
             style: Theme.of(context).textTheme.headline1,
           ),
-          Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: GestureDetector(
-              onTap: firstChoiceDo,
-              child: Container(
-                decoration: BoxDecoration(
-                  boxShadow: [
-                    BoxShadow(
-                        color: Colors.black12, spreadRadius: 5, blurRadius: 10),
-                    BoxShadow(
-                        color: Colors.black12, spreadRadius: 5, blurRadius: 10),
-                    BoxShadow(
-                        color: Colors.black12, spreadRadius: 5, blurRadius: 10)
-                  ],
-                  borderRadius: BorderRadius.circular(30),
-                  color: Theme.of(context).primaryColor,
-                ),
-                child: Row(
-                  children: [
-                    Padding(
-                      padding: kPaddingValueL,
-                      child: Icon(
-                        this.firstIcon,
-                        size: 30,
-                        color: firstChoiceColor,
-                      ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: GestureDetector(
+                  onTap: firstChoiceDo,
+                  child: Container(
+                    width: MediaQuery.of(context).size.width * 0.3,
+                    decoration: BoxDecoration(
+                      boxShadow: [
+                        BoxShadow(
+                            color: Colors.black12,
+                            spreadRadius: 5,
+                            blurRadius: 10),
+                        BoxShadow(
+                            color: Colors.black12,
+                            spreadRadius: 5,
+                            blurRadius: 10),
+                        BoxShadow(
+                            color: Colors.black12,
+                            spreadRadius: 5,
+                            blurRadius: 10)
+                      ],
+                      borderRadius: BorderRadius.circular(30),
+                      color: Theme.of(context).primaryColor,
                     ),
-                    SizedBox(
-                      width: 30,
+                    child: Row(
+                      children: [
+                        Padding(
+                          padding: kPaddingValueL,
+                          child: Icon(
+                            this.firstIcon,
+                            size: 20,
+                            color: firstChoiceColor,
+                          ),
+                        ),
+                        SizedBox(
+                          width: 8,
+                        ),
+                        Text(
+                          firstText,
+                          style: Theme.of(context).textTheme.subtitle1.merge(
+                              TextStyle(color: firstChoiceColor, fontSize: 18)),
+                        ),
+                      ],
                     ),
-                    Text(
-                      firstText,
-                      style: Theme.of(context).textTheme.subtitle1.merge(
-                          TextStyle(color: firstChoiceColor, fontSize: 30)),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
-          SizedBox(
-            height: 5.0,
-          ),
-          Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: GestureDetector(
-              onTap: secondChoiceDo,
-              child: Container(
-                decoration: BoxDecoration(
-                  boxShadow: [
-                    BoxShadow(
-                        color: Colors.black12, spreadRadius: 5, blurRadius: 10),
-                    BoxShadow(
-                        color: Colors.black12, spreadRadius: 5, blurRadius: 10),
-                    BoxShadow(
-                        color: Colors.black12, spreadRadius: 5, blurRadius: 10)
-                  ],
-                  borderRadius: BorderRadius.circular(30),
-                  color: Theme.of(context).primaryColor,
-                ),
-                child: Row(
-                  children: [
-                    Padding(
-                      padding: kPaddingValueL,
-                      child: Icon(
-                        secondIcon,
-                        size: 30,
-                        color: secondChoiceColor,
-                      ),
-                    ),
-                    SizedBox(
-                      width: 30,
-                    ),
-                    Text(
-                      secondText,
-                      style: Theme.of(context).textTheme.subtitle1.merge(
-                          TextStyle(color: secondChoiceColor, fontSize: 30)),
-                    ),
-                  ],
+                  ),
                 ),
               ),
-            ),
+              SizedBox(
+                height: 5.0,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: GestureDetector(
+                  onTap: secondChoiceDo,
+                  child: Container(
+                    width: MediaQuery.of(context).size.width * 0.3,
+                    decoration: BoxDecoration(
+                      boxShadow: [
+                        BoxShadow(
+                            color: Colors.black12,
+                            spreadRadius: 5,
+                            blurRadius: 10),
+                        BoxShadow(
+                            color: Colors.black12,
+                            spreadRadius: 5,
+                            blurRadius: 10),
+                        BoxShadow(
+                            color: Colors.black12,
+                            spreadRadius: 5,
+                            blurRadius: 10)
+                      ],
+                      borderRadius: BorderRadius.circular(30),
+                      color: Theme.of(context).primaryColor,
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Padding(
+                          padding: kPaddingValueL,
+                          child: Icon(
+                            secondIcon,
+                            size: 20,
+                            color: secondChoiceColor,
+                          ),
+                        ),
+                        SizedBox(
+                          width: 8,
+                        ),
+                        Text(
+                          secondText,
+                          style: Theme.of(context).textTheme.subtitle1.merge(
+                              TextStyle(
+                                  color: secondChoiceColor, fontSize: 18)),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              )
+            ],
           )
         ],
       ),
