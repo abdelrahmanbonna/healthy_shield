@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:healthyshield/Services/location.dart';
-import 'package:healthyshield/Services/patient.dart';
-import 'package:healthyshield/Services/visit.dart';
+import 'package:healthyshield/models/patient.dart';
+import 'package:healthyshield/models/visit.dart';
 import 'package:healthyshield/Utilities/constants.dart';
 
 class UserData extends ChangeNotifier {
@@ -36,7 +36,8 @@ class UserData extends ChangeNotifier {
     }
   }
 
-  void continueReg() {}
+  void continueReg(gender, noOfDep, noOfCars, carModel, birth, height, weight,
+      income, lostleg, lostarm, chronicdis, mobilefee, job, bloodtype) {}
 
   Future<void> requestAmbulance() async {
     var location = Location();
@@ -62,6 +63,11 @@ class UserData extends ChangeNotifier {
     user.setWeight(newWeight);
     //TODO Take those info with pass and email and change then in database
 
+    notifyListeners();
+  }
+
+  void getBMI() {
+    user.setPatientBMI();
     notifyListeners();
   }
 }

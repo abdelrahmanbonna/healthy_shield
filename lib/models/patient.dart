@@ -1,24 +1,44 @@
+import 'dart:math';
+
 class Patient {
   Patient({this.email, this.password});
 
   final String email, password;
+  // ignore: non_constant_identifier_names
   String _ID,
-      _FirstName,
-      _LastName,
-      _Mobile,
-      _Address,
-      _BloodType,
-      _Gender,
-      _Job,
-      _MobileFee,
-      _CarModel,
-      _NoOfCars;
-  DateTime _BirthDate;
-  int _Height, _Weight, _NoOfDep, _MonthlyIncome;
-  bool _Accepted, _CuttedArm, _CuttedLeg, _ChronicDisease;
+      _FirstName, // ignore: non_constant_identifier_names
+      _LastName, // ignore: non_constant_identifier_names
+      _Mobile, // ignore: non_constant_identifier_names
+      _Address, // ignore: non_constant_identifier_names
+      _BloodType, // ignore: non_constant_identifier_names
+      _Gender, // ignore: non_constant_identifier_names
+      _Job, // ignore: non_constant_identifier_names
+      _MobileFee, // ignore: non_constant_identifier_names
+      _CarModel, // ignore: non_constant_identifier_names
+      _NoOfCars, // ignore: non_constant_identifier_names
+      _BMI; // ignore: non_constant_identifier_names
 
-  void setAllDataUsage(fname, lname, mobile, address, birthdate, height, weight,
-      gender, accepted) {
+  DateTime _BirthDate; // ignore: non_constant_identifier_names
+  int _Height, // ignore: non_constant_identifier_names
+      _Weight, // ignore: non_constant_identifier_names
+      _NoOfDep, // ignore: non_constant_identifier_names
+      _MonthlyIncome; // ignore: non_constant_identifier_names
+
+  bool _Accepted, // ignore: non_constant_identifier_names
+      _CuttedArm, // ignore: non_constant_identifier_names
+      _CuttedLeg, // ignore: non_constant_identifier_names
+      _ChronicDisease; // ignore: non_constant_identifier_names
+
+  void setAllDataUsage(
+      fname,
+      lname,
+      mobile,
+      address,
+      birthdate,
+      height,
+      weight, // ignore: non_constant_identifier_names
+      gender,
+      accepted) {
     _FirstName = fname;
     _LastName = lname;
     _Address = address;
@@ -36,6 +56,15 @@ class Patient {
 
   getID() {
     return _ID;
+  }
+
+  setPatientBMI() {
+    var bmi = _Weight / pow(_Height / 100, 2);
+    _BMI = bmi.toStringAsFixed(1);
+  }
+
+  getBMI() {
+    return _BMI;
   }
 
   void setFirstName(name) {
