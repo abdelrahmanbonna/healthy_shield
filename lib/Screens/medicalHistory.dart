@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:healthyshield/Screens/visitsDetails.dart';
+import 'package:healthyshield/Utilities/visitWidget.dart';
+
+import 'visitsDetails.dart';
 
 class MedicalHistory extends StatefulWidget {
   static String id = 'history';
@@ -12,27 +14,45 @@ class _MedicalHistoryState extends State<MedicalHistory> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: SafeArea(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              //TODO add widgets
-            ],
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                //TODO add widgets
+                VisitWidget(
+                  backgroundColor: Colors.white,
+                  date: '2020-05-28',
+                  placeName: 'Nsayem Hospital',
+                  specialty: 'Heart',
+                  onPress: () {
+                    Navigator.pushNamed(context, VisitsDetails.id);
+                  },
+                ),
+                VisitWidget(
+                  backgroundColor: Colors.white,
+                  date: '2020-05-28',
+                  placeName: 'Nsayem Hospital',
+                  specialty: 'Heart',
+                  onPress: () {
+                    Navigator.pushNamed(context, VisitsDetails.id);
+                  },
+                ),
+              ],
+            ),
           ),
         ),
       ),
       appBar: AppBar(
-        title: Text('Medical History'),
-        actions: [
-          FlatButton(
-            onPressed: () {
-              Navigator.pushNamed(context, VisitsDetails.id);
-            },
-            child: Text('View'),
-          ),
-        ],
+        title: Text(
+          'Medical History',
+          style: Theme.of(context)
+              .textTheme
+              .headline1
+              .merge(TextStyle(color: Colors.white)),
+        ),
       ),
     );
   }
