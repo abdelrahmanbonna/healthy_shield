@@ -36,22 +36,14 @@ class ForgetPass extends StatelessWidget {
           Padding(
             padding: kPaddingValue,
             child: Text(
-              'Enter Your registered Email so we could send you a reset email',
+              'Please,Scan your Barcode',
               style: Theme.of(context).textTheme.subtitle1,
-            ),
-          ),
-          Padding(
-            padding: kPaddingValue,
-            child: TextField(
-              style: Theme.of(context).textTheme.subtitle1,
-              decoration: kEmailTextFieldStyle,
-              onChanged: null,
             ),
           ),
           Padding(
             padding: kPaddingValue,
             child: RoundIconButton(
-              text: "Submit",
+              text: "Scan Barcode",
               func: () {
                 Navigator.pop(context);
               },
