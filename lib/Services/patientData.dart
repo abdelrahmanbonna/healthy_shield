@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:healthyshield/Services/location.dart';
+import 'package:healthyshield/Utilities/constants.dart';
 import 'package:healthyshield/models/patient.dart';
 import 'package:healthyshield/models/visit.dart';
-import 'package:healthyshield/Utilities/constants.dart';
 
 class UserData extends ChangeNotifier {
   Patient user;
