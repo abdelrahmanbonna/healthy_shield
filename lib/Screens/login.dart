@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:healthyshield/Screens/UsersRegistartion.dart';
 import 'package:healthyshield/Screens/forgetpass.dart';
 import 'package:healthyshield/Utilities/constants.dart';
 import 'package:healthyshield/Utilities/desginedButton.dart';
 
+import 'about.dart';
 import 'loading.dart';
 
 // Here is Login screen
@@ -32,9 +34,27 @@ class _LoginState extends State<Login> {
           ),
           child: SafeArea(
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
+                Row(
+                  children: [
+                    Expanded(child: SizedBox()),
+                    FlatButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, About.id);
+                      },
+                      child: Icon(
+                        FontAwesomeIcons.info,
+                        color: Theme.of(context).primaryColor,
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.7,
+                  height: 40,
+                ),
                 Padding(
                   padding: const EdgeInsets.all(15.0),
                   child: Hero(

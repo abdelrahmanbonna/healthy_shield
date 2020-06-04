@@ -117,7 +117,6 @@ class _MainLayoutState extends State<MainLayout> {
             Padding(
               padding: kPaddingValue,
               child: RoundIconButton(
-                //TODO: go to history
                 func: () {
                   Navigator.pushNamed(context, MedicalHistory.id);
                 },
@@ -156,7 +155,6 @@ class _MainLayoutState extends State<MainLayout> {
           ),
           actions: [
             FlatButton(
-              //TODO: Add functionality to the button
               onPressed: () {
                 Navigator.pushNamed(context, ChangingPassword.id);
               },
