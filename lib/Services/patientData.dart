@@ -5,10 +5,15 @@ import 'package:healthyshield/models/patient.dart';
 import 'package:healthyshield/models/visit.dart';
 
 class UserData extends ChangeNotifier {
-  Patient user;
+  Patient user = Patient();
 
-  void setUserObject(String email, String pass) {
-    user = Patient(email: email, password: pass);
+  void testStart() {
+    user.email = "abdelrahmanbonna@outlook.com";
+    user.setID('01102777726');
+    user.setAllDataUsage('Abdelrahman', 'Bonna', '01102777726',
+        '1st villa tagamo3', DateTime(1998, 5, 28), 175, 77, "Male", true);
+    user.setBloodType("A+");
+    getBMI();
   }
 
   String getPatientBarcode() {
@@ -17,6 +22,8 @@ class UserData extends ChangeNotifier {
 
   void loginPatient() {
     //TODO: Login process goes here
+    var email = user.email;
+    var pass = user.getPassword();
   }
 
   void regPatient(
@@ -70,6 +77,10 @@ class UserData extends ChangeNotifier {
 
   void getBMI() {
     user.setPatientBMI();
+    notifyListeners();
+  }
+
+  void notify() {
     notifyListeners();
   }
 }

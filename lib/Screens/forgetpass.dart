@@ -1,10 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:healthyshield/Screens/bottomSheet.dart';
+import 'package:healthyshield/Services/barcodeScanner.dart';
 import 'package:healthyshield/Utilities/constants.dart';
 import 'package:healthyshield/Utilities/desginedButton.dart';
 
 // Here is the forget password screen
 class ForgetPass extends StatelessWidget {
   static String id = "forget";
+
+  Widget buildBottomSheet(BuildContext context) {
+    String pass;
+    return BottomSheetEditor(
+      field: 'Password',
+      onChangeFunction: (value) {
+        pass = value;
+      },
+      buttonFunction: () {
+        //TODO enter new password in db
+        Navigator.pop(context);
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +61,12 @@ class ForgetPass extends StatelessWidget {
                   child: RoundIconButton(
                     text: "Scan Barcode",
                     func: () {
-                      Navigator.pop(context);
+                      BarcodeScanner().scanBarcodeNormal();
+                      showModalBottomSheet(
+                        context: context,
+                        builder: buildBottomSheet,
+                        isDismissible: true,
+                      );
                     },
                     height: 45.0,
                   ),

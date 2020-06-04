@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:healthyshield/Screens/continueUserReg.dart';
 import 'package:healthyshield/Screens/home.dart';
+import 'package:healthyshield/Services/patientData.dart';
 import 'package:healthyshield/Utilities/constants.dart';
+import 'package:provider/provider.dart';
 
 class Loading extends StatefulWidget {
   static String id = "loading";
@@ -14,7 +16,7 @@ class Loading extends StatefulWidget {
 }
 
 class _LoadingState extends State<Loading> {
-  static bool firstLogin = true;
+  static bool firstLogin = false;
 
   @override
   void initState() {
@@ -26,11 +28,11 @@ class _LoadingState extends State<Loading> {
     super.dispose();
   }
 
-  Future<void> gotoHome() async {
+  Future<void> gotoHome(context) async {
+    firstLogin = !Provider.of<UserData>(context).user.getAccepted();
     await sleep(
         Duration(milliseconds: 10)); //TODO: remove this after connecting to API
     if (firstLogin == true) {
-      firstLogin = false;
       Navigator.pushNamedAndRemoveUntil(
           context, ContinueUserReq.id, (Route<dynamic> route) => false);
     } else {
@@ -41,7 +43,7 @@ class _LoadingState extends State<Loading> {
 
   @override
   Widget build(BuildContext context) {
-    gotoHome();
+    gotoHome(context);
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(

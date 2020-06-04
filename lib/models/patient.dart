@@ -2,9 +2,8 @@ import 'dart:math';
 
 class Patient {
   //TODO find another way
-  Patient({this.email, this.password});
 
-  final String email, password;
+  String email, _password;
   // ignore: non_constant_identifier_names
   String _ID,
       _FirstName, // ignore: non_constant_identifier_names
@@ -66,6 +65,14 @@ class Patient {
 
   getBMI() {
     return _BMI;
+  }
+
+  setPassword(newPass) {
+    _password = newPass;
+  }
+
+  getPassword() {
+    return _password;
   }
 
   void setFirstName(name) {
@@ -144,7 +151,7 @@ class Patient {
     _MobileFee = fee;
   }
 
-  getFirstName(name) {
+  getFirstName() {
     return _FirstName;
   }
 
@@ -176,7 +183,7 @@ class Patient {
     return _Weight;
   }
 
-  getAccepted(a) {
+  getAccepted() {
     return _Accepted;
   }
 

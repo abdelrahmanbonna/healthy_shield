@@ -5,10 +5,12 @@ import 'package:healthyshield/Screens/about.dart';
 import 'package:healthyshield/Screens/changingPassword.dart';
 import 'package:healthyshield/Screens/login.dart';
 import 'package:healthyshield/Screens/medicalHistory.dart';
+import 'package:healthyshield/Services/patientData.dart';
 import 'package:healthyshield/Utilities/barScreen.dart';
 import 'package:healthyshield/Utilities/constants.dart';
 import 'package:healthyshield/Utilities/desginedButton.dart';
 import 'package:healthyshield/Utilities/profileWidget.dart';
+import 'package:provider/provider.dart';
 
 import 'bottomSheet.dart';
 import 'report.dart';
@@ -27,14 +29,21 @@ class _MainLayoutState extends State<MainLayout> {
   String button = "";
 
   Widget buildBottomSheet(BuildContext context) {
+    String newValue = "new";
+
     if (button == "weight") {
       return BottomSheetEditor(
         buttonFunction: () {
           //TODO add value to database
+          Provider.of<UserData>(context, listen: false)
+              .user
+              .setHeight(newValue); //TODO int problem
+          Provider.of<UserData>(context, listen: false).getBMI();
           Navigator.pop(context);
         },
         onChangeFunction: (value) {
-          //TODO take the value
+          newValue = value;
+          print(newValue);
         },
         field: 'Weight',
       );
@@ -42,10 +51,14 @@ class _MainLayoutState extends State<MainLayout> {
       return BottomSheetEditor(
         buttonFunction: () {
           //TODO add value to database
+          Provider.of<UserData>(context, listen: false)
+              .user
+              .setHeight(newValue);
+          Provider.of<UserData>(context, listen: false).getBMI();
           Navigator.pop(context);
         },
         onChangeFunction: (value) {
-          //TODO take the value
+          newValue = value;
         },
         field: 'Height',
       );
@@ -53,10 +66,14 @@ class _MainLayoutState extends State<MainLayout> {
       return BottomSheetEditor(
         buttonFunction: () {
           //TODO add value to database
+          Provider.of<UserData>(context, listen: false)
+              .user
+              .setMobile(newValue);
+          Provider.of<UserData>(context, listen: false).notify();
           Navigator.pop(context);
         },
         onChangeFunction: (value) {
-          //TODO take the value
+          newValue = value;
         },
         field: 'Mobile',
       );
@@ -64,10 +81,12 @@ class _MainLayoutState extends State<MainLayout> {
       return BottomSheetEditor(
         buttonFunction: () {
           //TODO add value to database
+          Provider.of<UserData>(context, listen: false).user.email = newValue;
+          Provider.of<UserData>(context, listen: false).notify();
           Navigator.pop(context);
         },
         onChangeFunction: (value) {
-          //TODO take the value
+          newValue = value;
         },
         field: 'Email',
       );
@@ -75,10 +94,14 @@ class _MainLayoutState extends State<MainLayout> {
       return BottomSheetEditor(
         buttonFunction: () {
           //TODO add value to database
+          Provider.of<UserData>(context, listen: false)
+              .user
+              .setAddress(newValue);
+          Provider.of<UserData>(context, listen: false).notify();
           Navigator.pop(context);
         },
         onChangeFunction: (value) {
-          //TODO take the value
+          newValue = value;
         },
         field: 'Address',
       );
@@ -139,7 +162,7 @@ class _MainLayoutState extends State<MainLayout> {
           ),
         ),
         mainOfScreen: Image.network(
-          kAPILink + "123124575.png",
+          Provider.of<UserData>(context).getPatientBarcode(),
           scale: 0.2,
         ),
       ),
@@ -169,27 +192,36 @@ class _MainLayoutState extends State<MainLayout> {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             ProfileWidget(
-              text: 'First name: ',
+              text: 'First name: ' +
+                  Provider.of<UserData>(context).user.getFirstName(),
               icon: FontAwesomeIcons.idCard,
               color: Theme.of(context).primaryColor,
             ),
             ProfileWidget(
-              text: 'Last name: ',
+              text: 'Last name: ' +
+                  Provider.of<UserData>(context).user.getLasName(),
               icon: FontAwesomeIcons.idCard,
               color: Theme.of(context).primaryColor,
             ),
             ProfileWidget(
-              text: 'Birth date:',
+              text: 'Birth date: ' +
+                  Provider.of<UserData>(context)
+                      .user
+                      .getBirthdate()
+                      .toString()
+                      .substring(0, 10),
               icon: FontAwesomeIcons.baby,
               color: Theme.of(context).primaryColor,
             ),
             ProfileWidget(
-              text: 'Gender:',
+              text:
+                  'Gender: ' + Provider.of<UserData>(context).user.getGender(),
               icon: Icons.wc,
               color: Theme.of(context).primaryColor,
             ),
             ProfileWidget(
-              text: 'Mobile:',
+              text: 'Mobile: ' +
+                  Provider.of<UserData>(context).user.getMobile().toString(),
               icon: FontAwesomeIcons.phone,
               color: Theme.of(context).primaryColor,
               showShadow: true,
@@ -203,7 +235,8 @@ class _MainLayoutState extends State<MainLayout> {
               },
             ),
             ProfileWidget(
-              text: 'Email: ',
+              text: 'Email: ' +
+                  Provider.of<UserData>(context).user.email.toString(),
               icon: FontAwesomeIcons.mailBulk,
               color: Theme.of(context).primaryColor,
               showShadow: true,
@@ -217,7 +250,8 @@ class _MainLayoutState extends State<MainLayout> {
               },
             ),
             ProfileWidget(
-              text: 'Address:',
+              text: 'Address: ' +
+                  Provider.of<UserData>(context).user.getAddress(),
               icon: FontAwesomeIcons.houseUser,
               color: Theme.of(context).primaryColor,
               showShadow: true,
@@ -231,12 +265,14 @@ class _MainLayoutState extends State<MainLayout> {
               },
             ),
             ProfileWidget(
-              text: 'Blood Type:',
+              text: 'Blood Type: ' +
+                  Provider.of<UserData>(context).user.getBloodType().toString(),
               icon: FontAwesomeIcons.eyeDropper,
               color: Theme.of(context).primaryColor,
             ),
             ProfileWidget(
-              text: 'Height:',
+              text: 'Height: ' +
+                  Provider.of<UserData>(context).user.getHeight().toString(),
               icon: Icons.accessibility_new,
               color: Theme.of(context).primaryColor,
               showShadow: true,
@@ -250,7 +286,8 @@ class _MainLayoutState extends State<MainLayout> {
               },
             ),
             ProfileWidget(
-              text: 'Weight:',
+              text: 'Weight: ' +
+                  Provider.of<UserData>(context).user.getWeight().toString(),
               icon: FontAwesomeIcons.weight,
               color: Theme.of(context).primaryColor,
               showShadow: true,
@@ -264,7 +301,8 @@ class _MainLayoutState extends State<MainLayout> {
               },
             ),
             ProfileWidget(
-              text: 'BMI:',
+              text: 'BMI: ' +
+                  Provider.of<UserData>(context).user.getBMI().toString(),
               icon: FontAwesomeIcons.weight,
               color: Theme.of(context).primaryColor,
             ),
