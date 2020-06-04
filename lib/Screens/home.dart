@@ -10,6 +10,7 @@ import 'package:healthyshield/Utilities/constants.dart';
 import 'package:healthyshield/Utilities/desginedButton.dart';
 import 'package:healthyshield/Utilities/profileWidget.dart';
 
+import 'bottomSheet.dart';
 import 'report.dart';
 
 //Here is Home screen
@@ -23,6 +24,67 @@ class MainLayout extends StatefulWidget {
 
 class _MainLayoutState extends State<MainLayout> {
   int currentChoice = 0;
+  String button = "";
+
+  Widget buildBottomSheet(BuildContext context) {
+    if (button == "weight") {
+      return BottomSheetEditor(
+        buttonFunction: () {
+          //TODO add value to database
+          Navigator.pop(context);
+        },
+        onChangeFunction: (value) {
+          //TODO take the value
+        },
+        field: 'Weight',
+      );
+    } else if (button == "height") {
+      return BottomSheetEditor(
+        buttonFunction: () {
+          //TODO add value to database
+          Navigator.pop(context);
+        },
+        onChangeFunction: (value) {
+          //TODO take the value
+        },
+        field: 'Height',
+      );
+    } else if (button == "mobile") {
+      return BottomSheetEditor(
+        buttonFunction: () {
+          //TODO add value to database
+          Navigator.pop(context);
+        },
+        onChangeFunction: (value) {
+          //TODO take the value
+        },
+        field: 'Mobile',
+      );
+    } else if (button == "email") {
+      return BottomSheetEditor(
+        buttonFunction: () {
+          //TODO add value to database
+          Navigator.pop(context);
+        },
+        onChangeFunction: (value) {
+          //TODO take the value
+        },
+        field: 'Email',
+      );
+    } else if (button == "address") {
+      return BottomSheetEditor(
+        buttonFunction: () {
+          //TODO add value to database
+          Navigator.pop(context);
+        },
+        onChangeFunction: (value) {
+          //TODO take the value
+        },
+        field: 'Address',
+      );
+    } else
+      return Container();
+  }
 
   BarScreen getScreens(context, int current) {
     var screensList = [
@@ -133,18 +195,42 @@ class _MainLayoutState extends State<MainLayout> {
               icon: FontAwesomeIcons.phone,
               color: Theme.of(context).primaryColor,
               showShadow: true,
+              longPress: () {
+                button = "mobile";
+                showModalBottomSheet(
+                  context: context,
+                  builder: buildBottomSheet,
+                  isDismissible: true,
+                );
+              },
             ),
             ProfileWidget(
               text: 'Email: ',
               icon: FontAwesomeIcons.mailBulk,
               color: Theme.of(context).primaryColor,
               showShadow: true,
+              longPress: () {
+                button = "email";
+                showModalBottomSheet(
+                  context: context,
+                  builder: buildBottomSheet,
+                  isDismissible: true,
+                );
+              },
             ),
             ProfileWidget(
               text: 'Address:',
               icon: FontAwesomeIcons.houseUser,
               color: Theme.of(context).primaryColor,
               showShadow: true,
+              longPress: () {
+                button = "address";
+                showModalBottomSheet(
+                  context: context,
+                  builder: buildBottomSheet,
+                  isDismissible: true,
+                );
+              },
             ),
             ProfileWidget(
               text: 'Blood Type:',
@@ -156,12 +242,28 @@ class _MainLayoutState extends State<MainLayout> {
               icon: Icons.accessibility_new,
               color: Theme.of(context).primaryColor,
               showShadow: true,
+              longPress: () {
+                button = "height";
+                showModalBottomSheet(
+                  context: context,
+                  builder: buildBottomSheet,
+                  isDismissible: true,
+                );
+              },
             ),
             ProfileWidget(
               text: 'Weight:',
               icon: FontAwesomeIcons.weight,
               color: Theme.of(context).primaryColor,
               showShadow: true,
+              longPress: () {
+                button = "weight";
+                showModalBottomSheet(
+                  context: context,
+                  builder: buildBottomSheet,
+                  isDismissible: true,
+                );
+              },
             ),
             ProfileWidget(
               text: 'BMI:',

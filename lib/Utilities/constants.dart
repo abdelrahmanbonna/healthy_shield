@@ -33,7 +33,7 @@ const kPaddingValueL = EdgeInsets.only(left: 20.0, top: 15, bottom: 15);
 const kPaddingValueLists =
     EdgeInsets.only(left: 20.0, top: 6, bottom: 6, right: 20);
 const kPaddingValueList =
-    EdgeInsets.only(left: 15.0, top: 3, bottom: 3, right: 15.0);
+    EdgeInsets.only(left: 15.0, top: 5, bottom: 5, right: 15.0);
 //BarCode API Link
 //TODO: Remove the value of my number after making the database API
 const kAPILink = 'http://www.barcodes4.me/barcode/i2of5/';

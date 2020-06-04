@@ -32,10 +32,15 @@ class VisitWidget extends StatelessWidget {
               right:
                   BorderSide(color: Theme.of(context).primaryColor, width: 0.5),
             ),
+            boxShadow: [
+              BoxShadow(color: Colors.black12, blurRadius: 3, spreadRadius: 2),
+              BoxShadow(color: Colors.black12, blurRadius: 2, spreadRadius: 2),
+              BoxShadow(color: Colors.black12, blurRadius: 2, spreadRadius: 1),
+            ],
             color: backgroundColor,
           ),
           child: Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(10.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
