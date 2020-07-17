@@ -21,7 +21,7 @@ class _MedicalHistoryState extends State<MedicalHistory> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                //TODO add widgets
+                // TODO add widgets after API call
                 VisitWidget(
                   backgroundColor: Colors.white,
                   date: '2020-05-28',

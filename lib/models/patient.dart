@@ -1,11 +1,10 @@
 import 'dart:math';
 
 class Patient {
-  //TODO find another way
-
+  Patient(this.iD);
   String email, _password;
   // ignore: non_constant_identifier_names
-  String _ID,
+  String iD,
       _FirstName, // ignore: non_constant_identifier_names
       _LastName, // ignore: non_constant_identifier_names
       _Mobile, // ignore: non_constant_identifier_names
@@ -48,14 +47,6 @@ class Patient {
     _Weight = weight;
     _Gender = gender;
     _Accepted = accepted;
-  }
-
-  void setID(id) {
-    _ID = id;
-  }
-
-  getID() {
-    return _ID;
   }
 
   setPatientBMI() {

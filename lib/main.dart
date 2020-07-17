@@ -36,7 +36,6 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         routes: {
-          //TODO: Name every route of the app in this map
           MainLayout.id: (context) => MainLayout(),
           Login.id: (context) => Login(),
           ForgetPass.id: (context) => ForgetPass(),

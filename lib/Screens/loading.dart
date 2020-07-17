@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:healthyshield/Screens/continueUserReg.dart';
@@ -30,8 +28,7 @@ class _LoadingState extends State<Loading> {
 
   Future<void> gotoHome(context) async {
     firstLogin = !Provider.of<UserData>(context).user.getAccepted();
-    await sleep(
-        Duration(milliseconds: 10)); //TODO: remove this after connecting to API
+
     if (firstLogin == true) {
       Navigator.pushNamedAndRemoveUntil(
           context, ContinueUserReq.id, (Route<dynamic> route) => false);

@@ -7,6 +7,7 @@ import 'package:healthyshield/Utilities/desginedButton.dart';
 // Here is the forget password screen
 class ForgetPass extends StatelessWidget {
   static String id = "forget";
+  static BarcodeScanner scanner = BarcodeScanner();
 
   Widget buildBottomSheet(BuildContext context) {
     String pass;
@@ -17,6 +18,7 @@ class ForgetPass extends StatelessWidget {
       },
       buttonFunction: () {
         //TODO enter new password in db
+        print(pass);
         Navigator.pop(context);
       },
     );
@@ -61,7 +63,7 @@ class ForgetPass extends StatelessWidget {
                   child: RoundIconButton(
                     text: "Scan Barcode",
                     func: () {
-                      BarcodeScanner().scanBarcodeNormal();
+                      scanner.scanBarcodeNormal();
                       showModalBottomSheet(
                         context: context,
                         builder: buildBottomSheet,

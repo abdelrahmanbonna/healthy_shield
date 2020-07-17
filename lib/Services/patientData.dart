@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:healthyshield/Screens/login.dart';
 import 'package:healthyshield/Services/location.dart';
 import 'package:healthyshield/Utilities/constants.dart';
 import 'package:healthyshield/models/patient.dart';
 import 'package:healthyshield/models/visit.dart';
 
 class UserData extends ChangeNotifier {
-  Patient user = Patient();
+  Patient user = Patient('01102777726');
 
   void testStart() {
     user.email = "abdelrahmanbonna@outlook.com";
-    user.setID('01102777726');
     user.setAllDataUsage('Abdelrahman', 'Bonna', '01102777726',
         '1st villa tagamo3', DateTime(1998, 5, 28), 175, 77, "Male", true);
     user.setBloodType("A+");
@@ -17,19 +17,20 @@ class UserData extends ChangeNotifier {
   }
 
   String getPatientBarcode() {
-    return kAPILink + user.getID() + ".png";
+    return kAPILink + user.iD + ".png";
   }
 
-  void loginPatient() {
+  void loginPatient(email, pass) {
     //TODO: Login process goes here
-    var email = user.email;
-    var pass = user.getPassword();
+    //user = Patient(iD);
+    //user.setAllDataUsage(fname, lname, mobile, address, birthdate, height, weight, gender, accepted)
   }
 
   void regPatient(
       context, fname, lname, email, mobile, address, password, confirmPass) {
     if (password == confirmPass) {
       //TODO: Reg process goes here
+      Navigator.pushNamedAndRemoveUntil(context, Login.id, (route) => false);
     } else {
       showDialog(
           context: context,

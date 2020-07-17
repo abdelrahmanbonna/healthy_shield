@@ -1,8 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:healthyshield/Screens/login.dart';
+import 'package:healthyshield/Services/patientData.dart';
 import 'package:healthyshield/Utilities/constants.dart';
+import 'package:provider/provider.dart';
 
 class UsersRegistration extends StatefulWidget {
   static String id = "userReg";
@@ -31,9 +32,12 @@ class _UsersRegistrationState extends State<UsersRegistration> {
         ],
         onTap: (index) {
           //TODO : add button func here
-          index == 1
-              ? Navigator.pushNamed(context, Login.id)
-              : Navigator.pop(context);
+          if (index == 1) {
+            Provider.of<UserData>(context).regPatient(
+                context, fName, lName, email, phone, address, password, cPass);
+          } else {
+            Navigator.pop(context);
+          }
         },
       ),
       body: Container(

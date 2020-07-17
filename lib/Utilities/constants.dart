@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-// TODO: Make Light Theme for the app
 var kLightTheme = ThemeData(
   brightness: Brightness.light,
   primaryColor: Color(0xFF0879a7),
@@ -35,7 +34,6 @@ const kPaddingValueLists =
 const kPaddingValueList =
     EdgeInsets.only(left: 15.0, top: 5, bottom: 5, right: 15.0);
 //BarCode API Link
-//TODO: Remove the value of my number after making the database API
 const kAPILink = 'http://www.barcodes4.me/barcode/i2of5/';
 
 //Text Styles

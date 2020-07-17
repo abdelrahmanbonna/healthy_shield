@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:healthyshield/Screens/login.dart';
+import 'package:healthyshield/Services/patientData.dart';
 import 'package:healthyshield/Utilities/boolWidget.dart';
 import 'package:healthyshield/Utilities/constants.dart';
 import 'package:healthyshield/Utilities/dropmenu.dart';
+import 'package:provider/provider.dart';
 
 class ContinueUserReq extends StatefulWidget {
   static String id = "continueReq";
@@ -53,9 +54,26 @@ class _ContinueUserReqState extends State<ContinueUserReq> {
           )
         ],
         onTap: (index) {
-          index == 1
-              ? Navigator.pushNamed(context, Login.id)
-              : Navigator.pushNamed(context, Login.id);
+          if (index == 1) {
+            Provider.of<UserData>(context).continueReg(
+                gender,
+                dependencies,
+                carsNo,
+                carModel,
+                bD,
+                height,
+                weight,
+                income,
+                lostLeg,
+                lostArm,
+                chronicDisease,
+                mobileFees,
+                job,
+                bloodType);
+            Navigator.pop(context);
+          } else {
+            Navigator.pop(context);
+          }
         },
       ),
       body: Container(

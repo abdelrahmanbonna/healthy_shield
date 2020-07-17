@@ -309,7 +309,6 @@ class _MainLayoutState extends State<MainLayout> {
           ],
         ),
       ),
-      //TODO: Settings Screen
       BarScreen(
         mainOfScreen: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
