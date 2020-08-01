@@ -39,7 +39,7 @@ class _MainLayoutState extends State<MainLayout> {
           //TODO add value to database
           Provider.of<UserData>(context, listen: false)
               .user
-              .setWeight(int.parse(newValue)); //TODO int problem
+              .setWeight(int.parse(newValue));
           Provider.of<UserData>(context, listen: false).getBMI();
           Navigator.pop(context);
         },

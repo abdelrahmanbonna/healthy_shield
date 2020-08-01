@@ -33,6 +33,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider.value(value: VisitData()),
       ],
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         routes: {
           MainLayout.id: (context) => MainLayout(),
           Login.id: (context) => Login(),
