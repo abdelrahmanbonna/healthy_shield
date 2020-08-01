@@ -55,7 +55,7 @@ class _ContinueUserReqState extends State<ContinueUserReq> {
         ],
         onTap: (index) {
           if (index == 1) {
-            Provider.of<UserData>(context).continueReg(
+            Provider.of<UserData>(context, listen: false).continueReg(
                 gender,
                 dependencies,
                 carsNo,
@@ -70,9 +70,9 @@ class _ContinueUserReqState extends State<ContinueUserReq> {
                 mobileFees,
                 job,
                 bloodType);
-            Navigator.pop(context);
+            Navigator.of(context).pop();
           } else {
-            Navigator.pop(context);
+            Navigator.of(context).pop();
           }
         },
       ),

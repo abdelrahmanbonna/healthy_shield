@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:healthyshield/Screens/about.dart';
 import 'package:healthyshield/Screens/changingPassword.dart';
@@ -26,6 +27,7 @@ class MainLayout extends StatefulWidget {
 
 class _MainLayoutState extends State<MainLayout> {
   int currentChoice = 0;
+  bool loading = true;
   String button = "";
 
   Widget buildBottomSheet(BuildContext context) {
@@ -37,7 +39,7 @@ class _MainLayoutState extends State<MainLayout> {
           //TODO add value to database
           Provider.of<UserData>(context, listen: false)
               .user
-              .setHeight(newValue); //TODO int problem
+              .setWeight(int.parse(newValue)); //TODO int problem
           Provider.of<UserData>(context, listen: false).getBMI();
           Navigator.pop(context);
         },
@@ -53,7 +55,7 @@ class _MainLayoutState extends State<MainLayout> {
           //TODO add value to database
           Provider.of<UserData>(context, listen: false)
               .user
-              .setHeight(newValue);
+              .setHeight(int.parse(newValue));
           Provider.of<UserData>(context, listen: false).getBMI();
           Navigator.pop(context);
         },
@@ -355,53 +357,96 @@ class _MainLayoutState extends State<MainLayout> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: getScreens(context, currentChoice),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: currentChoice,
-        selectedFontSize: 20.0,
-        iconSize: 30.0,
-        type: BottomNavigationBarType.shifting,
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(
-              FontAwesomeIcons.home,
-              size: 15,
+    return loading
+        ? Scaffold(
+            body: Container(
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('Assets/Assetbackground.png'),
+                  fit: BoxFit.cover,
+                ),
+              ),
+              constraints: BoxConstraints.expand(),
+              child: SafeArea(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(15.0),
+                      child: Hero(
+                        tag: 'logo',
+                        child: Image.asset(
+                          'Assets/Asset2.png',
+                          scale: 8,
+                        ),
+                      ),
+                    ),
+                    SpinKitCircle(
+                      color: kPrimaryColor,
+                      size: 50.0,
+                    ),
+                  ],
+                ),
+              ),
             ),
-            title: Text('Home'),
-            backgroundColor: kPrimaryColor,
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              FontAwesomeIcons.addressCard,
-              size: 20,
+          )
+        : Scaffold(
+            body: getScreens(context, currentChoice),
+            bottomNavigationBar: BottomNavigationBar(
+              currentIndex: currentChoice,
+              selectedFontSize: 20.0,
+              iconSize: 30.0,
+              type: BottomNavigationBarType.shifting,
+              items: [
+                BottomNavigationBarItem(
+                  icon: Icon(
+                    FontAwesomeIcons.home,
+                    size: 15,
+                  ),
+                  title: Text('Home'),
+                  backgroundColor: kPrimaryColor,
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(
+                    FontAwesomeIcons.addressCard,
+                    size: 20,
+                  ),
+                  title: Text('Barcode'),
+                  backgroundColor: kPrimaryColor,
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(
+                    FontAwesomeIcons.user,
+                    size: 20,
+                  ),
+                  title: Text('Profile'),
+                  backgroundColor: kPrimaryColor,
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(
+                    FontAwesomeIcons.cogs,
+                    size: 20,
+                  ),
+                  title: Text('Settings'),
+                  backgroundColor: kPrimaryColor,
+                ),
+              ],
+              onTap: (index) {
+                setState(() {
+                  currentChoice = index;
+                });
+              },
             ),
-            title: Text('Barcode'),
-            backgroundColor: kPrimaryColor,
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              FontAwesomeIcons.user,
-              size: 20,
-            ),
-            title: Text('Profile'),
-            backgroundColor: kPrimaryColor,
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              FontAwesomeIcons.cogs,
-              size: 20,
-            ),
-            title: Text('Settings'),
-            backgroundColor: kPrimaryColor,
-          ),
-        ],
-        onTap: (index) {
-          setState(() {
-            currentChoice = index;
-          });
-        },
-      ),
-    );
+          );
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    setState(() {
+      loading = !loading;
+    });
   }
 }

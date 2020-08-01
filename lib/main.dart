@@ -4,7 +4,6 @@ import 'package:healthyshield/Screens/changingPassword.dart';
 import 'package:healthyshield/Screens/continueUserReg.dart';
 import 'package:healthyshield/Screens/forgetpass.dart';
 import 'package:healthyshield/Screens/home.dart';
-import 'package:healthyshield/Screens/loading.dart';
 import 'package:healthyshield/Screens/login.dart';
 import 'package:healthyshield/Screens/medicalHistory.dart';
 import 'package:healthyshield/Screens/report.dart';
@@ -34,12 +33,10 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider.value(value: VisitData()),
       ],
       child: MaterialApp(
-        debugShowCheckedModeBanner: false,
         routes: {
           MainLayout.id: (context) => MainLayout(),
           Login.id: (context) => Login(),
           ForgetPass.id: (context) => ForgetPass(),
-          Loading.id: (context) => Loading(),
           UsersRegistration.id: (context) => UsersRegistration(),
           ContinueUserReq.id: (context) => ContinueUserReq(),
           Report.id: (context) => Report(),

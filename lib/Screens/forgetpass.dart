@@ -29,6 +29,9 @@ class ForgetPass extends StatelessWidget {
     final mediaQuery = MediaQuery.of(context);
 
     return Scaffold(
+      appBar: AppBar(
+        title: Text("Forgot password"),
+      ),
       body: SingleChildScrollView(
         child: Container(
           height: mediaQuery.size.height,

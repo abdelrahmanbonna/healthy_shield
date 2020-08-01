@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:healthyshield/Screens/UsersRegistartion.dart';
 import 'package:healthyshield/Screens/forgetpass.dart';
+import 'package:healthyshield/Screens/home.dart';
 import 'package:healthyshield/Services/patientData.dart';
 import 'package:healthyshield/Utilities/constants.dart';
 import 'package:healthyshield/Utilities/desginedButton.dart';
 import 'package:provider/provider.dart';
 
 import 'about.dart';
-import 'loading.dart';
 
 // Here is Login screen
 
@@ -107,8 +107,8 @@ class _LoginState extends State<Login> {
                     text: "Login",
                     func: () {
                       Provider.of<UserData>(context, listen: false).testStart();
-                      Navigator.pushNamedAndRemoveUntil(
-                          context, Loading.id, (Route<dynamic> route) => false);
+                      Navigator.pushNamedAndRemoveUntil(context, MainLayout.id,
+                          (Route<dynamic> route) => false);
                     },
                     height: 35.0,
                   ),

@@ -33,7 +33,7 @@ class _UsersRegistrationState extends State<UsersRegistration> {
         onTap: (index) {
           //TODO : add button func here
           if (index == 1) {
-            Provider.of<UserData>(context).regPatient(
+            Provider.of<UserData>(context, listen: false).regPatient(
                 context, fName, lName, email, phone, address, password, cPass);
           } else {
             Navigator.pop(context);
