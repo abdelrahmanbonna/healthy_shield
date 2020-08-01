@@ -24,7 +24,7 @@ class About extends StatelessWidget {
             padding: kPaddingValue,
             child: Image.asset(
               'Assets/Asset2.png',
-              scale: 8,
+              scale: 10,
             ),
           ),
           Center(
@@ -34,13 +34,18 @@ class About extends StatelessWidget {
             ),
           ),
           Text(
-            "We provide health insurance for everyone.\n"
+            "We provide health insurance for everyone and everywhere in the country.\n"
             "Team:\n"
             "Abdelrahman Bonna\n"
             "Sarah Hatem\n"
             "Michael Emad\n"
             "Emad Roshdy\n"
-            "Beshoy Refaat\n",
+            "Beshoy Refaat\n"
+            "Kareem Mohamed\n"
+            "Ahmed Ashraf\n"
+            "Noura Hany\n"
+            "Hoda Mohamed\n"
+            "Mohamed Rafaat\n",
             maxLines: 50,
             textAlign: TextAlign.center,
             style: Theme.of(context).textTheme.subtitle1,
