@@ -6,8 +6,7 @@ import 'package:healthyshield/Utilities/desginedButton.dart';
 // Here is the forget password screen
 class ForgetPass extends StatelessWidget {
   static String id = "forget";
-  String email="";
-
+  String email = "";
 
   Widget buildBottomSheet(BuildContext context) {
     String pass;
@@ -66,8 +65,8 @@ class ForgetPass extends StatelessWidget {
                   child: TextField(
                     style: Theme.of(context).textTheme.subtitle1,
                     decoration: kEmailTextFieldStyle,
-                    onChanged: (value){
-                      email=value;
+                    onChanged: (value) {
+                      email = value;
                     },
                   ),
                 ),

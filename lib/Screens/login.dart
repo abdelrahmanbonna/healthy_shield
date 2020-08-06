@@ -20,7 +20,7 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-  String email , pass;
+  String email, pass;
 
   @override
   Widget build(BuildContext context) {
@@ -81,8 +81,8 @@ class _LoginState extends State<Login> {
                   child: TextField(
                     style: Theme.of(context).textTheme.subtitle1,
                     decoration: kEmailTextFieldStyle,
-                    onChanged: (value){
-                      email=value;
+                    onChanged: (value) {
+                      email = value;
                     },
                   ),
                 ),
@@ -93,8 +93,8 @@ class _LoginState extends State<Login> {
                     obscuringCharacter: 'X',
                     style: Theme.of(context).textTheme.subtitle1,
                     decoration: kPasswordTextFieldStyle,
-                    onChanged: (value){
-                      pass=value;
+                    onChanged: (value) {
+                      pass = value;
                     },
                   ),
                 ),
