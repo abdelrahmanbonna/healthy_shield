@@ -20,6 +20,8 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+  String email , pass;
+
   @override
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context);
@@ -79,7 +81,9 @@ class _LoginState extends State<Login> {
                   child: TextField(
                     style: Theme.of(context).textTheme.subtitle1,
                     decoration: kEmailTextFieldStyle,
-                    onChanged: null,
+                    onChanged: (value){
+                      email=value;
+                    },
                   ),
                 ),
                 Padding(
@@ -89,7 +93,9 @@ class _LoginState extends State<Login> {
                     obscuringCharacter: 'X',
                     style: Theme.of(context).textTheme.subtitle1,
                     decoration: kPasswordTextFieldStyle,
-                    onChanged: null,
+                    onChanged: (value){
+                      pass=value;
+                    },
                   ),
                 ),
                 FlatButton(

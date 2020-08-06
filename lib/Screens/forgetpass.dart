@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:healthyshield/Screens/bottomSheet.dart';
-import 'package:healthyshield/Services/barcodeScanner.dart';
 import 'package:healthyshield/Utilities/constants.dart';
 import 'package:healthyshield/Utilities/desginedButton.dart';
 
 // Here is the forget password screen
 class ForgetPass extends StatelessWidget {
   static String id = "forget";
-  static BarcodeScanner scanner = BarcodeScanner();
+  String email="";
+
 
   Widget buildBottomSheet(BuildContext context) {
     String pass;
@@ -57,21 +57,26 @@ class ForgetPass extends StatelessWidget {
                 Padding(
                   padding: kPaddingValue,
                   child: Text(
-                    'Please,Scan your Barcode',
+                    'Please,Enter your email',
                     style: Theme.of(context).textTheme.subtitle1,
                   ),
                 ),
                 Padding(
                   padding: kPaddingValue,
+                  child: TextField(
+                    style: Theme.of(context).textTheme.subtitle1,
+                    decoration: kEmailTextFieldStyle,
+                    onChanged: (value){
+                      email=value;
+                    },
+                  ),
+                ),
+                Padding(
+                  padding: kPaddingValue,
                   child: RoundIconButton(
-                    text: "Scan Barcode",
+                    text: "Submit",
                     func: () {
-                      scanner.scanBarcodeNormal();
-                      showModalBottomSheet(
-                        context: context,
-                        builder: buildBottomSheet,
-                        isDismissible: true,
-                      );
+                      //TODO rest Pass
                     },
                     height: 45.0,
                   ),
