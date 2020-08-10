@@ -308,6 +308,15 @@ class _MainLayoutState extends State<MainLayout> {
               icon: FontAwesomeIcons.weight,
               color: Theme.of(context).primaryColor,
             ),
+            ProfileWidget(
+              text: 'Insurance Percentage: ' +
+                  Provider.of<UserData>(context)
+                      .user
+                      .getInsurancePercentage()
+                      .toString(),
+              icon: FontAwesomeIcons.percentage,
+              color: Theme.of(context).primaryColor,
+            ),
           ],
         ),
       ),

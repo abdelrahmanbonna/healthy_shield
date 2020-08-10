@@ -15,7 +15,9 @@ class Patient {
       _MobileFee, // ignore: non_constant_identifier_names
       _CarModel, // ignore: non_constant_identifier_names
       _NoOfCars, // ignore: non_constant_identifier_names
-      _BMI; // ignore: non_constant_identifier_names
+      _BMI,
+      _InsurancePercentage;
+  // ignore: non_constant_identifier_names
 
   DateTime _BirthDate; // ignore: non_constant_identifier_names
   int _Height, // ignore: non_constant_identifier_names
@@ -37,7 +39,8 @@ class Patient {
       height,
       weight, // ignore: non_constant_identifier_names
       gender,
-      accepted) {
+      accepted,
+      percentage) {
     _FirstName = fname;
     _LastName = lname;
     _Address = address;
@@ -47,6 +50,7 @@ class Patient {
     _Weight = weight;
     _Gender = gender;
     _Accepted = accepted;
+    _InsurancePercentage = percentage;
   }
 
   setPatientBMI() {
@@ -80,6 +84,10 @@ class Patient {
 
   void setMobile(mobile) {
     _Mobile = mobile;
+  }
+
+  void setInsurancePercentage(percentage) {
+    _InsurancePercentage = percentage;
   }
 
   void setGender(gender) {
@@ -216,5 +224,9 @@ class Patient {
 
   getMobileFees() {
     return _MobileFee;
+  }
+
+  getInsurancePercentage() {
+    return _InsurancePercentage;
   }
 }
