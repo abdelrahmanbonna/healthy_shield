@@ -10,8 +10,17 @@ class UserData extends ChangeNotifier {
 
   void testStart() {
     user.email = "abdelrahmanbonna@outlook.com";
-    user.setAllDataUsage('Abdelrahman', 'Bonna', '01102777726',
-        '1st villa tagamo3', DateTime(1998, 5, 28), 175, 77, "Male", true, 40);
+    user.setAllDataUsage(
+        'Abdelrahman',
+        'Bonna',
+        '01102777726',
+        '1st villa tagamo3',
+        DateTime(1998, 5, 28),
+        175,
+        77,
+        "Male",
+        true,
+        "40");
     user.setBloodType("A+");
     getBMI();
   }

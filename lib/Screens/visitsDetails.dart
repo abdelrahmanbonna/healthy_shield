@@ -30,47 +30,47 @@ class _VisitsDetailsState extends State<VisitsDetails> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 ProfileWidget(
-                  text: 'Place name',
+                  text: 'Place name  Nasayem Hospital',
                   icon: FontAwesomeIcons.clinicMedical,
                   color: Theme.of(context).primaryColor,
                 ),
                 ProfileWidget(
-                  text: 'Place Email',
+                  text: 'Place Email nasayem@test.com',
                   icon: FontAwesomeIcons.clinicMedical,
                   color: Theme.of(context).primaryColor,
                 ),
                 ProfileWidget(
-                  text: 'Place phone number',
+                  text: 'Place phone number  20200000000',
                   icon: FontAwesomeIcons.clinicMedical,
                   color: Theme.of(context).primaryColor,
                 ),
                 ProfileWidget(
-                  text: 'Place Address',
+                  text: 'Place Address  eltagamo3 el 5ames',
                   icon: FontAwesomeIcons.clinicMedical,
                   color: Theme.of(context).primaryColor,
                 ),
                 ProfileWidget(
-                  text: 'Doctor name',
+                  text: 'Doctor name Mohamed H',
                   icon: FontAwesomeIcons.userMd,
                   color: Theme.of(context).primaryColor,
                 ),
                 ProfileWidget(
-                  text: 'Doctor Email',
+                  text: 'Doctor Email mohamedh@yahoo.com',
                   icon: FontAwesomeIcons.userMd,
                   color: Theme.of(context).primaryColor,
                 ),
                 ProfileWidget(
-                  text: 'Doctor Phone number',
+                  text: 'Doctor Phone number 0100020030',
                   icon: FontAwesomeIcons.userMd,
                   color: Theme.of(context).primaryColor,
                 ),
                 ProfileWidget(
-                  text: 'Specialty',
+                  text: 'Specialty Heart',
                   icon: FontAwesomeIcons.userMd,
                   color: Theme.of(context).primaryColor,
                 ),
                 ProfileWidget(
-                  text: 'Date',
+                  text: 'Date  2/5/2020',
                   icon: FontAwesomeIcons.calendarDay,
                   color: Theme.of(context).primaryColor,
                 ),
@@ -121,7 +121,7 @@ class _VisitsDetailsState extends State<VisitsDetails> {
                           ],
                         ),
                         Text(
-                          'Hona ykon el dawa2 tb3an w bdal ma el dr yktob b5at zbala hn3raf a5eran n2ra el 5at bta3o.',
+                          'Here is the prescription where dr place his drugs.',
                           textAlign: TextAlign.center,
                           maxLines: 80,
                           style: Theme.of(context)

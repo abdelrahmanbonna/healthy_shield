@@ -26,7 +26,7 @@ class Report extends StatelessWidget {
           Padding(
             padding: kPaddingValue,
             child: TextField(
-              maxLines: 22,
+              maxLines: 10,
               decoration: kReportTextFieldStyle,
             ),
           ),

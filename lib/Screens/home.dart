@@ -309,7 +309,7 @@ class _MainLayoutState extends State<MainLayout> {
               color: Theme.of(context).primaryColor,
             ),
             ProfileWidget(
-              text: 'Insurance Percentage: ' +
+              text: 'Insurance: ' +
                   Provider.of<UserData>(context)
                       .user
                       .getInsurancePercentage()
