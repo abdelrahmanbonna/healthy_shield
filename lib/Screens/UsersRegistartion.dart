@@ -27,7 +27,7 @@ class _UsersRegistrationState extends State<UsersRegistration> {
           ),
           BottomNavigationBarItem(
             icon: Icon(FontAwesomeIcons.save),
-            title: Text('Submit'),
+            title: Text('Continue'),
           ),
         ],
         onTap: (index) {

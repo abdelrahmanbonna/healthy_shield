@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:healthyshield/Screens/login.dart';
+import 'package:healthyshield/Screens/continueUserReg.dart';
 import 'package:healthyshield/Services/location.dart';
 import 'package:healthyshield/Utilities/constants.dart';
 import 'package:healthyshield/models/patient.dart';
@@ -39,7 +39,7 @@ class UserData extends ChangeNotifier {
       context, fname, lname, email, mobile, address, password, confirmPass) {
     if (password == confirmPass) {
       //TODO: Reg process goes here
-      Navigator.pushNamedAndRemoveUntil(context, Login.id, (route) => false);
+      Navigator.pushNamed(context, ContinueUserReq.id);
     } else {
       showDialog(
           context: context,

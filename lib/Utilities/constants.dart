@@ -146,6 +146,45 @@ const kPhoneNoTextFieldStyle = InputDecoration(
   ),
 );
 
+const kCarsNoTextFieldStyle = InputDecoration(
+  filled: true,
+  fillColor: Colors.white,
+  hintText: 'Cars No.',
+  hintStyle: TextStyle(color: kPrimaryColor, fontSize: 18.0),
+  border: OutlineInputBorder(
+    //borderSide: BorderSide.none,
+    borderRadius: BorderRadius.all(
+      Radius.circular(10.0),
+    ),
+  ),
+);
+
+const kCarsModelTextFieldStyle = InputDecoration(
+  filled: true,
+  fillColor: Colors.white,
+  hintText: "Car's model by year",
+  hintStyle: TextStyle(color: kPrimaryColor, fontSize: 18.0),
+  border: OutlineInputBorder(
+    //borderSide: BorderSide.none,
+    borderRadius: BorderRadius.all(
+      Radius.circular(10.0),
+    ),
+  ),
+);
+
+const kMobileFeesTextFieldStyle = InputDecoration(
+  filled: true,
+  fillColor: Colors.white,
+  hintText: "Mobile fees in month",
+  hintStyle: TextStyle(color: kPrimaryColor, fontSize: 18.0),
+  border: OutlineInputBorder(
+    //borderSide: BorderSide.none,
+    borderRadius: BorderRadius.all(
+      Radius.circular(10.0),
+    ),
+  ),
+);
+
 const kAddressTextFieldStyle = InputDecoration(
   filled: true,
   fillColor: Colors.white,

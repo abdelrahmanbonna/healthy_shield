@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:healthyshield/Screens/login.dart';
 import 'package:healthyshield/Services/patientData.dart';
 import 'package:healthyshield/Utilities/boolWidget.dart';
 import 'package:healthyshield/Utilities/constants.dart';
@@ -70,7 +71,8 @@ class _ContinueUserReqState extends State<ContinueUserReq> {
                 mobileFees,
                 job,
                 bloodType);
-            Navigator.of(context).pop();
+            Navigator.of(context)
+                .pushNamedAndRemoveUntil(Login.id, (route) => false);
           } else {
             Navigator.of(context).pop();
           }
@@ -255,44 +257,38 @@ class _ContinueUserReqState extends State<ContinueUserReq> {
                 ),
                 Padding(
                   padding: kPaddingValue,
-                  child: DropDownMenuCustom(
-                    title: 'No of owned cars:',
-                    itemsStrings: ['1', '2', '<=3'],
-                    hint: 'No of cars',
-                    f: (value) {
+                  child: TextField(
+                    style: Theme.of(context).textTheme.subtitle1,
+                    decoration: kCarsNoTextFieldStyle,
+                    onChanged: (value) {
                       setState(() {
                         carsNo = value;
                       });
                     },
-                    value: carsNo,
                   ),
                 ),
                 Padding(
                   padding: kPaddingValue,
-                  child: DropDownMenuCustom(
-                    title: 'Cars Models:',
-                    hint: 'Car Model',
-                    itemsStrings: ['Model>2013', 'Model<2013'],
-                    f: (value) {
+                  child: TextField(
+                    style: Theme.of(context).textTheme.subtitle1,
+                    decoration: kCarsModelTextFieldStyle,
+                    onChanged: (value) {
                       setState(() {
                         carModel = value;
                       });
                     },
-                    value: carModel,
                   ),
                 ),
                 Padding(
                   padding: kPaddingValue,
-                  child: DropDownMenuCustom(
-                    title: "annually mobile fee's",
-                    hint: 'Mobile fees',
-                    itemsStrings: ['fees>800EGP', 'fees<800EGP'],
-                    f: (value) {
+                  child: TextField(
+                    style: Theme.of(context).textTheme.subtitle1,
+                    decoration: kCarsModelTextFieldStyle,
+                    onChanged: (value) {
                       setState(() {
                         mobileFees = value;
                       });
                     },
-                    value: mobileFees,
                   ),
                 ),
                 Padding(
