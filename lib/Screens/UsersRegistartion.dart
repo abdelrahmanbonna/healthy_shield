@@ -13,7 +13,7 @@ class UsersRegistration extends StatefulWidget {
 }
 
 class _UsersRegistrationState extends State<UsersRegistration> {
-  String fName, lName, email, address, password, cPass, phone;
+  String fName, lName, email, address, password, cPass, phone, city;
 
   @override
   Widget build(BuildContext context) {
@@ -33,8 +33,8 @@ class _UsersRegistrationState extends State<UsersRegistration> {
         onTap: (index) {
           //TODO : add button func here
           if (index == 1) {
-            Provider.of<UserData>(context, listen: false).regPatient(
-                context, fName, lName, email, phone, address, password, cPass);
+            Provider.of<UserData>(context, listen: false).regPatient(context,
+                fName, lName, email, phone, address, city, password, cPass);
           } else {
             Navigator.pop(context);
           }
@@ -123,6 +123,18 @@ class _UsersRegistrationState extends State<UsersRegistration> {
                     onChanged: (value) {
                       setState(() {
                         address = value;
+                      });
+                    },
+                  ),
+                ),
+                Padding(
+                  padding: kPaddingValue,
+                  child: TextField(
+                    style: Theme.of(context).textTheme.subtitle1,
+                    decoration: kAddressTextFieldStyle,
+                    onChanged: (value) {
+                      setState(() {
+                        city = value;
                       });
                     },
                   ),

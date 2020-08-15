@@ -9,6 +9,7 @@ class Patient {
       _lastName,
       _mobile,
       _address,
+      _city,
       _bloodType,
       _gender,
       _job,
@@ -36,6 +37,12 @@ class Patient {
     _accepted = accepted;
     _insurancePercentage = percentage;
   }
+
+  setCity(c) {
+    _city = c;
+  }
+
+  getCity() => _city;
 
   setPatientBMI() {
     var bmi = _weight / pow(_height / 100, 2);
