@@ -34,7 +34,7 @@ const kPaddingValueLists =
 const kPaddingValueList =
     EdgeInsets.only(left: 15.0, top: 5, bottom: 5, right: 15.0);
 //BarCode API Link
-const kAPILink = 'http://www.barcodes4.me/barcode/i2of5/';
+const kBarcodeAPILink = 'http://www.barcodes4.me/barcode/i2of5/';
 
 //Text Styles
 const kTextStyleLight = TextStyle(fontSize: 32.0, color: kPrimaryColor);

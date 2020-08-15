@@ -26,7 +26,7 @@ class UserData extends ChangeNotifier {
   }
 
   String getPatientBarcode() {
-    return kAPILink + user.iD + ".png";
+    return kBarcodeAPILink + user.iD + ".png";
   }
 
   void loginPatient(email, pass) {
