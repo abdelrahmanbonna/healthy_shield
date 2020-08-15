@@ -131,7 +131,7 @@ class _UsersRegistrationState extends State<UsersRegistration> {
                   padding: kPaddingValue,
                   child: TextField(
                     style: Theme.of(context).textTheme.subtitle1,
-                    decoration: kAddressTextFieldStyle,
+                    decoration: kCityTextFieldStyle,
                     onChanged: (value) {
                       setState(() {
                         city = value;

@@ -276,6 +276,19 @@ const kWeightTextFieldStyle = InputDecoration(
   ),
 );
 
+const kCityTextFieldStyle = InputDecoration(
+  filled: true,
+  fillColor: Colors.white,
+  hintText: 'City',
+  hintStyle: TextStyle(color: kPrimaryColor, fontSize: 18.0),
+  border: OutlineInputBorder(
+    //borderSide: BorderSide.none,
+    borderRadius: BorderRadius.all(
+      Radius.circular(10.0),
+    ),
+  ),
+);
+
 const kCurrentPassTextFieldStyle = InputDecoration(
   filled: true,
   fillColor: Colors.white,
