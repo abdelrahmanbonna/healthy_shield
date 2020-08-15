@@ -8,14 +8,12 @@ import 'package:healthyshield/Screens/login.dart';
 import 'package:healthyshield/Screens/medicalHistory.dart';
 import 'package:healthyshield/Screens/report.dart';
 import 'package:healthyshield/Screens/visitsDetails.dart';
-import 'package:healthyshield/Services/doctorData.dart';
 import 'package:healthyshield/Services/patientData.dart';
 import 'package:healthyshield/Services/visitData.dart';
 import 'package:healthyshield/Utilities/constants.dart';
 import 'package:provider/provider.dart';
 
 import 'Screens/UsersRegistartion.dart';
-import 'Services/placeData.dart';
 
 void main() {
   runApp(MyApp());
@@ -28,8 +26,6 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider.value(value: UserData()),
-        ChangeNotifierProvider.value(value: MedicalPlaceData()),
-        ChangeNotifierProvider.value(value: DoctorData()),
         ChangeNotifierProvider.value(value: VisitData()),
       ],
       child: MaterialApp(
