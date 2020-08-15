@@ -3,63 +3,47 @@ import 'dart:math';
 class Patient {
   Patient(this.iD);
   String email, _password;
-  // ignore: non_constant_identifier_names
+
   String iD,
-      _FirstName, // ignore: non_constant_identifier_names
-      _LastName, // ignore: non_constant_identifier_names
-      _Mobile, // ignore: non_constant_identifier_names
-      _Address, // ignore: non_constant_identifier_names
-      _BloodType, // ignore: non_constant_identifier_names
-      _Gender, // ignore: non_constant_identifier_names
-      _Job, // ignore: non_constant_identifier_names
-      _MobileFee, // ignore: non_constant_identifier_names
-      _CarModel, // ignore: non_constant_identifier_names
-      _NoOfCars, // ignore: non_constant_identifier_names
-      _BMI,
-      _InsurancePercentage;
-  // ignore: non_constant_identifier_names
+      _firstName,
+      _lastName,
+      _mobile,
+      _address,
+      _bloodType,
+      _gender,
+      _job,
+      _mobileFee,
+      _carModel,
+      _noOfCars,
+      _bMI,
+      _insurancePercentage;
 
-  DateTime _BirthDate; // ignore: non_constant_identifier_names
-  int _Height, // ignore: non_constant_identifier_names
-      _Weight, // ignore: non_constant_identifier_names
-      _NoOfDep, // ignore: non_constant_identifier_names
-      _MonthlyIncome; // ignore: non_constant_identifier_names
+  DateTime _birthDate;
+  int _height, _weight, _noOfDep, _monthlyIncome;
 
-  bool _Accepted, // ignore: non_constant_identifier_names
-      _CuttedArm, // ignore: non_constant_identifier_names
-      _CuttedLeg, // ignore: non_constant_identifier_names
-      _ChronicDisease; // ignore: non_constant_identifier_names
+  bool _accepted, _cuttedArm, _cuttedLeg, _chronicDisease;
 
-  void setAllDataUsage(
-      fname,
-      lname,
-      mobile,
-      address,
-      birthdate,
-      height,
-      weight, // ignore: non_constant_identifier_names
-      gender,
-      accepted,
-      percentage) {
-    _FirstName = fname;
-    _LastName = lname;
-    _Address = address;
-    _Mobile = mobile;
-    _BirthDate = birthdate;
-    _Height = height;
-    _Weight = weight;
-    _Gender = gender;
-    _Accepted = accepted;
-    _InsurancePercentage = percentage;
+  void setAllDataUsage(fname, lname, mobile, address, birthdate, height, weight,
+      gender, accepted, percentage) {
+    _firstName = fname;
+    _lastName = lname;
+    _address = address;
+    _mobile = mobile;
+    _birthDate = birthdate;
+    _height = height;
+    _weight = weight;
+    _gender = gender;
+    _accepted = accepted;
+    _insurancePercentage = percentage;
   }
 
   setPatientBMI() {
-    var bmi = _Weight / pow(_Height / 100, 2);
-    _BMI = bmi.toStringAsFixed(1);
+    var bmi = _weight / pow(_height / 100, 2);
+    _bMI = bmi.toStringAsFixed(1);
   }
 
   getBMI() {
-    return _BMI;
+    return _bMI;
   }
 
   setPassword(newPass) {
@@ -71,162 +55,162 @@ class Patient {
   }
 
   void setFirstName(name) {
-    _FirstName = name;
+    _firstName = name;
   }
 
   void setLasName(name) {
-    _LastName = name;
+    _lastName = name;
   }
 
   void setAddress(address) {
-    _Address = address;
+    _address = address;
   }
 
   void setMobile(mobile) {
-    _Mobile = mobile;
+    _mobile = mobile;
   }
 
   void setInsurancePercentage(percentage) {
-    _InsurancePercentage = percentage;
+    _insurancePercentage = percentage;
   }
 
   void setGender(gender) {
-    _Gender = gender;
+    _gender = gender;
   }
 
   void setBirthdate(date) {
-    _BirthDate = date;
+    _birthDate = date;
   }
 
   void setHeight(h) {
-    _Height = h;
+    _height = h;
   }
 
   void setWeight(w) {
-    _Weight = w;
+    _weight = w;
   }
 
   void setAccepted(a) {
-    _Accepted = a;
+    _accepted = a;
   }
 
   void setJob(job) {
-    _Job = job;
+    _job = job;
   }
 
   void setNoOfDependencies(no) {
-    _NoOfDep = no;
+    _noOfDep = no;
   }
 
   void setArmOff(arm) {
-    _CuttedArm = arm;
+    _cuttedArm = arm;
   }
 
   void setLegOff(leg) {
-    _CuttedLeg = leg;
+    _cuttedLeg = leg;
   }
 
   void setChronicDisease(chronic) {
-    _ChronicDisease = chronic;
+    _chronicDisease = chronic;
   }
 
   void setMonthlyIncome(income) {
-    _MonthlyIncome = income;
+    _monthlyIncome = income;
   }
 
   void setNoOfCars(cars) {
-    _NoOfCars = cars;
+    _noOfCars = cars;
   }
 
   void setCarModel(car) {
-    _CarModel = car;
+    _carModel = car;
   }
 
   void setBloodType(blood) {
-    _BloodType = blood;
+    _bloodType = blood;
   }
 
   void setMobileFees(fee) {
-    _MobileFee = fee;
+    _mobileFee = fee;
   }
 
   getFirstName() {
-    return _FirstName;
+    return _firstName;
   }
 
   getLasName() {
-    return _LastName;
+    return _lastName;
   }
 
   getAddress() {
-    return _Address;
+    return _address;
   }
 
   getMobile() {
-    return _Mobile;
+    return _mobile;
   }
 
   getGender() {
-    return _Gender;
+    return _gender;
   }
 
   getBirthdate() {
-    return _BirthDate;
+    return _birthDate;
   }
 
   getHeight() {
-    return _Height;
+    return _height;
   }
 
   getWeight() {
-    return _Weight;
+    return _weight;
   }
 
   getAccepted() {
-    return _Accepted;
+    return _accepted;
   }
 
   getJob() {
-    return _Job;
+    return _job;
   }
 
   getNoOfDependencies() {
-    return _NoOfDep;
+    return _noOfDep;
   }
 
   getArmOff() {
-    return _CuttedArm;
+    return _cuttedArm;
   }
 
   getLegOff() {
-    return _CuttedLeg;
+    return _cuttedLeg;
   }
 
   getChronicDisease() {
-    return _ChronicDisease;
+    return _chronicDisease;
   }
 
   getMonthlyIncome() {
-    return _MonthlyIncome;
+    return _monthlyIncome;
   }
 
   getNoOfCars() {
-    return _NoOfCars;
+    return _noOfCars;
   }
 
   getCarModel() {
-    return _CarModel;
+    return _carModel;
   }
 
   getBloodType() {
-    return _BloodType;
+    return _bloodType;
   }
 
   getMobileFees() {
-    return _MobileFee;
+    return _mobileFee;
   }
 
   getInsurancePercentage() {
-    return _InsurancePercentage;
+    return _insurancePercentage;
   }
 }

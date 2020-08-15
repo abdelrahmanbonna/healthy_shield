@@ -1,60 +1,59 @@
 class MedicalPlace {
-  String _ID, _Name, _Phone, _Address, _Email;
-  double _VisitFees;
+  String _iD, _name, _phone, _address, _email;
+  double _visitFees;
   void setAllDataUsage(email, name, phone, address, visitFee) {
-    _Email = email;
-    _Name = name;
-    _Phone = phone;
-    _Address = address;
-    _VisitFees = visitFee;
+    _email = email;
+    _name = name;
+    _phone = phone;
+    _address = address;
+    _visitFees = visitFee;
   }
 
   void setID(id) {
-    _ID = id;
+    _iD = id;
   }
 
   void setEmail(email) {
-    _Email = email;
+    _email = email;
   }
 
   void setName(name) {
-    _Name = name;
+    _name = name;
   }
 
   void setPhone(phone) {
-    _Phone = phone;
+    _phone = phone;
   }
 
   void setAddress(address) {
-    _Address = address;
+    _address = address;
   }
 
   void setVisitFees(visitFee) {
-    _VisitFees = visitFee;
+    _visitFees = visitFee;
   }
 
   getID() {
-    return _ID;
+    return _iD;
   }
 
   getEmail() {
-    return _Email;
+    return _email;
   }
 
   getName() {
-    return _Name;
+    return _name;
   }
 
   getPhone() {
-    return _Phone;
+    return _phone;
   }
 
   getAddress() {
-    return _Address;
+    return _address;
   }
 
   getVisitFees() {
-    return _VisitFees;
+    return _visitFees;
   }
-// ignore: non_constant_identifier_names
 }

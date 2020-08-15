@@ -4,8 +4,14 @@ import 'package:healthyshield/Utilities/constants.dart';
 import 'package:healthyshield/Utilities/desginedButton.dart';
 
 // Here is the forget password screen
-class ForgetPass extends StatelessWidget {
+class ForgetPass extends StatefulWidget {
   static String id = "forget";
+
+  @override
+  _ForgetPassState createState() => _ForgetPassState();
+}
+
+class _ForgetPassState extends State<ForgetPass> {
   String email = "";
 
   Widget buildBottomSheet(BuildContext context) {

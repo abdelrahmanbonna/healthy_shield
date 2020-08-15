@@ -1,64 +1,64 @@
 class Doctor {
-  String _ID;
-  String _Email;
-  String _Mobile;
-  String _FirstName;
-  String _LastName;
-  String _Specialty;
+  String _iD;
+  String _email;
+  String _mobile;
+  String _firstName;
+  String _lastName;
+  String _specialty;
 
   void setAllDataUsage(fname, lname, mobile, specialty, email) {
-    _FirstName = fname;
-    _LastName = lname;
-    _Email = email;
-    _Specialty = specialty;
-    _Mobile = mobile;
+    _firstName = fname;
+    _lastName = lname;
+    _email = email;
+    _specialty = specialty;
+    _mobile = mobile;
   }
 
   void setID(id) {
-    _ID = id;
+    _iD = id;
   }
 
   void setEmail(email) {
-    _Email = email;
+    _email = email;
   }
 
   void setFirstName(name) {
-    _FirstName = name;
+    _firstName = name;
   }
 
   void setLasName(name) {
-    _LastName = name;
+    _lastName = name;
   }
 
   void setMobile(mobile) {
-    _Mobile = mobile;
+    _mobile = mobile;
   }
 
   void setSpecialty(specialty) {
-    _Specialty = specialty;
+    _specialty = specialty;
   }
 
   getID() {
-    return _ID;
+    return _iD;
   }
 
   getEmail() {
-    return _Email;
+    return _email;
   }
 
   getFirstName() {
-    return _FirstName;
+    return _firstName;
   }
 
   getLasName() {
-    return _LastName;
+    return _lastName;
   }
 
   getMobile() {
-    return _Mobile;
+    return _mobile;
   }
 
   getSpecialty() {
-    return _Specialty;
+    return _specialty;
   }
 }
