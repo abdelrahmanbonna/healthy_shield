@@ -10,31 +10,14 @@ import 'package:healthyshield/models/patient.dart';
 import 'package:http/http.dart' as http;
 
 class UserData extends ChangeNotifier {
-  Patient user = Patient('01102777726');
+  Patient user;
   String aPIUrl = "http://127.0.0.1:8000/api/";
-
-  void testStart() {
-    user.email = "abdelrahmanbonna@outlook.com";
-    user.setAllDataUsage(
-        'Abdelrahman Bonna',
-        '01102777726',
-        '1st villa tagamo3',
-        DateTime(1998, 5, 28),
-        175,
-        77,
-        "Male",
-        true,
-        "40");
-    user.setBloodType("A+");
-    getBMI();
-  }
 
   String getPatientBarcode() {
     return kBarcodeAPILink + user.iD + ".png";
   }
 
   void loginPatient(email, pass) async {
-    //TODO: Login process goes here
     Map<String, dynamic> map = {
       'email': email,
       'password': pass,
@@ -62,14 +45,18 @@ class UserData extends ChangeNotifier {
         ).timeout(
           const Duration(seconds: 30),
         );
-        var dataDecoded = json.decode(data.body);
-        user = Patient(dataDecoded['id'].toString());
-        user.setAllDataUsage(
-            name: dataDecoded['id'].toString(),
-            gender: dataDecoded['gender'].toString(),
-            address: dataDecoded['address'].toString(),
-            height: dataDecoded['height'].toString(),
-            weight: dataDecoded['weight'].toString());
+        if (response.statusCode == 200 || response.statusCode == 201) {
+          var dataDecoded = json.decode(data.body);
+          user = Patient(dataDecoded['id'].toString());
+          user.setAllDataUsage(
+              name: dataDecoded['id'].toString(),
+              gender: dataDecoded['gender'].toString(),
+              address: dataDecoded['address'].toString(),
+              height: dataDecoded['height'].toString(),
+              weight: dataDecoded['weight'].toString());
+        } else {
+          throw Exception('Error ${response.statusCode}');
+        }
       } else {
         throw Exception('Error ${response.statusCode}');
       }
@@ -80,6 +67,7 @@ class UserData extends ChangeNotifier {
 
   void regPatient(context, name, lname, email, mobile, address, city, password,
       confirmPass) {
+    user = Patient("000");
     if (password == confirmPass) {
       user.setAccepted(false);
       user.setName(name);
@@ -117,7 +105,6 @@ class UserData extends ChangeNotifier {
       mobilefee,
       job,
       bloodtype) async {
-    //TODO but those vars in database
     Map<String, dynamic> map;
     if (int.parse(noOfCars) >= 3 ||
         int.parse(noOfDep) >= 4 ||
@@ -200,19 +187,71 @@ class UserData extends ChangeNotifier {
     }
   }
 
-  Future<void> requestAmbulance() async {
+  Future<void> requestAmbulance(context) async {
     var location = Location();
     await location.getLocation();
-    //TODO: Add other data and make the request Sarah Task
-    /*
-      user_id
-      date    DateTime.now()
-      location_link  "https://www.google.com/maps/@${location.latitude},${location.longitude},15z"
-     */
+    Map<String, dynamic> map = {
+      'user_id': user.iD,
+      'date': DateTime.now(),
+      'location_link':
+          "https://www.google.com/maps/@${location.latitude},${location.longitude},15z",
+    };
+    try {
+      final response = await http.post(
+        '${aPIUrl + 'user-register'}',
+        body: json.encode(map),
+        headers: {'Content-Type': 'application/json'},
+      ).timeout(
+        const Duration(seconds: 30),
+      );
+      if (response.statusCode == 200 || response.statusCode == 201) {
+        showDialog(
+            context: context,
+            child: Center(
+              child: Text(
+                'Ambulance requested please wait.!',
+                style: Theme.of(context).textTheme.subtitle1,
+              ),
+            ),
+            barrierColor: Colors.white);
+      } else {
+        throw Exception("error ${response.statusCode}");
+      }
+    } on Exception catch (e) {
+      print(e);
+    }
   }
 
-  void makeReport(String report) {
-    //TODO send report to database
+  void makeReport(context, String report) async {
+    Map<String, dynamic> map = {
+      'name': user.getName(),
+      'email': user.email,
+      'message': report,
+      'accounttype': "user",
+      'phone': user.getMobile(),
+    };
+    try {
+      final response = await http.post(
+        '${aPIUrl + 'user-register'}',
+        body: json.encode(map),
+        headers: {'Content-Type': 'application/json'},
+      ).timeout(
+        const Duration(seconds: 30),
+      );
+      if (response.statusCode == 200 || response.statusCode == 201) {
+        showDialog(
+            context: context,
+            child: Center(
+              child: Text(
+                'Report Sent!',
+                style: Theme.of(context).textTheme.subtitle1,
+              ),
+            ),
+            barrierColor: Colors.white);
+      }
+    } on Exception catch (e) {
+      print(e);
+    }
   }
 
   void editProfile(
@@ -221,8 +260,7 @@ class UserData extends ChangeNotifier {
     user.setAddress(newAddress);
     user.setHeight(newHeight);
     user.setWeight(newWeight);
-    //TODO Take those info with pass and email and change then in database
-
+    //TODO make edits in API
     notifyListeners();
   }
 
