@@ -16,8 +16,7 @@ class UserData extends ChangeNotifier {
   void testStart() {
     user.email = "abdelrahmanbonna@outlook.com";
     user.setAllDataUsage(
-        'Abdelrahman',
-        'Bonna',
+        'Abdelrahman Bonna',
         '01102777726',
         '1st villa tagamo3',
         DateTime(1998, 5, 28),
@@ -52,19 +51,25 @@ class UserData extends ChangeNotifier {
 
       // taking token from the login
       if (response.statusCode == 200 || response.statusCode == 201) {
-        var tokenjson = json.decode(response.body);
+        var tokenJson = json.decode(response.body);
         // taking data from api to show in the app
         final data = await http.post(
           '${aPIUrl + 'user/info'}',
           headers: {
-            "Authorization": "Bearer ${tokenjson['access_token']}",
+            "Authorization": "Bearer ${tokenJson['access_token']}",
             'Content-Type': 'application/json',
           },
         ).timeout(
           const Duration(seconds: 30),
         );
-        //user = Patient(iD);
-        //user.setAllDataUsage(fname, lname, mobile, address, birthdate, height, weight, gender, accepted)
+        var dataDecoded = json.decode(data.body);
+        user = Patient(dataDecoded['id'].toString());
+        user.setAllDataUsage(
+            name: dataDecoded['id'].toString(),
+            gender: dataDecoded['gender'].toString(),
+            address: dataDecoded['address'].toString(),
+            height: dataDecoded['height'].toString(),
+            weight: dataDecoded['weight'].toString());
       } else {
         throw Exception('Error ${response.statusCode}');
       }
@@ -73,12 +78,11 @@ class UserData extends ChangeNotifier {
     }
   }
 
-  void regPatient(context, fname, lname, email, mobile, address, city, password,
+  void regPatient(context, name, lname, email, mobile, address, city, password,
       confirmPass) {
     if (password == confirmPass) {
       user.setAccepted(false);
-      user.setFirstName(fname);
-      user.setLasName(lname);
+      user.setName(name);
       user.setAddress(address);
       user.email = email;
       user.setMobile(mobile);
@@ -120,7 +124,7 @@ class UserData extends ChangeNotifier {
         int.parse(carModel) >= 2015 ||
         int.parse(income) >= 15000) {
       map = {
-        'name': user.getFirstName() + " " + user.getLasName(),
+        'name': user.getName(),
         'email': user.email,
         'address': user.getAddress(),
         'city': user.getCity(),
@@ -144,7 +148,7 @@ class UserData extends ChangeNotifier {
       };
     } else {
       map = {
-        'name': user.getFirstName() + user.getLasName(),
+        'name': user.getName(),
         'email': user.email,
         'address': user.getAddress(),
         'city': user.getCity(),

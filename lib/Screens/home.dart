@@ -195,13 +195,7 @@ class _MainLayoutState extends State<MainLayout> {
           children: [
             ProfileWidget(
               text: 'First name: ' +
-                  Provider.of<UserData>(context).user.getFirstName(),
-              icon: FontAwesomeIcons.idCard,
-              color: Theme.of(context).primaryColor,
-            ),
-            ProfileWidget(
-              text: 'Last name: ' +
-                  Provider.of<UserData>(context).user.getLasName(),
+                  Provider.of<UserData>(context).user.getName(),
               icon: FontAwesomeIcons.idCard,
               color: Theme.of(context).primaryColor,
             ),

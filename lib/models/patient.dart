@@ -5,8 +5,7 @@ class Patient {
   String email, _password;
 
   String iD,
-      _firstName,
-      _lastName,
+      _name,
       _mobile,
       _address,
       _city,
@@ -24,10 +23,17 @@ class Patient {
 
   bool _accepted, _cuttedArm, _cuttedLeg, _chronicDisease;
 
-  void setAllDataUsage(fname, lname, mobile, address, birthdate, height, weight,
-      gender, accepted, percentage) {
-    _firstName = fname;
-    _lastName = lname;
+  void setAllDataUsage(
+      {name,
+      mobile,
+      address,
+      birthdate,
+      height,
+      weight,
+      gender,
+      accepted,
+      percentage}) {
+    _name = name;
     _address = address;
     _mobile = mobile;
     _birthDate = birthdate;
@@ -61,12 +67,8 @@ class Patient {
     return _password;
   }
 
-  void setFirstName(name) {
-    _firstName = name;
-  }
-
-  void setLasName(name) {
-    _lastName = name;
+  void setName(name) {
+    _name = name;
   }
 
   void setAddress(address) {
@@ -141,12 +143,8 @@ class Patient {
     _mobileFee = fee;
   }
 
-  getFirstName() {
-    return _firstName;
-  }
-
-  getLasName() {
-    return _lastName;
+  getName() {
+    return _name;
   }
 
   getAddress() {
