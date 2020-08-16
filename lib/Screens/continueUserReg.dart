@@ -57,6 +57,7 @@ class _ContinueUserReqState extends State<ContinueUserReq> {
         onTap: (index) {
           if (index == 1) {
             Provider.of<UserData>(context, listen: false).continueReg(
+                context,
                 gender,
                 dependencies,
                 carsNo,

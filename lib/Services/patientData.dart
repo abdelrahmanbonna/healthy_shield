@@ -1,11 +1,12 @@
 import 'dart:convert';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:healthyshield/Screens/continueUserReg.dart';
+import 'package:healthyshield/Screens/login.dart';
 import 'package:healthyshield/Services/location.dart';
 import 'package:healthyshield/Utilities/constants.dart';
 import 'package:healthyshield/models/patient.dart';
-import 'package:healthyshield/models/visit.dart';
 import 'package:http/http.dart' as http;
 
 class UserData extends ChangeNotifier {
@@ -33,20 +34,6 @@ class UserData extends ChangeNotifier {
     return kBarcodeAPILink + user.iD + ".png";
   }
 
-  Future requestGet(String url) async {
-    http.Response response = await http.get(aPIUrl + url);
-
-    if (response.statusCode == 200) {
-      String data = response.body;
-
-      return jsonDecode(data);
-    } else {
-      print(response.statusCode);
-    }
-  }
-
-  Future requestPost(map, String url) async {}
-
   void loginPatient(email, pass) async {
     //TODO: Login process goes here
     Map<String, dynamic> map = {
@@ -62,24 +49,28 @@ class UserData extends ChangeNotifier {
       ).timeout(
         const Duration(seconds: 30),
       );
+
       // taking token from the login
-      var tokenjson = json.decode(response.body);
-      // taking data from api to show in the app
-      final data = await http.post(
-        '${aPIUrl + 'user/info'}',
-        headers: {
-          "Authorization": "Bearer ${tokenjson['access_token']}",
-          'Content-Type': 'application/json',
-        },
-      ).timeout(
-        const Duration(seconds: 30),
-      );
+      if (response.statusCode == 200 || response.statusCode == 201) {
+        var tokenjson = json.decode(response.body);
+        // taking data from api to show in the app
+        final data = await http.post(
+          '${aPIUrl + 'user/info'}',
+          headers: {
+            "Authorization": "Bearer ${tokenjson['access_token']}",
+            'Content-Type': 'application/json',
+          },
+        ).timeout(
+          const Duration(seconds: 30),
+        );
+        //user = Patient(iD);
+        //user.setAllDataUsage(fname, lname, mobile, address, birthdate, height, weight, gender, accepted)
+      } else {
+        throw Exception('Error ${response.statusCode}');
+      }
     } catch (e) {
       print(e);
     }
-
-    //user = Patient(iD);
-    //user.setAllDataUsage(fname, lname, mobile, address, birthdate, height, weight, gender, accepted)
   }
 
   void regPatient(context, fname, lname, email, mobile, address, city, password,
@@ -106,13 +97,30 @@ class UserData extends ChangeNotifier {
     }
   }
 
-  void continueReg(gender, noOfDep, noOfCars, carModel, birth, height, weight,
-      income, lostleg, lostarm, chronicdis, mobilefee, job, bloodtype) async {
+  void continueReg(
+      context,
+      gender,
+      noOfDep,
+      noOfCars,
+      carModel,
+      birth,
+      height,
+      weight,
+      income,
+      lostleg,
+      lostarm,
+      chronicdis,
+      mobilefee,
+      job,
+      bloodtype) async {
     //TODO but those vars in database
     Map<String, dynamic> map;
-    if (noOfCars >= 3 || noOfDep >= 4 || carModel >= 2015 || income >= 15000) {
+    if (int.parse(noOfCars) >= 3 ||
+        int.parse(noOfDep) >= 4 ||
+        int.parse(carModel) >= 2015 ||
+        int.parse(income) >= 15000) {
       map = {
-        'name': user.getFirstName() + user.getLasName(),
+        'name': user.getFirstName() + " " + user.getLasName(),
         'email': user.email,
         'address': user.getAddress(),
         'city': user.getCity(),
@@ -159,15 +167,30 @@ class UserData extends ChangeNotifier {
         'password_confirmation': user.getPassword(),
       };
     }
-
     try {
+      //making register request
       final response = await http.post(
-        '${aPIUrl + 'user-login'}',
+        '${aPIUrl + 'user-register'}',
         body: json.encode(map),
         headers: {'Content-Type': 'application/json'},
       ).timeout(
         const Duration(seconds: 30),
       );
+      if (response.statusCode == 200 || response.statusCode == 201) {
+        showDialog(
+            context: context,
+            child: Center(
+              child: Text(
+                'You are Registered. Please login!',
+                style: Theme.of(context).textTheme.subtitle1,
+              ),
+            ),
+            barrierColor: Colors.white);
+        Navigator.of(context)
+            .pushNamedAndRemoveUntil(Login.id, (route) => false);
+      } else {
+        throw Exception("error ${response.statusCode}");
+      }
     } catch (e) {
       print(e);
     }
@@ -176,13 +199,12 @@ class UserData extends ChangeNotifier {
   Future<void> requestAmbulance() async {
     var location = Location();
     await location.getLocation();
-    //TODO: Add other data and make the request
-  }
-
-  List<Visit> getMedicalHistory() {
-    List<Visit> list = [];
-    //TODO function to add the visits into the list
-    return list;
+    //TODO: Add other data and make the request Sarah Task
+    /*
+      user_id
+      date    DateTime.now()
+      location_link  "https://www.google.com/maps/@${location.latitude},${location.longitude},15z"
+     */
   }
 
   void makeReport(String report) {
