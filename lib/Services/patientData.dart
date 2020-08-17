@@ -11,7 +11,7 @@ import 'package:http/http.dart' as http;
 
 class UserData extends ChangeNotifier {
   Patient user;
-  String aPIUrl = "http://192.168.1.26:8000/api";
+  String aPIUrl = "http://192.168.43.66:8001/api";
   var tokenJson;
 
   String getPatientBarcode() {
@@ -204,8 +204,8 @@ class UserData extends ChangeNotifier {
     var location = Location();
     await location.getLocation();
     Map<String, dynamic> map = {
-      'user_id': user.iD,
-      'date': DateTime.now(),
+      'user_id': user.iD.toString(),
+      'date': DateTime.now().toString(),
       'location_link':
           "https://www.google.com/maps/@${location.latitude},${location.longitude},15z",
     };
@@ -217,6 +217,7 @@ class UserData extends ChangeNotifier {
       ).timeout(
         const Duration(seconds: 30),
       );
+      print(response.body);
       if (response.statusCode == 200 || response.statusCode == 201) {
         showDialog(
             context: context,

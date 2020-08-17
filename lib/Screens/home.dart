@@ -12,6 +12,7 @@ import 'package:healthyshield/Utilities/constants.dart';
 import 'package:healthyshield/Utilities/desginedButton.dart';
 import 'package:healthyshield/Utilities/profileWidget.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'bottomSheet.dart';
 import 'report.dart';
@@ -29,6 +30,15 @@ class _MainLayoutState extends State<MainLayout> {
   int currentChoice = 0;
   bool loading = true;
   String button = "";
+
+  _launchURL(String phone) async {
+    const url = 'tel:' + phone;
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
 
   Widget buildBottomSheet(BuildContext context) {
     String newValue = " ";
@@ -133,8 +143,10 @@ class _MainLayoutState extends State<MainLayout> {
               child: RoundIconButton(
                 //TODO: Make Ambulance Request
                 func: () {
-                  Provider.of<UserData>(context, listen: false)
-                      .requestAmbulance(context);
+//                  Provider.of<UserData>(context, listen: false)
+//                      .requestAmbulance(context);
+//TODO call
+                  _launchURL("123");
                 },
                 height: 50.0,
                 text: 'Call Ambulance',

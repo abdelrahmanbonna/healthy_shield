@@ -6,13 +6,13 @@ import 'package:http/http.dart' as http;
 
 class VisitData extends ChangeNotifier {
   List<Visit> list = [];
-  String _aPIUrl = "http://127.0.0.1:8000/api/";
+  String _aPIUrl = "http://192.168.43.66:8001/api";
   Visit current;
 
   fillList(userID) async {
     try {
       var response = await http
-          .post(_aPIUrl + "user-appointments/${userID}")
+          .post(_aPIUrl + "/user-appointments/${userID}")
           .timeout(Duration(seconds: 10));
       if (response.statusCode == 200) {
         var appointmentsJson = json.decode(response.body);
