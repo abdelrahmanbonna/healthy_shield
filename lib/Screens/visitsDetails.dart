@@ -5,7 +5,7 @@ import 'package:healthyshield/Utilities/profileWidget.dart';
 
 class VisitsDetails extends StatefulWidget {
   static String id = "visit";
-
+  
   @override
   _VisitsDetailsState createState() => _VisitsDetailsState();
 }
@@ -30,47 +30,47 @@ class _VisitsDetailsState extends State<VisitsDetails> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 ProfileWidget(
-                  text: 'Place name  Nasayem Hospital',
+                  text: 'Place name  ${widget.pname}',
                   icon: FontAwesomeIcons.clinicMedical,
                   color: Theme.of(context).primaryColor,
                 ),
                 ProfileWidget(
-                  text: 'Place Email nasayem@test.com',
+                  text: 'Place Email ${widget.pemail}',
                   icon: FontAwesomeIcons.clinicMedical,
                   color: Theme.of(context).primaryColor,
                 ),
                 ProfileWidget(
-                  text: 'Place phone number  20200000000',
+                  text: 'Place phone number  ${widget.pphone}',
                   icon: FontAwesomeIcons.clinicMedical,
                   color: Theme.of(context).primaryColor,
                 ),
                 ProfileWidget(
-                  text: 'Place Address  eltagamo3 el 5ames',
+                  text: 'Place Address  ${widget.paddress}',
                   icon: FontAwesomeIcons.clinicMedical,
                   color: Theme.of(context).primaryColor,
                 ),
                 ProfileWidget(
-                  text: 'Doctor name Mohamed H',
+                  text: 'Doctor name ${widget.dname}',
                   icon: FontAwesomeIcons.userMd,
                   color: Theme.of(context).primaryColor,
                 ),
                 ProfileWidget(
-                  text: 'Doctor Email mohamedh@yahoo.com',
+                  text: 'Doctor Email ${widget.demail}',
                   icon: FontAwesomeIcons.userMd,
                   color: Theme.of(context).primaryColor,
                 ),
                 ProfileWidget(
-                  text: 'Doctor Phone number 0100020030',
+                  text: 'Doctor Phone number ${widget.dphone}',
                   icon: FontAwesomeIcons.userMd,
                   color: Theme.of(context).primaryColor,
                 ),
                 ProfileWidget(
-                  text: 'Specialty Heart',
+                  text: 'Specialty ${widget.spec}',
                   icon: FontAwesomeIcons.userMd,
                   color: Theme.of(context).primaryColor,
                 ),
                 ProfileWidget(
-                  text: 'Date  2/5/2020',
+                  text: 'Date  ${widget.date}',
                   icon: FontAwesomeIcons.calendarDay,
                   color: Theme.of(context).primaryColor,
                 ),
@@ -121,7 +121,7 @@ class _VisitsDetailsState extends State<VisitsDetails> {
                           ],
                         ),
                         Text(
-                          'Here is the prescription where dr place his drugs.',
+                          '${widget.prescription}',
                           textAlign: TextAlign.center,
                           maxLines: 80,
                           style: Theme.of(context)

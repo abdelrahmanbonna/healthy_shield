@@ -7,6 +7,7 @@ import 'package:http/http.dart' as http;
 class VisitData extends ChangeNotifier {
   List<Visit> list = [];
   String _aPIUrl = "http://127.0.0.1:8000/api/";
+  Visit current ;
 
   fillList(userID) async {
     try {
@@ -37,4 +38,7 @@ class VisitData extends ChangeNotifier {
       print(e);
     }
   }
+
+
+  setCurrentVisit(){}
 }
