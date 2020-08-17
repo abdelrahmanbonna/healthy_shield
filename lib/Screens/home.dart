@@ -31,7 +31,7 @@ class _MainLayoutState extends State<MainLayout> {
   String button = "";
 
   Widget buildBottomSheet(BuildContext context) {
-    String newValue = "new";
+    String newValue = " ";
 
     if (button == "weight") {
       return BottomSheetEditor(
@@ -68,10 +68,7 @@ class _MainLayoutState extends State<MainLayout> {
       return BottomSheetEditor(
         buttonFunction: () {
           //TODO add value to database
-          Provider.of<UserData>(context, listen: false)
-              .user
-              .setMobile(newValue);
-          Provider.of<UserData>(context, listen: false).notify();
+          Provider.of<UserData>(context, listen: false).setMobile(newValue);
           Navigator.pop(context);
         },
         onChangeFunction: (value) {
@@ -81,14 +78,15 @@ class _MainLayoutState extends State<MainLayout> {
       );
     } else if (button == "email") {
       return BottomSheetEditor(
-        buttonFunction: () {
-          //TODO add value to database
-          Provider.of<UserData>(context, listen: false).user.email = newValue;
-          Provider.of<UserData>(context, listen: false).notify();
-          Navigator.pop(context);
-        },
         onChangeFunction: (value) {
           newValue = value;
+        },
+        buttonFunction: () {
+          //TODO add value to database
+
+          Provider.of<UserData>(context, listen: false).user.email = newValue;
+
+          Navigator.pop(context);
         },
         field: 'Email',
       );
@@ -99,7 +97,7 @@ class _MainLayoutState extends State<MainLayout> {
           Provider.of<UserData>(context, listen: false)
               .user
               .setAddress(newValue);
-          Provider.of<UserData>(context, listen: false).notify();
+
           Navigator.pop(context);
         },
         onChangeFunction: (value) {
@@ -134,7 +132,10 @@ class _MainLayoutState extends State<MainLayout> {
               padding: kPaddingValue,
               child: RoundIconButton(
                 //TODO: Make Ambulance Request
-                func: () {},
+                func: () {
+                  Provider.of<UserData>(context, listen: false)
+                      .requestAmbulance(context);
+                },
                 height: 50.0,
                 text: 'Call Ambulance',
               ),
@@ -194,8 +195,7 @@ class _MainLayoutState extends State<MainLayout> {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             ProfileWidget(
-              text: 'First name: ' +
-                  Provider.of<UserData>(context).user.getName(),
+              text: 'Name: ' + Provider.of<UserData>(context).user.getName(),
               icon: FontAwesomeIcons.idCard,
               color: Theme.of(context).primaryColor,
             ),

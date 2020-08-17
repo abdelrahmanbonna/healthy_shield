@@ -11,7 +11,7 @@ import 'package:http/http.dart' as http;
 
 class UserData extends ChangeNotifier {
   Patient user;
-  String aPIUrl = "http://192.168.43.66:8000/api";
+  String aPIUrl = "http://192.168.1.26:8000/api";
   var tokenJson;
 
   String getPatientBarcode() {
@@ -78,8 +78,8 @@ class UserData extends ChangeNotifier {
     notifyListeners();
   }
 
-  void regPatient(context, name, lname, email, mobile, address, city, password,
-      confirmPass) {
+  void regPatient(
+      context, name, email, mobile, address, city, password, confirmPass) {
     user = Patient("000");
     if (password == confirmPass) {
       user.setAccepted(false);
@@ -211,7 +211,7 @@ class UserData extends ChangeNotifier {
     };
     try {
       final response = await http.post(
-        '${aPIUrl + 'user-register'}',
+        '${aPIUrl + '/ambulance-requests-add'}',
         body: json.encode(map),
         headers: {'Content-Type': 'application/json'},
       ).timeout(
@@ -277,7 +277,8 @@ class UserData extends ChangeNotifier {
     notifyListeners();
   }
 
-  void notify() {
+  void setMobile(val) {
+    user.setMobile(val);
     notifyListeners();
   }
 }

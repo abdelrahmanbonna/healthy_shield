@@ -282,18 +282,6 @@ class _ContinueUserReqState extends State<ContinueUserReq> {
                 ),
                 Padding(
                   padding: kPaddingValue,
-                  child: TextField(
-                    style: Theme.of(context).textTheme.subtitle1,
-                    decoration: kCarsModelTextFieldStyle,
-                    onChanged: (value) {
-                      setState(() {
-                        mobileFees = value;
-                      });
-                    },
-                  ),
-                ),
-                Padding(
-                  padding: kPaddingValue,
                   child: DropDownMenuCustom(
                     title: 'Your job:',
                     itemsStrings: [
