@@ -27,13 +27,17 @@ class Patient {
       {name,
       mobile,
       address,
+      mail,
       birthdate,
+      blood,
       height,
       weight,
       gender,
       accepted,
       percentage}) {
     _name = name;
+    email = mail;
+    _bloodType = blood;
     _address = address;
     _mobile = mobile;
     _birthDate = birthdate;

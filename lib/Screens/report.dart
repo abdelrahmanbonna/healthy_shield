@@ -1,12 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:healthyshield/Screens/home.dart';
+import 'package:healthyshield/Services/patientData.dart';
 import 'package:healthyshield/Utilities/barScreen.dart';
 import 'package:healthyshield/Utilities/constants.dart';
 import 'package:healthyshield/Utilities/desginedButton.dart';
+import 'package:provider/provider.dart';
 
-class Report extends StatelessWidget {
+class Report extends StatefulWidget {
   static String id = 'report';
 
+  @override
+  _ReportState createState() => _ReportState();
+}
+
+class _ReportState extends State<Report> {
+  static String report = "";
   @override
   Widget build(BuildContext context) {
     return BarScreen(
@@ -28,13 +35,16 @@ class Report extends StatelessWidget {
             child: TextField(
               maxLines: 10,
               decoration: kReportTextFieldStyle,
+              onChanged: (value) {
+                report = value;
+              },
             ),
           ),
           RoundIconButton(
             height: 40,
-            //TODO: add function
             func: () {
-              Navigator.pushNamed(context, MainLayout.id);
+              Provider.of<UserData>(context, listen: false)
+                  .makeReport(context, report);
             },
             text: 'Submit',
           )

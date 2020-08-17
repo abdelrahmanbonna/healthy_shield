@@ -11,58 +11,71 @@ import 'package:http/http.dart' as http;
 
 class UserData extends ChangeNotifier {
   Patient user;
-  String aPIUrl = "http://127.0.0.1:8000/api/";
+  String aPIUrl = "http://192.168.43.66:8000/api";
+  var tokenJson;
 
   String getPatientBarcode() {
     return kBarcodeAPILink + user.iD + ".png";
   }
 
-  void loginPatient(email, pass) async {
+  Future<bool> loginPatient(email, pass) async {
     Map<String, dynamic> map = {
       'email': email,
       'password': pass,
     };
-    try {
-      // response to make login
-      final response = await http.post(
-        '${aPIUrl + 'user-login'}',
-        body: json.encode(map),
-        headers: {'Content-Type': 'application/json'},
-      ).timeout(
-        const Duration(seconds: 30),
-      );
 
-      // taking token from the login
-      if (response.statusCode == 200 || response.statusCode == 201) {
-        var tokenJson = json.decode(response.body);
-        // taking data from api to show in the app
-        final data = await http.post(
-          '${aPIUrl + 'user/info'}',
-          headers: {
-            "Authorization": "Bearer ${tokenJson['access_token']}",
-            'Content-Type': 'application/json',
-          },
-        ).timeout(
-          const Duration(seconds: 30),
-        );
-        if (response.statusCode == 200 || response.statusCode == 201) {
-          var dataDecoded = json.decode(data.body);
-          user = Patient(dataDecoded['id'].toString());
-          user.setAllDataUsage(
-              name: dataDecoded['id'].toString(),
-              gender: dataDecoded['gender'].toString(),
-              address: dataDecoded['address'].toString(),
-              height: dataDecoded['height'].toString(),
-              weight: dataDecoded['weight'].toString());
-        } else {
-          throw Exception('Error ${response.statusCode}');
-        }
-      } else {
-        throw Exception('Error ${response.statusCode}');
-      }
-    } catch (e) {
-      print(e);
+    // response to make login
+    final response = await http.post(
+      "$aPIUrl/user-login",
+      body: json.encode(map),
+      headers: {'Content-Type': 'application/json'},
+    ).timeout(
+      const Duration(seconds: 30),
+    );
+    // taking token from the login
+    if (response.statusCode == 200 || response.statusCode == 201) {
+      tokenJson = json.decode(response.body)['access_token'];
+      // taking data from api to show in the app
+      print(tokenJson);
+      await getData();
+      return true;
+    } else {
+      throw Exception('Error ${response.statusCode}');
     }
+
+    return false;
+  }
+
+  Future<void> getData() async {
+    final data = await http.get(
+      '${aPIUrl + '/user/info'}',
+      headers: {
+        "Authorization": "Bearer $tokenJson",
+        'Content-Type': 'application/json',
+      },
+    ).timeout(
+      const Duration(seconds: 30),
+    );
+    if (data.statusCode == 200 || data.statusCode == 201) {
+      var dataDecoded = json.decode(data.body)[0];
+      user = Patient(dataDecoded['id'].toString());
+      user.setAllDataUsage(
+        name: dataDecoded['name'].toString(),
+        gender: dataDecoded['gender'].toString(),
+        address: dataDecoded['address'].toString(),
+        height: int.parse(dataDecoded['height'].toString()),
+        weight: int.parse(dataDecoded['weight'].toString()),
+        mobile: dataDecoded['phone'].toString(),
+        birthdate: DateTime.parse(dataDecoded['birthdate'].toString()),
+        accepted: dataDecoded['accepted'].toString() == '1',
+        mail: dataDecoded['email'].toString(),
+        blood: dataDecoded['bloodtype'].toString(),
+        percentage: dataDecoded['insurance'].toString(),
+      );
+    } else {
+      throw Exception('Error ${data.statusCode}');
+    }
+    notifyListeners();
   }
 
   void regPatient(context, name, lname, email, mobile, address, city, password,
@@ -161,7 +174,7 @@ class UserData extends ChangeNotifier {
     try {
       //making register request
       final response = await http.post(
-        '${aPIUrl + 'user-register'}',
+        '${aPIUrl + '/user-register'}',
         body: json.encode(map),
         headers: {'Content-Type': 'application/json'},
       ).timeout(
@@ -230,27 +243,22 @@ class UserData extends ChangeNotifier {
       'accounttype': "user",
       'phone': user.getMobile(),
     };
-    try {
-      final response = await http.post(
-        '${aPIUrl + 'user-register'}',
-        body: json.encode(map),
-        headers: {'Content-Type': 'application/json'},
-      ).timeout(
-        const Duration(seconds: 30),
-      );
-      if (response.statusCode == 200 || response.statusCode == 201) {
-        showDialog(
-            context: context,
-            child: Center(
-              child: Text(
-                'Report Sent!',
-                style: Theme.of(context).textTheme.subtitle1,
-              ),
-            ),
-            barrierColor: Colors.white);
-      }
-    } on Exception catch (e) {
-      print(e);
+
+    final response = await http.post(
+      '${aPIUrl + '/report-add'}',
+      body: json.encode(map),
+      headers: {'Content-Type': 'application/json'},
+    ).timeout(
+      const Duration(seconds: 30),
+    );
+    if (response.statusCode == 200 || response.statusCode == 201) {
+      showDialog(
+          context: context,
+          child: AlertDialog(
+            title: Text('Report sent'),
+            content: Text('Report has been sent.'),
+          ),
+          barrierColor: Colors.grey);
     }
   }
 

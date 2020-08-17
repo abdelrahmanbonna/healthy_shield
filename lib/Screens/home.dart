@@ -201,11 +201,7 @@ class _MainLayoutState extends State<MainLayout> {
             ),
             ProfileWidget(
               text: 'Birth date: ' +
-                  Provider.of<UserData>(context)
-                      .user
-                      .getBirthdate()
-                      .toString()
-                      .substring(0, 10),
+                  Provider.of<UserData>(context).user.getBirthdate().toString(),
               icon: FontAwesomeIcons.baby,
               color: Theme.of(context).primaryColor,
             ),

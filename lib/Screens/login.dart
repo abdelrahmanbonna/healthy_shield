@@ -3,8 +3,10 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:healthyshield/Screens/UsersRegistartion.dart';
 import 'package:healthyshield/Screens/forgetpass.dart';
 import 'package:healthyshield/Screens/home.dart';
+import 'package:healthyshield/Services/patientData.dart';
 import 'package:healthyshield/Utilities/constants.dart';
 import 'package:healthyshield/Utilities/desginedButton.dart';
+import 'package:provider/provider.dart';
 
 import 'about.dart';
 
@@ -111,8 +113,16 @@ class _LoginState extends State<Login> {
                     text: "Login",
                     func: () {
                       //TODO add login func
-                      Navigator.pushNamedAndRemoveUntil(context, MainLayout.id,
-                          (Route<dynamic> route) => false);
+                      Provider.of<UserData>(context, listen: false)
+                          .loginPatient(email, pass)
+                          .then((value) {
+                        if (value == true) {
+                          Provider.of<UserData>(context, listen: false)
+                              .getBMI();
+                          Navigator.pushNamedAndRemoveUntil(context,
+                              MainLayout.id, (Route<dynamic> route) => false);
+                        }
+                      });
                     },
                     height: 35.0,
                   ),
