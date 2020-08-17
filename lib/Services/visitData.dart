@@ -28,7 +28,7 @@ class VisitData extends ChangeNotifier {
             appointment['medicalplaces_phone'].toString(),
             appointment['medicalplaces_address'].toString(),
             appointment['date'],
-            appointment['prescription'],
+            appointment['prescription'].toString(),
           );
           list.add(v);
         }
@@ -39,6 +39,11 @@ class VisitData extends ChangeNotifier {
     } on Exception catch (e) {
       print(e);
     }
+  }
+
+  getList(userID) {
+    fillList(userID);
+    return list;
   }
 
   setCurrentVisit(Visit visit) {

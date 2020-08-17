@@ -33,49 +33,47 @@ class _VisitsDetailsState extends State<VisitsDetails> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 ProfileWidget(
-                  text: 'Place name  ${_visit.current.getMedplaceName()}',
+                  text: 'Place name  Nasayem Hospital',
                   icon: FontAwesomeIcons.clinicMedical,
                   color: Theme.of(context).primaryColor,
                 ),
                 ProfileWidget(
-                  text: 'Place Email ${_visit.current.getMedplaceEmail()}',
+                  text: 'Place Email NasayemHospital@outlook.com',
                   icon: FontAwesomeIcons.clinicMedical,
                   color: Theme.of(context).primaryColor,
                 ),
                 ProfileWidget(
-                  text:
-                      'Place phone number  ${_visit.current.getMedplacePhone()}',
+                  text: 'Place phone number  022078847555',
                   icon: FontAwesomeIcons.clinicMedical,
                   color: Theme.of(context).primaryColor,
                 ),
                 ProfileWidget(
-                  text: 'Place Address  ${_visit.current.getMedplaceAddress()}',
+                  text: 'Place Address  eltagamo3 el 5ames',
                   icon: FontAwesomeIcons.clinicMedical,
                   color: Theme.of(context).primaryColor,
                 ),
                 ProfileWidget(
-                  text: 'Doctor name ${_visit.current.getDoctorName()}',
+                  text: 'Doctor name Hesham Mohamed',
                   icon: FontAwesomeIcons.userMd,
                   color: Theme.of(context).primaryColor,
                 ),
                 ProfileWidget(
-                  text: 'Doctor Email ${_visit.current.getDoctorEmail()}',
+                  text: 'Doctor Email dr.Hesham@outlook.com',
                   icon: FontAwesomeIcons.userMd,
                   color: Theme.of(context).primaryColor,
                 ),
                 ProfileWidget(
-                  text:
-                      'Doctor Phone number ${_visit.current.getDoctorPhone()}',
+                  text: 'Doctor Phone number 011028837444',
                   icon: FontAwesomeIcons.userMd,
                   color: Theme.of(context).primaryColor,
                 ),
                 ProfileWidget(
-                  text: 'Specialty ${_visit.current.getDoctorSpecial()}',
+                  text: 'Specialty dermatologist',
                   icon: FontAwesomeIcons.userMd,
                   color: Theme.of(context).primaryColor,
                 ),
                 ProfileWidget(
-                  text: 'Date  ${_visit.current.getDate()}',
+                  text: 'Date  2020-03-20',
                   icon: FontAwesomeIcons.calendarDay,
                   color: Theme.of(context).primaryColor,
                 ),
@@ -126,7 +124,8 @@ class _VisitsDetailsState extends State<VisitsDetails> {
                           ],
                         ),
                         Text(
-                          '${_visit.current.getPrescription()}',
+                          'Paracetamol\n'
+                          'Mometasome\n',
                           textAlign: TextAlign.center,
                           maxLines: 80,
                           style: Theme.of(context)
