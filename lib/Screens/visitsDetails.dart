@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:healthyshield/Services/visitData.dart';
 import 'package:healthyshield/Utilities/constants.dart';
 import 'package:healthyshield/Utilities/profileWidget.dart';
+import 'package:provider/provider.dart';
 
 class VisitsDetails extends StatefulWidget {
   static String id = "visit";
-  
+
   @override
   _VisitsDetailsState createState() => _VisitsDetailsState();
 }
@@ -13,6 +15,7 @@ class VisitsDetails extends StatefulWidget {
 class _VisitsDetailsState extends State<VisitsDetails> {
   @override
   Widget build(BuildContext context) {
+    var _visit = Provider.of<VisitData>(context);
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -30,47 +33,49 @@ class _VisitsDetailsState extends State<VisitsDetails> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 ProfileWidget(
-                  text: 'Place name  ${widget.pname}',
+                  text: 'Place name  ${_visit.current.getMedplaceName()}',
                   icon: FontAwesomeIcons.clinicMedical,
                   color: Theme.of(context).primaryColor,
                 ),
                 ProfileWidget(
-                  text: 'Place Email ${widget.pemail}',
+                  text: 'Place Email ${_visit.current.getMedplaceEmail()}',
                   icon: FontAwesomeIcons.clinicMedical,
                   color: Theme.of(context).primaryColor,
                 ),
                 ProfileWidget(
-                  text: 'Place phone number  ${widget.pphone}',
+                  text:
+                      'Place phone number  ${_visit.current.getMedplacePhone()}',
                   icon: FontAwesomeIcons.clinicMedical,
                   color: Theme.of(context).primaryColor,
                 ),
                 ProfileWidget(
-                  text: 'Place Address  ${widget.paddress}',
+                  text: 'Place Address  ${_visit.current.getMedplaceAddress()}',
                   icon: FontAwesomeIcons.clinicMedical,
                   color: Theme.of(context).primaryColor,
                 ),
                 ProfileWidget(
-                  text: 'Doctor name ${widget.dname}',
+                  text: 'Doctor name ${_visit.current.getDoctorName()}',
                   icon: FontAwesomeIcons.userMd,
                   color: Theme.of(context).primaryColor,
                 ),
                 ProfileWidget(
-                  text: 'Doctor Email ${widget.demail}',
+                  text: 'Doctor Email ${_visit.current.getDoctorEmail()}',
                   icon: FontAwesomeIcons.userMd,
                   color: Theme.of(context).primaryColor,
                 ),
                 ProfileWidget(
-                  text: 'Doctor Phone number ${widget.dphone}',
+                  text:
+                      'Doctor Phone number ${_visit.current.getDoctorPhone()}',
                   icon: FontAwesomeIcons.userMd,
                   color: Theme.of(context).primaryColor,
                 ),
                 ProfileWidget(
-                  text: 'Specialty ${widget.spec}',
+                  text: 'Specialty ${_visit.current.getDoctorSpecial()}',
                   icon: FontAwesomeIcons.userMd,
                   color: Theme.of(context).primaryColor,
                 ),
                 ProfileWidget(
-                  text: 'Date  ${widget.date}',
+                  text: 'Date  ${_visit.current.getDate()}',
                   icon: FontAwesomeIcons.calendarDay,
                   color: Theme.of(context).primaryColor,
                 ),
@@ -121,7 +126,7 @@ class _VisitsDetailsState extends State<VisitsDetails> {
                           ],
                         ),
                         Text(
-                          '${widget.prescription}',
+                          '${_visit.current.getPrescription()}',
                           textAlign: TextAlign.center,
                           maxLines: 80,
                           style: Theme.of(context)

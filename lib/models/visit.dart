@@ -2,6 +2,7 @@ class Visit {
   Visit({this.id});
   final String id;
   String doctor_name,
+      prescription,
       doctor_email,
       doctor_phone,
       doctor_specialization,
@@ -12,7 +13,7 @@ class Visit {
 
   DateTime date;
   void setAllDataUsage(doc_name, doc_email, doc_phone, doc_spec, medplace_name,
-      medplace_email, medplace_phone, medplace_address, datee) {
+      medplace_email, medplace_phone, medplace_address, datee, pre) {
     doctor_name = doc_name;
     doctor_email = doc_email;
     doctor_phone = doc_phone;
@@ -22,6 +23,7 @@ class Visit {
     medicalplaces_phone = medplace_phone;
     medical_address = medplace_address;
     date = datee;
+    prescription = pre;
   }
 
   getDoctorName() {
@@ -58,5 +60,9 @@ class Visit {
 
   getDate() {
     return date;
+  }
+
+  getPrescription() {
+    return prescription;
   }
 }
